@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tenement.dao.mapper.BrokerMapper">
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.Broker">
+    <id column="broker_id" jdbcType="INTEGER" property="brokerId" />
+    <result column="broker_name" jdbcType="VARCHAR" property="brokerName" />
+    <result column="broker_phone" jdbcType="VARCHAR" property="brokerPhone" />
+    <result column="rank" jdbcType="DOUBLE" property="rank" />
+    <result column="room_goal" jdbcType="DOUBLE" property="roomGoal" />
+    <result column="service_goal" jdbcType="DOUBLE" property="serviceGoal" />
+    <result column="evaluate_goal" jdbcType="DOUBLE" property="evaluateGoal" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="card_number" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+    <result column="carete_time" jdbcType="TIMESTAMP" property="careteTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    broker_id, broker_name, broker_phone, rank, room_goal, service_goal, evaluate_goal, 
+    company_name, shop_name, card_number, company_code, carete_time
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="com.tenement.domain.dto.BrokerExmple" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from broker
+     <where>
+       <trim prefixOverrides="and" />
+       <if test="brokerId !=null">
+         and broker_id = #{brokerId,jdbcType=INTEGER}
+       </if>
+       <if test="brokerName !=null and brokerName !=''">
+         and broker_name=#{brokerName}
+       </if>
+       limit 1
+     </where>
+
+  </select>
+  <select id="selectByPrimaryList" parameterType="com.tenement.domain.dto.BrokerExmple" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from broker
+    <where>
+      <trim prefixOverrides="and" />
+      <if test="brokerId !=null">
+        and broker_id = #{brokerId,jdbcType=INTEGER}
+      </if>
+      <if test="brokerName !=null and brokerName !=''">
+        and broker_name=#{brokerName}
+      </if>
+
+    </where>
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from broker
+    where broker_id = #{brokerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.Broker">
+    insert into broker (broker_id, broker_name, broker_phone, 
+      rank, room_goal, service_goal, 
+      evaluate_goal, company_name, shop_name, 
+      card_number, company_code, carete_time
+      )
+    values (#{brokerId,jdbcType=INTEGER}, #{brokerName,jdbcType=VARCHAR}, #{brokerPhone,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=DOUBLE}, #{roomGoal,jdbcType=DOUBLE}, #{serviceGoal,jdbcType=DOUBLE}, 
+      #{evaluateGoal,jdbcType=DOUBLE}, #{companyName,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, 
+      #{cardNumber,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR}, #{careteTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.Broker">
+    insert into broker
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brokerId != null">
+        broker_id,
+      </if>
+      <if test="brokerName != null">
+        broker_name,
+      </if>
+      <if test="brokerPhone != null">
+        broker_phone,
+      </if>
+      <if test="rank != null">
+        rank,
+      </if>
+      <if test="roomGoal != null">
+        room_goal,
+      </if>
+      <if test="serviceGoal != null">
+        service_goal,
+      </if>
+      <if test="evaluateGoal != null">
+        evaluate_goal,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="cardNumber != null">
+        card_number,
+      </if>
+      <if test="companyCode != null">
+        company_code,
+      </if>
+      <if test="careteTime != null">
+        carete_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brokerId != null">
+        #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerName != null">
+        #{brokerName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerPhone != null">
+        #{brokerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=DOUBLE},
+      </if>
+      <if test="roomGoal != null">
+        #{roomGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="serviceGoal != null">
+        #{serviceGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluateGoal != null">
+        #{evaluateGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="careteTime != null">
+        #{careteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.Broker">
+    update broker
+    <set>
+      <if test="brokerName != null">
+        broker_name = #{brokerName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerPhone != null">
+        broker_phone = #{brokerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        rank = #{rank,jdbcType=DOUBLE},
+      </if>
+      <if test="roomGoal != null">
+        room_goal = #{roomGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="serviceGoal != null">
+        service_goal = #{serviceGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="evaluateGoal != null">
+        evaluate_goal = #{evaluateGoal,jdbcType=DOUBLE},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null">
+        card_number = #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="careteTime != null">
+        carete_time = #{careteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where broker_id = #{brokerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.Broker">
+    update broker
+    set broker_name = #{brokerName,jdbcType=VARCHAR},
+      broker_phone = #{brokerPhone,jdbcType=VARCHAR},
+      rank = #{rank,jdbcType=DOUBLE},
+      room_goal = #{roomGoal,jdbcType=DOUBLE},
+      service_goal = #{serviceGoal,jdbcType=DOUBLE},
+      evaluate_goal = #{evaluateGoal,jdbcType=DOUBLE},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      card_number = #{cardNumber,jdbcType=VARCHAR},
+      company_code = #{companyCode,jdbcType=VARCHAR},
+      carete_time = #{careteTime,jdbcType=TIMESTAMP}
+    where broker_id = #{brokerId,jdbcType=INTEGER}
+  </update>
+</mapper>

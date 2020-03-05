@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.DistrictMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.District" >
+    <id column="districtid" property="districtid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="TINYINT" />
+    <result column="usetype" property="usetype" jdbcType="BIT" />
+    <result column="parentid" property="parentid" jdbcType="INTEGER" />
+    <result column="deleted" property="deleted" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    districtid, title, level, usetype, parentid, deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from district
+    where districtid = #{districtid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from district
+    where parentid = #{parentid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from district
+    where districtid = #{districtid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.District" >
+    insert into district (districtid, title, level, 
+      usetype, parentid, deleted
+      )
+    values (#{districtid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, 
+      #{usetype,jdbcType=BIT}, #{parentid,jdbcType=INTEGER}, #{deleted,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.District" >
+    insert into district
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="districtid != null" >
+        districtid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="usetype != null" >
+        usetype,
+      </if>
+      <if test="parentid != null" >
+        parentid,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="districtid != null" >
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=TINYINT},
+      </if>
+      <if test="usetype != null" >
+        #{usetype,jdbcType=BIT},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.District" >
+    update district
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=TINYINT},
+      </if>
+      <if test="usetype != null" >
+        usetype = #{usetype,jdbcType=BIT},
+      </if>
+      <if test="parentid != null" >
+        parentid = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where districtid = #{districtid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.District" >
+    update district
+    set title = #{title,jdbcType=VARCHAR},
+      level = #{level,jdbcType=TINYINT},
+      usetype = #{usetype,jdbcType=BIT},
+      parentid = #{parentid,jdbcType=INTEGER},
+      deleted = #{deleted,jdbcType=SMALLINT}
+    where districtid = #{districtid,jdbcType=INTEGER}
+  </update>
+</mapper>

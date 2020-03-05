@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomPrice" >
+    <id column="price_id" property="priceId" jdbcType="BIGINT" />
+    <result column="price_name" property="priceName" jdbcType="VARCHAR" />
+    <result column="price_type" property="priceType" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    price_id, price_name, price_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_price
+    where price_id = #{priceId,jdbcType=BIGINT}
+  </select>
+  <select id="selectByPrimaryList" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from room_price
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from room_price
+    where price_id = #{priceId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.RoomPrice" >
+    insert into room_price (price_id, price_name, price_type
+      )
+    values (#{priceId,jdbcType=BIGINT}, #{priceName,jdbcType=VARCHAR}, #{priceType,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomPrice" >
+    insert into room_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="priceId != null" >
+        price_id,
+      </if>
+      <if test="priceName != null" >
+        price_name,
+      </if>
+      <if test="priceType != null" >
+        price_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="priceId != null" >
+        #{priceId,jdbcType=BIGINT},
+      </if>
+      <if test="priceName != null" >
+        #{priceName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        #{priceType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomPrice" >
+    update room_price
+    <set >
+      <if test="priceName != null" >
+        price_name = #{priceName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        price_type = #{priceType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where price_id = #{priceId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomPrice" >
+    update room_price
+    set price_name = #{priceName,jdbcType=VARCHAR},
+      price_type = #{priceType,jdbcType=TINYINT}
+    where price_id = #{priceId,jdbcType=BIGINT}
+  </update>
+</mapper>

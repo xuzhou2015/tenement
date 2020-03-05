@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="mysql-connector-java-5.0.8.jar" />
+
+	<context id="MySqlTables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://39.99.204.224:3306/tenement?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false" userId="root"
+			password="XU-zhou-19851010">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.tenement.domain.po"
+			targetProject="/users/xuzhou/IdeaProjects/tenement/tenement-domain/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="resources.mybatis"
+			targetProject="/users/xuzhou/IdeaProjects/tenement/tenement-dao/src/main/">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.tenement.dao.mapper" targetProject="/users/xuzhou/IdeaProjects/tenement/tenement-dao/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="broker" domainObjectName="broker" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+	</context>
+</generatorConfiguration>

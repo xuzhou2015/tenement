@@ -1,0 +1,122 @@
+2019-12-20 20:40:43 -Starting WebApplication on WINDOWS-0FAF3AE with PID 8404 (D:\idea-code\tenement\api\target\classes started by EDZ in D:\idea-code\tenement)
+2019-12-20 20:40:43 -No active profile set, falling back to default profiles: default
+2019-12-20 20:40:44 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@61544ae6: startup date [Fri Dec 20 20:40:44 CST 2019]; root of context hierarchy
+2019-12-20 20:40:45 -Tomcat initialized with port(s): 8080 (http)
+2019-12-20 20:40:45 -Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:40:45 -Starting service [Tomcat]
+2019-12-20 20:40:45 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-12-20 20:40:45 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;D:\Git\cmd;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\apache-maven-3.6.1\bin;D:\Git\bin;D:\redis;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Users\EDZ\AppData\Local\Programs\EmEditor;.]
+2019-12-20 20:40:45 -Initializing Spring embedded WebApplicationContext
+2019-12-20 20:40:45 -Root WebApplicationContext: initialization completed in 1672 ms
+2019-12-20 20:40:45 -Servlet dispatcherServlet mapped to [/]
+2019-12-20 20:40:45 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-12-20 20:40:45 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-12-20 20:40:45 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-12-20 20:40:45 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-12-20 20:40:46 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:40:46 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@61544ae6: startup date [Fri Dec 20 20:40:44 CST 2019]; root of context hierarchy
+2019-12-20 20:40:46 -Mapped "{[/demo/test],methods=[GET]}" onto public com.tenement.domain.common.Response<com.tenement.domain.po.SysRole> com.tenement.api.controller.DemoController.test() throws java.lang.RuntimeException
+2019-12-20 20:40:46 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-12-20 20:40:46 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-12-20 20:40:46 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:40:46 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:40:46 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2019-12-20 20:40:47 -Registering beans for JMX exposure on startup
+2019-12-20 20:40:47 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-12-20 20:40:47 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-12-20 20:40:47 -Starting ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:40:47 -Using a shared selector for servlet write/read
+2019-12-20 20:40:47 -Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 20:40:47 -Started WebApplication in 4.898 seconds (JVM running for 6.51)
+2019-12-20 20:41:14 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-12-20 20:41:14 -FrameworkServlet 'dispatcherServlet': initialization started
+2019-12-20 20:41:14 -FrameworkServlet 'dispatcherServlet': initialization completed in 31 ms
+2019-12-20 20:41:19 -adfafdad
+2019-12-20 20:41:19 -Resolved [java.lang.ArithmeticException: / by zero]
+2019-12-20 20:41:49 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@61544ae6: startup date [Fri Dec 20 20:40:44 CST 2019]; root of context hierarchy
+2019-12-20 20:41:49 -Unregistering JMX-exposed beans on shutdown
+2019-12-20 20:41:49 -Unregistering JMX-exposed beans
+2019-12-20 20:46:24 -Starting WebApplication on WINDOWS-0FAF3AE with PID 1492 (D:\idea-code\tenement\api\target\classes started by EDZ in D:\idea-code\tenement)
+2019-12-20 20:46:24 -No active profile set, falling back to default profiles: default
+2019-12-20 20:46:24 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@673be18f: startup date [Fri Dec 20 20:46:24 CST 2019]; root of context hierarchy
+2019-12-20 20:46:49 -Starting WebApplication on WINDOWS-0FAF3AE with PID 11220 (D:\idea-code\tenement\api\target\classes started by EDZ in D:\idea-code\tenement)
+2019-12-20 20:46:49 -No active profile set, falling back to default profiles: default
+2019-12-20 20:46:49 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5bf0fe62: startup date [Fri Dec 20 20:46:49 CST 2019]; root of context hierarchy
+2019-12-20 20:46:51 -Tomcat initialized with port(s): 8080 (http)
+2019-12-20 20:46:51 -Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:46:51 -Starting service [Tomcat]
+2019-12-20 20:46:51 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-12-20 20:46:51 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;D:\Git\cmd;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\apache-maven-3.6.1\bin;D:\Git\bin;D:\redis;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Users\EDZ\AppData\Local\Programs\EmEditor;.]
+2019-12-20 20:46:51 -Initializing Spring embedded WebApplicationContext
+2019-12-20 20:46:51 -Root WebApplicationContext: initialization completed in 2013 ms
+2019-12-20 20:46:51 -Servlet dispatcherServlet mapped to [/]
+2019-12-20 20:46:51 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-12-20 20:46:51 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-12-20 20:46:51 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-12-20 20:46:51 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-12-20 20:46:52 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:46:52 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5bf0fe62: startup date [Fri Dec 20 20:46:49 CST 2019]; root of context hierarchy
+2019-12-20 20:46:52 -Mapped "{[/demo/test],methods=[GET]}" onto public com.tenement.domain.common.Response<com.tenement.domain.po.SysRole> com.tenement.api.controller.DemoController.test() throws java.lang.RuntimeException
+2019-12-20 20:46:52 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-12-20 20:46:52 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-12-20 20:46:52 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:46:52 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:46:52 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2019-12-20 20:46:52 -Registering beans for JMX exposure on startup
+2019-12-20 20:46:52 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-12-20 20:46:52 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-12-20 20:46:52 -Starting ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:46:53 -Using a shared selector for servlet write/read
+2019-12-20 20:46:53 -Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 20:46:53 -Started WebApplication in 4.865 seconds (JVM running for 6.362)
+2019-12-20 20:47:19 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-12-20 20:47:19 -FrameworkServlet 'dispatcherServlet': initialization started
+2019-12-20 20:47:19 -FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+2019-12-20 20:47:25 -adfafdad
+2019-12-20 20:47:25 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5bf0fe62: startup date [Fri Dec 20 20:46:49 CST 2019]; root of context hierarchy
+2019-12-20 20:47:25 -Unregistering JMX-exposed beans on shutdown
+2019-12-20 20:47:25 -Unregistering JMX-exposed beans
+2019-12-20 20:47:25 -Resolved [java.lang.ArithmeticException: / by zero]
+2019-12-20 20:47:40 -Starting WebApplication on WINDOWS-0FAF3AE with PID 13208 (D:\idea-code\tenement\api\target\classes started by EDZ in D:\idea-code\tenement)
+2019-12-20 20:47:40 -No active profile set, falling back to default profiles: default
+2019-12-20 20:47:40 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4331d187: startup date [Fri Dec 20 20:47:40 CST 2019]; root of context hierarchy
+2019-12-20 20:47:42 -Tomcat initialized with port(s): 8080 (http)
+2019-12-20 20:47:42 -Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:47:42 -Starting service [Tomcat]
+2019-12-20 20:47:42 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-12-20 20:47:42 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Services\IPT\;D:\Git\cmd;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\apache-maven-3.6.1\bin;D:\Git\bin;D:\redis;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Users\EDZ\AppData\Local\Programs\EmEditor;.]
+2019-12-20 20:47:42 -Initializing Spring embedded WebApplicationContext
+2019-12-20 20:47:42 -Root WebApplicationContext: initialization completed in 1790 ms
+2019-12-20 20:47:42 -Servlet dispatcherServlet mapped to [/]
+2019-12-20 20:47:42 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-12-20 20:47:42 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-12-20 20:47:42 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-12-20 20:47:42 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-12-20 20:47:43 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:47:43 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4331d187: startup date [Fri Dec 20 20:47:40 CST 2019]; root of context hierarchy
+2019-12-20 20:47:43 -Mapped "{[/demo/test],methods=[GET]}" onto public com.tenement.domain.common.Response<com.tenement.domain.po.SysRole> com.tenement.api.controller.DemoController.test() throws java.lang.RuntimeException
+2019-12-20 20:47:43 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-12-20 20:47:43 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-12-20 20:47:43 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:47:43 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-12-20 20:47:43 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2019-12-20 20:47:43 -Registering beans for JMX exposure on startup
+2019-12-20 20:47:43 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-12-20 20:47:43 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-12-20 20:47:43 -Starting ProtocolHandler ["http-nio-8080"]
+2019-12-20 20:47:43 -Using a shared selector for servlet write/read
+2019-12-20 20:47:43 -Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 20:47:43 -Started WebApplication in 4.908 seconds (JVM running for 6.834)
+2019-12-20 20:48:18 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-12-20 20:48:18 -FrameworkServlet 'dispatcherServlet': initialization started
+2019-12-20 20:48:18 -FrameworkServlet 'dispatcherServlet': initialization completed in 34 ms
+2019-12-20 20:48:23 -HikariPool-1 - Starting...
+2019-12-20 20:48:24 -HikariPool-1 - Start completed.
+2019-12-20 20:48:24 -==>  Preparing: select role_id, role_name from sys_role where role_id = ? 
+2019-12-20 20:48:24 -==> Parameters: 1(Long)
+2019-12-20 20:48:25 -<==      Total: 1
+2019-12-20 20:49:20 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4331d187: startup date [Fri Dec 20 20:47:40 CST 2019]; root of context hierarchy
+2019-12-20 20:49:20 -Unregistering JMX-exposed beans on shutdown
+2019-12-20 20:49:20 -Unregistering JMX-exposed beans
+2019-12-20 20:49:20 -HikariPool-1 - Shutdown initiated...
+2019-12-20 20:49:20 -HikariPool-1 - Shutdown completed.

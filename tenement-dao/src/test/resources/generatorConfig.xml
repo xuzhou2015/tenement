@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 官方位置：http://www.mybatis.org/generator/configreference/xmlconfig.html -->
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--com.bjsxt.ego.pojo 生成POJO-->
+        <javaModelGenerator targetPackage="com.tenement.domain.po" targetProject="D:/idea-code/tenement/domian/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--映射文件位置-->
+        <sqlMapGenerator targetPackage="resources.mybatis"  targetProject="D:/idea-code/tenement/domin/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tenement.dao"  targetProject="D:/idea-code/tenement/dao/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!--tb_user -> TbUser-->
+        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="User" >-->
+        <!--</table>-->
+        <table tableName="sys_role" schema="" />
+<!--        <table tableName="tb_content_category" schema="" />-->
+<!--        <table tableName="tb_item" schema="" />-->
+<!--        <table tableName="tb_item_desc" schema="" />-->
+<!--        <table tableName="tb_item_cat" schema="" />-->
+<!--        <table tableName="tb_item_param" schema="" />-->
+<!--        <table tableName="tb_item_param_item" schema="" />-->
+<!--        <table tableName="tb_order" schema="" />-->
+<!--        <table tableName="tb_order_item" schema="" />-->
+<!--        <table tableName="tb_order_shipping" schema="" />-->
+<!--        <table tableName="tb_user" schema="" />-->
+    </context>
+</generatorConfiguration>

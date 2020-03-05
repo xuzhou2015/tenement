@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomDetailsMapper">
+    <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomDetails">
+        <id column="room_id" property="roomId" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="district_id" property="districtId" jdbcType="INTEGER"/>
+        <result column="ownerarea" property="ownerarea" jdbcType="VARCHAR"/>
+        <result column="housearea" property="housearea" jdbcType="INTEGER"/>
+        <result column="builddate" property="builddate" jdbcType="VARCHAR"/>
+        <result column="cp" property="cp" jdbcType="VARCHAR"/>
+        <result column="floor" property="floor" jdbcType="INTEGER"/>
+        <result column="housestyle" property="housestyle" jdbcType="VARCHAR"/>
+        <result column="housestyle_type" property="housestyleType" jdbcType="TINYINT"/>
+        <result column="buildarea" property="buildarea" jdbcType="DOUBLE"/>
+        <result column="houseprice" property="houseprice" jdbcType="INTEGER"/>
+        <result column="gn" property="gn" jdbcType="TINYINT"/>
+        <result column="cqnx" property="cqnx" jdbcType="INTEGER"/>
+        <result column="dt" property="dt" jdbcType="TINYINT"/>
+        <result column="housedirection" property="housedirection" jdbcType="TINYINT"/>
+        <result column="finish_type" property="finishType" jdbcType="TINYINT"/>
+        <result column="onSale_type" property="onsaleType" jdbcType="TINYINT"/>
+        <result column="market_type" property="marketType" jdbcType="TINYINT"/>
+        <result column="tenement_type" property="tenementType" jdbcType="TINYINT"/>
+        <result column="market_time" property="marketTime" jdbcType="DATE"/>
+        <result column="brokerId" property="brokerId" jdbcType="INTEGER"/>
+
+
+    </resultMap>
+    <resultMap id="BaseRoomDetailsInfo" type="com.tenement.domain.vo.RoomDetailsInfo">
+        <id column="room_id" property="roomId" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="district_id" property="districtId" jdbcType="INTEGER"/>
+        <result column="ownerarea" property="ownerarea" jdbcType="VARCHAR"/>
+        <result column="housearea" property="housearea" jdbcType="INTEGER"/>
+        <result column="builddate" property="builddate" jdbcType="VARCHAR"/>
+        <result column="cp" property="cp" jdbcType="VARCHAR"/>
+        <result column="floor" property="floor" jdbcType="INTEGER"/>
+        <result column="housestyle" property="housestyle" jdbcType="VARCHAR"/>
+        <result column="housestyle_type" property="housestyleType" jdbcType="TINYINT"/>
+        <result column="buildarea" property="buildarea" jdbcType="DOUBLE"/>
+        <result column="houseprice" property="houseprice" jdbcType="INTEGER"/>
+        <result column="gn" property="gn" jdbcType="TINYINT"/>
+        <result column="cqnx" property="cqnx" jdbcType="INTEGER"/>
+        <result column="dt" property="dt" jdbcType="TINYINT"/>
+        <result column="housedirection" property="housedirection" jdbcType="TINYINT"/>
+        <result column="finish_type" property="finishType" jdbcType="TINYINT"/>
+        <result column="onSale_type" property="onsaleType" jdbcType="TINYINT"/>
+        <result column="market_type" property="marketType" jdbcType="TINYINT"/>
+        <result column="tenement_type" property="tenementType" jdbcType="TINYINT"/>
+        <result column="market_time" property="marketTime" jdbcType="DATE"/>
+        <result column="brokerId" property="brokerId" jdbcType="INTEGER"/>
+        <result column="file_url" property="fileUrl" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    room_id, name, district_id, ownerarea, housearea, builddate, cp, floor, housestyle, 
+    housestyle_type, buildarea, houseprice, gn, cqnx, dt, housedirection, finish_type, 
+    onSale_type, market_type, tenement_type,market_time
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from room_details
+        where room_id = #{roomId,jdbcType=BIGINT}
+    </select>
+    <select id="listGrabbleRoom" resultMap="BaseRoomDetailsInfo"  parameterType="com.tenement.domain.dto.ListGrabbleRoomReq">
+         select
+         A.*,B.file_url
+        from room_details A left join room_file B on A.room_id=B.room_details_id
+        <where>
+            <trim prefixOverrides="and" />
+            <if test="districtid !=null">
+                and A.district_id=#{districtid}
+            </if>
+            <if test="searchKey !=null and searchKey !=''">
+                and (A.name like '%${roomName}%' or A.ownerarea like '%${ownerarea}%')
+            </if>
+            group by A.room_id
+
+        </where>
+    </select>
+    <select id="selectByPrimaryList" resultMap="BaseRoomDetailsInfo"
+            parameterType="com.tenement.domain.dto.ListRoomDetailsReq">
+        select
+         A.*,B.file_url
+        from room_details A left join room_file B on A.room_id=B.room_details_id
+        <where>
+            <trim prefixOverrides="and"/>
+            <if test="districtid !=null">
+                and A.district_id=#{districtid}
+            </if>
+            <if test="roomPriceId !=null and roomPriceType ==1">
+                and A.houseprice &gt;=#{roomPriceMin} and A.houseprice &lt;=#{roomPriceMax}
+            </if>
+            <if test="roomPriceId !=null and roomPriceType ==2">
+                and (A.houseprice * A.buildarea) &gt;=#{roomPriceMin} and (A.houseprice * A.buildarea) &lt;=#{roomPriceMax}
+            </if>
+            <if test="roomAreaId !=null">
+              and A.housearea &gt;=#{roomAreaMin} and A.housearea &lt;=#{roomAreaMax}
+            </if>
+            <if test="roomMarketStatus !=null">
+                and A.market_type=#{roomMarketStatus}
+            </if>
+            <if test="roomTenementType !=null">
+                and A.tenement_type=#{roomTenementType}
+            </if>
+            <if test="roomMarketTimeType !=null">
+               and A.market_time &gt;=#{roomMarketTimeMin} and A.market_time &lt;=#{roomMarketTimeMax}
+            </if>
+            <if test="roomDecorationType !=null">
+              and A.finish_type=#{roomDecorationType}
+            </if>
+            group by A.room_id
+            <if test="orderByType==1">
+                order by A.houseprice asc
+            </if>
+            <if test="orderByType==2">
+                order by A.houseprice desc
+            </if>
+            <if test="orderByType==3">
+                order by A.market_time asc
+            </if>
+            <if test="orderByType==4">
+                order by A.market_time desc
+            </if>
+        </where>
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from room_details
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.tenement.domain.po.RoomDetails">
+    insert into room_details (room_id, name, district_id, 
+      ownerarea, housearea, builddate, 
+      cp, floor, housestyle, 
+      housestyle_type, buildarea, houseprice, 
+      gn, cqnx, dt, housedirection, 
+      finish_type, onSale_type, market_type, 
+      tenement_type)
+    values (#{roomId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{districtId,jdbcType=INTEGER}, 
+      #{ownerarea,jdbcType=VARCHAR}, #{housearea,jdbcType=INTEGER}, #{builddate,jdbcType=VARCHAR}, 
+      #{cp,jdbcType=VARCHAR}, #{floor,jdbcType=INTEGER}, #{housestyle,jdbcType=VARCHAR}, 
+      #{housestyleType,jdbcType=TINYINT}, #{buildarea,jdbcType=DOUBLE}, #{houseprice,jdbcType=INTEGER}, 
+      #{gn,jdbcType=TINYINT}, #{cqnx,jdbcType=INTEGER}, #{dt,jdbcType=TINYINT}, #{housedirection,jdbcType=TINYINT}, 
+      #{finishType,jdbcType=TINYINT}, #{onsaleType,jdbcType=TINYINT}, #{marketType,jdbcType=TINYINT}, 
+      #{tenementType,jdbcType=TINYINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomDetails">
+        <selectKey keyProperty="id" resultType="Long" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into room_details
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roomId != null">
+                room_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="districtId != null">
+                district_id,
+            </if>
+            <if test="ownerarea != null">
+                ownerarea,
+            </if>
+            <if test="housearea != null">
+                housearea,
+            </if>
+            <if test="builddate != null">
+                builddate,
+            </if>
+            <if test="cp != null">
+                cp,
+            </if>
+            <if test="floor != null">
+                floor,
+            </if>
+            <if test="housestyle != null">
+                housestyle,
+            </if>
+            <if test="housestyleType != null">
+                housestyle_type,
+            </if>
+            <if test="buildarea != null">
+                buildarea,
+            </if>
+            <if test="houseprice != null">
+                houseprice,
+            </if>
+            <if test="gn != null">
+                gn,
+            </if>
+            <if test="cqnx != null">
+                cqnx,
+            </if>
+            <if test="dt != null">
+                dt,
+            </if>
+            <if test="housedirection != null">
+                housedirection,
+            </if>
+            <if test="finishType != null">
+                finish_type,
+            </if>
+            <if test="onsaleType != null">
+                onSale_type,
+            </if>
+            <if test="marketType != null">
+                market_type,
+            </if>
+            <if test="tenementType != null">
+                tenement_type,
+            </if>
+            <if test="marketTime !=null">
+              market_time,
+            </if>
+            <if test="brokerId !=null">
+                brokerId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="roomId != null">
+                #{roomId,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="districtId != null">
+                #{districtId,jdbcType=INTEGER},
+            </if>
+            <if test="ownerarea != null">
+                #{ownerarea,jdbcType=VARCHAR},
+            </if>
+            <if test="housearea != null">
+                #{housearea,jdbcType=INTEGER},
+            </if>
+            <if test="builddate != null">
+                #{builddate,jdbcType=VARCHAR},
+            </if>
+            <if test="cp != null">
+                #{cp,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                #{floor,jdbcType=INTEGER},
+            </if>
+            <if test="housestyle != null">
+                #{housestyle,jdbcType=VARCHAR},
+            </if>
+            <if test="housestyleType != null">
+                #{housestyleType,jdbcType=TINYINT},
+            </if>
+            <if test="buildarea != null">
+                #{buildarea,jdbcType=DOUBLE},
+            </if>
+            <if test="houseprice != null">
+                #{houseprice,jdbcType=INTEGER},
+            </if>
+            <if test="gn != null">
+                #{gn,jdbcType=TINYINT},
+            </if>
+            <if test="cqnx != null">
+                #{cqnx,jdbcType=INTEGER},
+            </if>
+            <if test="dt != null">
+                #{dt,jdbcType=TINYINT},
+            </if>
+            <if test="housedirection != null">
+                #{housedirection,jdbcType=TINYINT},
+            </if>
+            <if test="finishType != null">
+                #{finishType,jdbcType=TINYINT},
+            </if>
+            <if test="onsaleType != null">
+                #{onsaleType,jdbcType=TINYINT},
+            </if>
+            <if test="marketType != null">
+                #{marketType,jdbcType=TINYINT},
+            </if>
+            <if test="tenementType != null">
+                #{tenementType,jdbcType=TINYINT},
+            </if>
+            <if test="marketTime !=null">
+              #{marketTime,jdbcType=DATE},
+            </if>
+            <if test="brokerId !=null">
+                #{brokerId,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomDetails">
+        update room_details
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="districtId != null">
+                district_id = #{districtId,jdbcType=INTEGER},
+            </if>
+            <if test="ownerarea != null">
+                ownerarea = #{ownerarea,jdbcType=VARCHAR},
+            </if>
+            <if test="housearea != null">
+                housearea = #{housearea,jdbcType=INTEGER},
+            </if>
+            <if test="builddate != null">
+                builddate = #{builddate,jdbcType=VARCHAR},
+            </if>
+            <if test="cp != null">
+                cp = #{cp,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                floor = #{floor,jdbcType=INTEGER},
+            </if>
+            <if test="housestyle != null">
+                housestyle = #{housestyle,jdbcType=VARCHAR},
+            </if>
+            <if test="housestyleType != null">
+                housestyle_type = #{housestyleType,jdbcType=TINYINT},
+            </if>
+            <if test="buildarea != null">
+                buildarea = #{buildarea,jdbcType=DOUBLE},
+            </if>
+            <if test="houseprice != null">
+                houseprice = #{houseprice,jdbcType=INTEGER},
+            </if>
+            <if test="gn != null">
+                gn = #{gn,jdbcType=TINYINT},
+            </if>
+            <if test="cqnx != null">
+                cqnx = #{cqnx,jdbcType=INTEGER},
+            </if>
+            <if test="dt != null">
+                dt = #{dt,jdbcType=TINYINT},
+            </if>
+            <if test="housedirection != null">
+                housedirection = #{housedirection,jdbcType=TINYINT},
+            </if>
+            <if test="finishType != null">
+                finish_type = #{finishType,jdbcType=TINYINT},
+            </if>
+            <if test="onsaleType != null">
+                onSale_type = #{onsaleType,jdbcType=TINYINT},
+            </if>
+            <if test="marketType != null">
+                market_type = #{marketType,jdbcType=TINYINT},
+            </if>
+            <if test="tenementType != null">
+                tenement_type = #{tenementType,jdbcType=TINYINT},
+            </if>
+           <if test="marketTime !=null">
+             market_time= #{marketTime,jdbcType=DATE},
+           </if>
+            <if test="brokerId !=null">
+                brokerId= #{brokerId,jdbcType=TINYINT},
+            </if>
+        </set>
+        where room_id = #{roomId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomDetails">
+    update room_details
+    set name = #{name,jdbcType=VARCHAR},
+      district_id = #{districtId,jdbcType=INTEGER},
+      ownerarea = #{ownerarea,jdbcType=VARCHAR},
+      housearea = #{housearea,jdbcType=INTEGER},
+      builddate = #{builddate,jdbcType=VARCHAR},
+      cp = #{cp,jdbcType=VARCHAR},
+      floor = #{floor,jdbcType=INTEGER},
+      housestyle = #{housestyle,jdbcType=VARCHAR},
+      housestyle_type = #{housestyleType,jdbcType=TINYINT},
+      buildarea = #{buildarea,jdbcType=DOUBLE},
+      houseprice = #{houseprice,jdbcType=INTEGER},
+      gn = #{gn,jdbcType=TINYINT},
+      cqnx = #{cqnx,jdbcType=INTEGER},
+      dt = #{dt,jdbcType=TINYINT},
+      housedirection = #{housedirection,jdbcType=TINYINT},
+      finish_type = #{finishType,jdbcType=TINYINT},
+      onSale_type = #{onsaleType,jdbcType=TINYINT},
+      market_type = #{marketType,jdbcType=TINYINT},
+      tenement_type = #{tenementType,jdbcType=TINYINT}
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </update>
+</mapper>

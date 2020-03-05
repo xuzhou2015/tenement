@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomTenementTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomTenementType" >
+    <id column="tenement_type_id" property="tenementTypeId" jdbcType="INTEGER" />
+    <result column="tenement_type_name" property="tenementTypeName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tenement_type_id, tenement_type_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_tenement_type
+    <if test="tenementTypeId !=null and tenementTypeId >0">
+      where tenement_type_id = #{tenementTypeId,jdbcType=INTEGER}
+    </if>
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room_tenement_type
+    where tenement_type_id = #{tenementTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.RoomTenementType" >
+    insert into room_tenement_type (tenement_type_id, tenement_type_name)
+    values (#{tenementTypeId,jdbcType=INTEGER}, #{tenementTypeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomTenementType" >
+    insert into room_tenement_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tenementTypeId != null" >
+        tenement_type_id,
+      </if>
+      <if test="tenementTypeName != null" >
+        tenement_type_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tenementTypeId != null" >
+        #{tenementTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="tenementTypeName != null" >
+        #{tenementTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomTenementType" >
+    update room_tenement_type
+    <set >
+      <if test="tenementTypeName != null" >
+        tenement_type_name = #{tenementTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tenement_type_id = #{tenementTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomTenementType" >
+    update room_tenement_type
+    set tenement_type_name = #{tenementTypeName,jdbcType=VARCHAR}
+    where tenement_type_id = #{tenementTypeId,jdbcType=INTEGER}
+  </update>
+</mapper>
