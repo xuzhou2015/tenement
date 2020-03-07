@@ -1,13 +1,16 @@
 package com.tenement.api.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.util.StringUtil;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.Response;
 import com.tenement.domain.dto.*;
 import com.tenement.domain.po.District;
+import com.tenement.domain.po.RoomNewDetails;
 import com.tenement.domain.po.RoomTenementType;
 import com.tenement.domain.util.ResponseUtils;
 import com.tenement.domain.vo.RoomDetailsInfo;
+import com.tenement.domain.vo.SysUserVo;
 import com.tenement.service.api.DistrictService;
 import com.tenement.service.api.RoomAreaService;
 import com.tenement.service.api.RoomDetailsService;
@@ -20,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -51,7 +56,14 @@ public class RoomController {
      * @throws RuntimeException
      */
     @RequestMapping("/addRoomDetails")
-    public Response addRoom(@RequestBody  RoomDetailsReq req) throws BusinessException{
+    public Response addRoom(@RequestBody  RoomNewDetailsReq req, HttpServletRequest request) throws BusinessException{
+
+        HttpSession session = request.getSession();
+        SysUserVo sysUserVo = (SysUserVo) session.getAttribute("user");
+        if (sysUserVo == null) {
+            return ResponseUtils.createFailure();
+        }
+        req.setUserid(sysUserVo.getId());
 
         if(roomDetailsService.insertSelective(req)>0){
             return ResponseUtils.createSuccess();
@@ -92,9 +104,9 @@ public class RoomController {
      * @throws RuntimeException
      */
     @RequestMapping("/listRoom")
-    public  Response<PageInfo<RoomDetailsInfo>> listRoom(@RequestBody ListRoomDetailsReq req){
+    public  Response<PageInfo<RoomNewDetails>> listRoom(@RequestBody ListRoomDetailsReq req){
 
-        PageInfo<RoomDetailsInfo> roomDetailsList=roomDetailsService.listRoom(req);
+        PageInfo<RoomNewDetails> roomDetailsList=roomDetailsService.listRoom(req);
 
         return ResponseUtils.createSuccess(roomDetailsList);
     }
@@ -148,11 +160,11 @@ public class RoomController {
     @RequestMapping(value = "/uploadFile")
     public Response<UploadFileResp> uploadFile(@RequestParam("file") MultipartFile file) throws BusinessException {
 
-        Integer fileId=roomTenementTypeService.uploadFile(file);
+        String iamgeStr=roomTenementTypeService.uploadFile(file);
 
-        if(fileId !=null && fileId>0){
+        if(StringUtil.isNotEmpty(iamgeStr)){
             UploadFileResp uploadFileResp=new UploadFileResp();
-            uploadFileResp.setFileId(fileId);
+            uploadFileResp.setImageStr(iamgeStr);
             return ResponseUtils.createSuccess(uploadFileResp);
         }else{
             return ResponseUtils.createFailure();

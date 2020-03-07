@@ -9,5 +9,5 @@ import java.io.Serializable;
 @Setter
 public class UploadFileResp implements Serializable {
 
-    private Integer fileId;
+    private String  imageStr;
 }

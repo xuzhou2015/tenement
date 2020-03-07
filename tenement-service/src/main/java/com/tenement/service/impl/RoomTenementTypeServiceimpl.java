@@ -33,7 +33,7 @@ public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
      * @return
      */
     @Override
-    public Integer uploadFile(MultipartFile file) {
+    public String  uploadFile(MultipartFile file) {
         //获取上传文件名,包含后缀
         String originalFilename = file.getOriginalFilename();
         //获取后缀
@@ -43,7 +43,8 @@ public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
         String dFileName =filename+substring;
         //保存路径
         //springboot 默认情况下只能加载 resource文件夹下静态资源文件
-        String path = "D:\\idea-code\\file\\image\\";
+        String path = "/file/image/";
+
         //生成保存文件
         File uploadFile = new File(path+dFileName);
         System.out.println(uploadFile);
@@ -51,18 +52,19 @@ public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
         try {
             file.transferTo(uploadFile);
 
-            RoomFile roomFile=new RoomFile();
-            roomFile.setFileUrl(path+dFileName);
-            roomFile.setFileType(1);
-            roomFile.setCreateTime(new Date());
-            roomFileMapper.insertSelective(roomFile);
-
-            return roomFile.getId();
+            return dFileName;
+//            RoomFile roomFile=new RoomFile();
+//            roomFile.setFileUrl(path+dFileName);
+//            roomFile.setFileType(1);
+//            roomFile.setCreateTime(new Date());
+//            roomFileMapper.insertSelective(roomFile);
+//
+//            return roomFile.getId();
 
         } catch (IOException e) {
             e.printStackTrace();
 
-            return 0;
+            return "";
         }
 
 

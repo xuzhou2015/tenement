@@ -9,6 +9,7 @@ import com.tenement.domain.dto.*;
 import com.tenement.domain.po.*;
 import com.tenement.domain.vo.RoomDetailsInfo;
 import com.tenement.service.api.RoomDetailsService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,25 +51,27 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
     @Autowired
     private RoomDecorationTypeMapper roomDecorationTypeMapper;
 
+    @Autowired
+    private RoomOtherMapper roomOtherMapper;
+
+    @Autowired
+    private RoomOrientationMapper roomOrientationMapper;
+
+    private RoomNewDetailsMapper roomNewDetailsMapper;
+
 
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int insertSelective(RoomDetailsReq record) {
+    public int insertSelective(RoomNewDetailsReq record) {
 
-        RoomDetails roomDetails = createRomDatails(record);
-        roomDetailsMapper.insertSelective(roomDetails);
+        Broker broker=new Broker();
 
-        Long roomDetailsId = roomDetails.getRoomId();
+        RoomNewDetails roomNewDetails=new RoomNewDetails();
 
-        if (record.getFileIds() != null && record.getFileIds().size() > 0) {
+        BeanUtils.copyProperties(record,roomNewDetails);
 
-            for (Integer fileId : record.getFileIds()) {
-                RoomFile roomFile = roomFileMapper.selectByPrimaryKey(fileId);
-                roomFile.setRoomDetailsId(roomDetailsId);
-                roomFileMapper.updateByPrimaryKeySelective(roomFile);
-            }
-        }
+        roomNewDetailsMapper.insertSelective(roomNewDetails);
 
         return 1;
 
@@ -110,9 +113,13 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
        roomBasicsTypeResp.setRoomMarketTimeList(roomMarketTimeList);
        //装修改类型
         List<RoomDecorationType> roomDecorationTypeList= roomDecorationTypeMapper.selectByPrimaryList();
-
         roomBasicsTypeResp.setRoomDecorationTypeList(roomDecorationTypeList);
+        //房型其实
+        List<RoomOther> roomOtherList=roomOtherMapper.selectByPrimaryList();
+        roomBasicsTypeResp.setRoomOtherList(roomOtherList);
 
+       List<RoomOrientation> roomOrientations=roomOrientationMapper.selectByPrimaryList();
+        roomBasicsTypeResp.setRoomOrientations(roomOrientations);
         return roomBasicsTypeResp;
 
 
@@ -124,7 +131,7 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
      * @return
      */
     @Override
-    public  PageInfo<RoomDetailsInfo> listRoom(ListRoomDetailsReq req){
+    public  PageInfo<RoomNewDetails> listRoom(ListRoomDetailsReq req){
 
         if(req.getRoomPriceId() !=null){
 
@@ -146,9 +153,11 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
         }
 
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
-        List<RoomDetailsInfo> roomDetailsList=roomDetailsMapper.selectByPrimaryList(req);
 
-        PageInfo<RoomDetailsInfo> pageInfo=new PageInfo<>(roomDetailsList);
+
+       List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
+
+        PageInfo<RoomNewDetails> pageInfo=new PageInfo<>(roomNewDetailsList);
 
         return pageInfo;
     }

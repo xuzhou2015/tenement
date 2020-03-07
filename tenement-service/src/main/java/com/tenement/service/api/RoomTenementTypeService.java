@@ -9,5 +9,5 @@ public interface RoomTenementTypeService {
 
     List<RoomTenementType> selectByPrimaryKey(Integer tenementTypeId);
 
-    Integer uploadFile(MultipartFile file);
+    String  uploadFile(MultipartFile file);
 }

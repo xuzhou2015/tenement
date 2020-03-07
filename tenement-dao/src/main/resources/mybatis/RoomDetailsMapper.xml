@@ -82,8 +82,8 @@
     <select id="selectByPrimaryList" resultMap="BaseRoomDetailsInfo"
             parameterType="com.tenement.domain.dto.ListRoomDetailsReq">
         select
-         A.*,B.file_url
-        from room_details A left join room_file B on A.room_id=B.room_details_id
+         A.*
+        from room_details A
         <where>
             <trim prefixOverrides="and"/>
             <if test="districtid !=null">
@@ -110,7 +110,7 @@
             <if test="roomDecorationType !=null">
               and A.finish_type=#{roomDecorationType}
             </if>
-            group by A.room_id
+
             <if test="orderByType==1">
                 order by A.houseprice asc
             </if>

@@ -5,9 +5,11 @@
     <id column="price_id" property="priceId" jdbcType="BIGINT" />
     <result column="price_name" property="priceName" jdbcType="VARCHAR" />
     <result column="price_type" property="priceType" jdbcType="TINYINT" />
+    <result column="price_min" property="priceMin" jdbcType="INTEGER" />
+    <result column="price_max" property="priceMax" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    price_id, price_name, price_type
+    price_id, price_name, price_type,price_min,price_max
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
