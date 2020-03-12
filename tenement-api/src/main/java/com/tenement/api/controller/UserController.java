@@ -25,7 +25,7 @@ import java.util.List;
  * 用户信息
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/house/user")
 public class UserController {
 
     @Autowired

@@ -11,8 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
@@ -33,40 +35,59 @@ public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
      * @return
      */
     @Override
-    public String  uploadFile(MultipartFile file) {
-        //获取上传文件名,包含后缀
-        String originalFilename = file.getOriginalFilename();
-        //获取后缀
-        String substring = originalFilename.substring(originalFilename.lastIndexOf("."));
-        //保存的文件名
-        Long filename= System.currentTimeMillis();
-        String dFileName =filename+substring;
-        //保存路径
-        //springboot 默认情况下只能加载 resource文件夹下静态资源文件
-        String path = "/file/image/";
+    public List<String>  uploadFile(MultipartFile[] file) {
 
-        //生成保存文件
-        File uploadFile = new File(path+dFileName);
-        System.out.println(uploadFile);
-        //将上传文件保存到路径
-        try {
-            file.transferTo(uploadFile);
+        List<String> stringList = new ArrayList<>();
 
-            return dFileName;
-//            RoomFile roomFile=new RoomFile();
-//            roomFile.setFileUrl(path+dFileName);
-//            roomFile.setFileType(1);
-//            roomFile.setCreateTime(new Date());
-//            roomFileMapper.insertSelective(roomFile);
-//
-//            return roomFile.getId();
+        for (MultipartFile multipartFile : file) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            if (!multipartFile.isEmpty()) {
 
-            return "";
+                String originalFilename = multipartFile.getOriginalFilename();
+                //获取后缀
+                String substring = originalFilename.substring(originalFilename.lastIndexOf("."));
+                //保存的文件名
+                Random random = new Random();
+                String index= String.valueOf(random.nextInt(899999));
+                Long filename = System.currentTimeMillis();
+                String dFileName = filename.toString()+index+ substring;
+                //保存路径
+                //springboot 默认情况下只能加载 resource文件夹下静态资源文件
+               // String path = "/file/image/";
+
+                String path="/users/xuzhou/file";
+
+                //生成保存文件
+                File uploadFile = new File(path + dFileName);
+                System.out.println(uploadFile);
+                //将上传文件保存到路径
+                try {
+                    multipartFile.transferTo(uploadFile);
+
+                    stringList.add(dFileName);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                    return null;
+                }
+            }
+
         }
 
+        return stringList;
 
     }
+    private int nextInt(final int min, final int max)
+
+    {
+
+        Random rand= new Random();
+
+        int tmp = Math.abs(rand.nextInt());
+
+        return tmp % (max - min + 1) + min;
+
+    }
+
 }

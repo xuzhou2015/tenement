@@ -5,17 +5,21 @@ import java.util.Date;
 public class RoomNewDetails {
     private Long id;
 
+    private String name;
+
     private String title;
 
     private String img;
 
-    private Byte managementTypmanagementtyp;
+    private Byte managementType;
 
     private String address;
 
     private Integer buildArea;
 
     private Byte status;
+
+    private String telephone;
 
     private Byte metroYn;
 
@@ -29,15 +33,15 @@ public class RoomNewDetails {
 
     private Byte businessYn;
 
-    private String huxing;
+    private String houseStyle;
 
-    private Integer roomTime;
+    private Integer buildDate;
 
-    private Date kaipanTime;
+    private Date saleDate;
 
-    private Date jiaofangTime;
+    private Date finishedDate;
 
-    private Byte housestyleType;
+    private Byte housestyleStyle;
 
     private Byte finishType;
 
@@ -55,7 +59,9 @@ public class RoomNewDetails {
 
     private Date creatime;
 
-    private Integer deleteYn;
+    private Byte deleteYn;
+
+    private Integer houseArea;
 
     public Long getId() {
         return id;
@@ -63,6 +69,14 @@ public class RoomNewDetails {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {
@@ -81,12 +95,12 @@ public class RoomNewDetails {
         this.img = img;
     }
 
-    public Byte getManagementTypmanagementtyp() {
-        return managementTypmanagementtyp;
+    public Byte getManagementType() {
+        return managementType;
     }
 
-    public void setManagementTypmanagementtyp(Byte managementTypmanagementtyp) {
-        this.managementTypmanagementtyp = managementTypmanagementtyp;
+    public void setManagementType(Byte managementType) {
+        this.managementType = managementType;
     }
 
     public String getAddress() {
@@ -111,6 +125,14 @@ public class RoomNewDetails {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public Byte getMetroYn() {
@@ -161,48 +183,50 @@ public class RoomNewDetails {
         this.businessYn = businessYn;
     }
 
-    public String getHuxing() {
-        return huxing;
+    public String getHouseStyle() {
+        return houseStyle;
     }
 
-    public void setHuxing(String huxing) {
-        this.huxing = huxing;
+    public void setHouseStyle(String houseStyle) {
+        this.houseStyle = houseStyle;
     }
 
-    public Integer getRoomTime() {
-        return roomTime;
+    public Integer getBuildDate() {
+        return buildDate;
     }
 
-    public void setRoomTime(Integer roomTime) {
-        this.roomTime = roomTime;
+    public void setBuildDate(Integer buildDate) {
+        this.buildDate = buildDate;
     }
 
-    public Date getKaipanTime() {
-        return kaipanTime;
+    public Date getSaleDate() {
+        return saleDate;
     }
 
-    public void setKaipanTime(Date kaipanTime) {
-        this.kaipanTime = kaipanTime;
+    public void setSaleDate(Date saleDate) {
+        this.saleDate = saleDate;
     }
 
-    public Date getJiaofangTime() {
-        return jiaofangTime;
+    public Date getFinishedDate() {
+        return finishedDate;
     }
 
-    public void setJiaofangTime(Date jiaofangTime) {
-        this.jiaofangTime = jiaofangTime;
+    public void setFinishedDate(Date finishedDate) {
+        this.finishedDate = finishedDate;
     }
 
-    public Byte getHousestyleType() {
-        return housestyleType;
-    }
 
-    public void setHousestyleType(Byte housestyleType) {
-        this.housestyleType = housestyleType;
-    }
 
     public Byte getFinishType() {
         return finishType;
+    }
+
+    public Byte getHousestyleStyle() {
+        return housestyleStyle;
+    }
+
+    public void setHousestyleStyle(Byte housestyleStyle) {
+        this.housestyleStyle = housestyleStyle;
     }
 
     public void setFinishType(Byte finishType) {
@@ -265,11 +289,19 @@ public class RoomNewDetails {
         this.creatime = creatime;
     }
 
-    public Integer getDeleteYn() {
+    public Byte getDeleteYn() {
         return deleteYn;
     }
 
-    public void setDeleteYn(Integer deleteYn) {
+    public void setDeleteYn(Byte deleteYn) {
         this.deleteYn = deleteYn;
+    }
+
+    public Integer getHouseArea() {
+        return houseArea;
+    }
+
+    public void setHouseArea(Integer houseArea) {
+        this.houseArea = houseArea;
     }
 }

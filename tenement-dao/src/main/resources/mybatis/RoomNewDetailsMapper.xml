@@ -3,23 +3,25 @@
 <mapper namespace="com.tenement.dao.mapper.RoomNewDetailsMapper" >
   <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomNewDetails" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
-    <result column="management_typmanagementTyp" property="managementTypmanagementtyp" jdbcType="TINYINT" />
+    <result column="management_type" property="managementType" jdbcType="TINYINT" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="build_area" property="buildArea" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
     <result column="metro_yn" property="metroYn" jdbcType="TINYINT" />
     <result column="school_yn" property="schoolYn" jdbcType="TINYINT" />
     <result column="elevator_yn" property="elevatorYn" jdbcType="TINYINT" />
     <result column="safety_yn" property="safetyYn" jdbcType="TINYINT" />
     <result column="traffic_yn" property="trafficYn" jdbcType="TINYINT" />
     <result column="business_yn" property="businessYn" jdbcType="TINYINT" />
-    <result column="huxing" property="huxing" jdbcType="VARCHAR" />
-    <result column="room_time" property="roomTime" jdbcType="INTEGER" />
-    <result column="kaipan_time" property="kaipanTime" jdbcType="TIMESTAMP" />
-    <result column="jiaofang_time" property="jiaofangTime" jdbcType="TIMESTAMP" />
-    <result column="housestyle_type" property="housestyleType" jdbcType="TINYINT" />
+    <result column="house_style" property="houseStyle" jdbcType="VARCHAR" />
+    <result column="build_date" property="buildDate" jdbcType="INTEGER" />
+    <result column="sale_date" property="saleDate" jdbcType="TIMESTAMP" />
+    <result column="finished_date" property="finishedDate" jdbcType="TIMESTAMP" />
+    <result column="housestyle_style" property="housestyleStyle" jdbcType="TINYINT" />
     <result column="finish_type" property="finishType" jdbcType="TINYINT" />
     <result column="districtId" property="districtid" jdbcType="TINYINT" />
     <result column="heating_tyte" property="heatingTyte" jdbcType="TINYINT" />
@@ -29,12 +31,13 @@
     <result column="userId" property="userid" jdbcType="INTEGER" />
     <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
     <result column="delete_yn" property="deleteYn" jdbcType="TINYINT" />
+    <result column="house_area" property="houseArea" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, img, management_typmanagementTyp, address, build_area, status, metro_yn, 
-    school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, huxing, room_time, kaipan_time, 
-    jiaofang_time, housestyle_type, finish_type, districtId, heating_tyte, house_price, 
-    equity_time, price_total, userId, creatime，delete,delete_yn
+    id, name, title, img, management_type, address, build_area, status, telephone, metro_yn, 
+    school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, house_style,
+    build_date, sale_date, finished_date, housestyle_style, finish_type, districtId, heating_tyte,
+    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -42,34 +45,38 @@
     from room_new_details
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <select id="selectByPrimaryList" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListRoomDetailsReq" >
-    select
-    <include refid="Base_Column_List" />
-    from room_new_details
-  </select>
+    <select id="selectByPrimaryList" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListRoomDetailsReq">
+        select
+        <include refid="Base_Column_List" />
+        from room_new_details
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from room_new_details
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.tenement.domain.po.RoomNewDetails" >
-    insert into room_new_details (id, title, img, 
-      management_typmanagementTyp, address, build_area, 
-      status, metro_yn, school_yn, 
-      elevator_yn, safety_yn, traffic_yn, 
-      business_yn, huxing, room_time, 
-      kaipan_time, jiaofang_time, housestyle_type, 
+    insert into room_new_details (id, name, title, 
+      img, management_type, address, 
+      build_area, status, telephone, 
+      metro_yn, school_yn, elevator_yn, 
+      safety_yn, traffic_yn, business_yn,
+      houseStyle, build_date,
+      sale_date, finished_date, housestyle_style,
       finish_type, districtId, heating_tyte, 
       house_price, equity_time, price_total, 
-      userId, creatime)
-    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
-      #{managementTypmanagementtyp,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR}, #{buildArea,jdbcType=INTEGER}, 
-      #{status,jdbcType=TINYINT}, #{metroYn,jdbcType=TINYINT}, #{schoolYn,jdbcType=TINYINT}, 
-      #{elevatorYn,jdbcType=TINYINT}, #{safetyYn,jdbcType=TINYINT}, #{trafficYn,jdbcType=TINYINT}, 
-      #{businessYn,jdbcType=TINYINT}, #{huxing,jdbcType=VARCHAR}, #{roomTime,jdbcType=INTEGER}, 
-      #{kaipanTime,jdbcType=TIMESTAMP}, #{jiaofangTime,jdbcType=TIMESTAMP}, #{housestyleType,jdbcType=TINYINT}, 
+      userId, creatime, delete_yn
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{managementType,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR}, 
+      #{buildArea,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{telephone,jdbcType=VARCHAR}, 
+      #{metroYn,jdbcType=TINYINT}, #{schoolYn,jdbcType=TINYINT}, #{elevatorYn,jdbcType=TINYINT}, 
+      #{safetyYn,jdbcType=TINYINT}, #{trafficYn,jdbcType=TINYINT}, #{businessYn,jdbcType=TINYINT}, 
+      #{houseStyle,jdbcType=VARCHAR}, #{buildDate,jdbcType=INTEGER},
+      #{saleDate,jdbcType=TIMESTAMP}, #{finishedDate,jdbcType=TIMESTAMP}, #{housestyleStyle,jdbcType=TINYINT},
       #{finishType,jdbcType=TINYINT}, #{districtid,jdbcType=TINYINT}, #{heatingTyte,jdbcType=TINYINT}, 
       #{housePrice,jdbcType=INTEGER}, #{equityTime,jdbcType=INTEGER}, #{priceTotal,jdbcType=INTEGER}, 
-      #{userid,jdbcType=BIGINT}, #{creatime,jdbcType=TIMESTAMP})
+      #{userid,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}, #{deleteYn,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomNewDetails" >
     insert into room_new_details
@@ -77,14 +84,17 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="name != null" >
+        name,
+      </if>
       <if test="title != null" >
         title,
       </if>
       <if test="img != null" >
         img,
       </if>
-      <if test="managementTypmanagementtyp != null" >
-        management_typmanagementTyp,
+      <if test="managementType != null" >
+        management_type,
       </if>
       <if test="address != null" >
         address,
@@ -94,6 +104,9 @@
       </if>
       <if test="status != null" >
         status,
+      </if>
+      <if test="telephone != null" >
+        telephone,
       </if>
       <if test="metroYn != null" >
         metro_yn,
@@ -113,20 +126,20 @@
       <if test="businessYn != null" >
         business_yn,
       </if>
-      <if test="huxing != null" >
-        huxing,
+      <if test="houseStyle!= null" >
+        house_style,
       </if>
-      <if test="roomTime != null" >
-        room_time,
+      <if test="buildDate != null" >
+        build_date,
       </if>
-      <if test="kaipanTime != null" >
-        kaipan_time,
+      <if test="saleDate != null" >
+        sale_date,
       </if>
-      <if test="jiaofangTime != null" >
-        jiaofang_time,
+      <if test="finishedDate != null" >
+        finished_date,
       </if>
-      <if test="housestyleType != null" >
-        housestyle_type,
+      <if test="housestyleStyle != null" >
+        housestyle_style,
       </if>
       <if test="finishType != null" >
         finish_type,
@@ -152,10 +165,16 @@
       <if test="creatime != null" >
         creatime,
       </if>
+      <if test="deleteYn != null" >
+        delete_yn,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
@@ -163,8 +182,8 @@
       <if test="img != null" >
         #{img,jdbcType=VARCHAR},
       </if>
-      <if test="managementTypmanagementtyp != null" >
-        #{managementTypmanagementtyp,jdbcType=TINYINT},
+      <if test="managementType != null" >
+        #{managementType,jdbcType=TINYINT},
       </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
@@ -174,6 +193,9 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
       </if>
       <if test="metroYn != null" >
         #{metroYn,jdbcType=TINYINT},
@@ -193,20 +215,20 @@
       <if test="businessYn != null" >
         #{businessYn,jdbcType=TINYINT},
       </if>
-      <if test="huxing != null" >
-        #{huxing,jdbcType=VARCHAR},
+      <if test="houseStyle != null" >
+        #{houseStyle,jdbcType=VARCHAR},
       </if>
-      <if test="roomTime != null" >
-        #{roomTime,jdbcType=INTEGER},
+      <if test="buildDate != null" >
+        #{buildDate,jdbcType=INTEGER},
       </if>
-      <if test="kaipanTime != null" >
-        #{kaipanTime,jdbcType=TIMESTAMP},
+      <if test="saleDate != null" >
+        #{saleDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="jiaofangTime != null" >
-        #{jiaofangTime,jdbcType=TIMESTAMP},
+      <if test="finishedDate != null" >
+        #{finishedDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="housestyleType != null" >
-        #{housestyleType,jdbcType=TINYINT},
+      <if test="housestyleStyle != null" >
+        #{housestyleStyle,jdbcType=TINYINT},
       </if>
       <if test="finishType != null" >
         #{finishType,jdbcType=TINYINT},
@@ -227,24 +249,30 @@
         #{priceTotal,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        #{userid,jdbcType=BIGINT},
+        #{userid,jdbcType=INTEGER},
       </if>
       <if test="creatime != null" >
         #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        #{deleteYn,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomNewDetails" >
     update room_new_details
     <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="img != null" >
         img = #{img,jdbcType=VARCHAR},
       </if>
-      <if test="managementTypmanagementtyp != null" >
-        management_typmanagementTyp = #{managementTypmanagementtyp,jdbcType=TINYINT},
+      <if test="managementType != null" >
+        management_type = #{managementType,jdbcType=TINYINT},
       </if>
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
@@ -254,6 +282,9 @@
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
       </if>
       <if test="metroYn != null" >
         metro_yn = #{metroYn,jdbcType=TINYINT},
@@ -273,20 +304,20 @@
       <if test="businessYn != null" >
         business_yn = #{businessYn,jdbcType=TINYINT},
       </if>
-      <if test="huxing != null" >
-        huxing = #{huxing,jdbcType=VARCHAR},
+      <if test="houseStyle!= null" >
+        house_style= #{houseStyle,jdbcType=VARCHAR},
       </if>
-      <if test="roomTime != null" >
-        room_time = #{roomTime,jdbcType=INTEGER},
+      <if test="buildDate != null" >
+        build_date = #{buildDate,jdbcType=INTEGER},
       </if>
-      <if test="kaipanTime != null" >
-        kaipan_time = #{kaipanTime,jdbcType=TIMESTAMP},
+      <if test="saleDate != null" >
+        sale_date = #{saleDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="jiaofangTime != null" >
-        jiaofang_time = #{jiaofangTime,jdbcType=TIMESTAMP},
+      <if test="finishedDate != null" >
+        finished_date = #{finishedDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="housestyleType != null" >
-        housestyle_type = #{housestyleType,jdbcType=TINYINT},
+      <if test="housestyleStyle != null" >
+        housestyle_style = #{housestyleType,jdbcType=TINYINT},
       </if>
       <if test="finishType != null" >
         finish_type = #{finishType,jdbcType=TINYINT},
@@ -307,41 +338,47 @@
         price_total = #{priceTotal,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        userId = #{userid,jdbcType=BIGINT},
+        userId = #{userid,jdbcType=INTEGER},
       </if>
       <if test="creatime != null" >
         creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        delete_yn = #{deleteYn,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomNewDetails" >
     update room_new_details
-    set title = #{title,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
-      management_typmanagementTyp = #{managementTypmanagementtyp,jdbcType=TINYINT},
+      management_type = #{managementType,jdbcType=TINYINT},
       address = #{address,jdbcType=VARCHAR},
       build_area = #{buildArea,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT},
+      telephone = #{telephone,jdbcType=VARCHAR},
       metro_yn = #{metroYn,jdbcType=TINYINT},
       school_yn = #{schoolYn,jdbcType=TINYINT},
       elevator_yn = #{elevatorYn,jdbcType=TINYINT},
       safety_yn = #{safetyYn,jdbcType=TINYINT},
       traffic_yn = #{trafficYn,jdbcType=TINYINT},
       business_yn = #{businessYn,jdbcType=TINYINT},
-      huxing = #{huxing,jdbcType=VARCHAR},
-      room_time = #{roomTime,jdbcType=INTEGER},
-      kaipan_time = #{kaipanTime,jdbcType=TIMESTAMP},
-      jiaofang_time = #{jiaofangTime,jdbcType=TIMESTAMP},
-      housestyle_type = #{housestyleType,jdbcType=TINYINT},
+      house_style=#{houseStyle,jdbcType=VARCHAR},
+      build_date = #{buildDate,jdbcType=INTEGER},
+      sale_date = #{saleDate,jdbcType=TIMESTAMP},
+      finished_date = #{finishedDate,jdbcType=TIMESTAMP},
+      housestyle_style = #{housestyleStyle,jdbcType=TINYINT},
       finish_type = #{finishType,jdbcType=TINYINT},
       districtId = #{districtid,jdbcType=TINYINT},
       heating_tyte = #{heatingTyte,jdbcType=TINYINT},
       house_price = #{housePrice,jdbcType=INTEGER},
       equity_time = #{equityTime,jdbcType=INTEGER},
       price_total = #{priceTotal,jdbcType=INTEGER},
-      userId = #{userid,jdbcType=BIGINT},
-      creatime = #{creatime,jdbcType=TIMESTAMP}
+      userId = #{userid,jdbcType=INTEGER},
+      creatime = #{creatime,jdbcType=TIMESTAMP},
+      delete_yn = #{deleteYn,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

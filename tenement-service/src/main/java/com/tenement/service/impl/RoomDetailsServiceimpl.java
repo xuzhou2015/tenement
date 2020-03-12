@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,12 +58,12 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
     @Autowired
     private RoomOrientationMapper roomOrientationMapper;
 
+    @Autowired
     private RoomNewDetailsMapper roomNewDetailsMapper;
 
 
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public int insertSelective(RoomNewDetailsReq record) {
 
         Broker broker=new Broker();
@@ -70,6 +71,9 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
         RoomNewDetails roomNewDetails=new RoomNewDetails();
 
         BeanUtils.copyProperties(record,roomNewDetails);
+
+        roomNewDetails.setCreatime(new Date());
+
 
         roomNewDetailsMapper.insertSelective(roomNewDetails);
 
@@ -158,6 +162,7 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
        List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
 
         PageInfo<RoomNewDetails> pageInfo=new PageInfo<>(roomNewDetailsList);
+
 
         return pageInfo;
     }

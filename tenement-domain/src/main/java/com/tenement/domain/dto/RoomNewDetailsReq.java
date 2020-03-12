@@ -12,75 +12,61 @@ import java.util.Date;
 @Setter
 public class RoomNewDetailsReq implements Serializable {
 
-    @NotBlank
+    private String name;
+
     private String title;
 
-    @NotBlank
     private String img;
 
-    @NotNull
-    private Byte managementTypmanagementtyp;
+    private Byte managementType;
 
-    @NotBlank
     private String address;
 
-    @NotNull
     private Integer buildArea;
 
-    @NotNull
     private Byte status;
 
-    @NotNull
+    private String telephone;
+
     private Byte metroYn;
 
-    @NotNull
     private Byte schoolYn;
 
-    @NotNull
     private Byte elevatorYn;
 
-    @NotNull
     private Byte safetyYn;
 
-    @NotNull
     private Byte trafficYn;
 
-    @NotNull
     private Byte businessYn;
 
-    @NotBlank
-    private String huxing;
+    private String houseStyle;
 
-    @NotNull
-    private Integer roomTime;
+    private Integer buildDate;
 
-    @NotNull
-    private Date kaipanTime;
+    private Date saleDate;
 
-    @NotNull
-    private Date jiaofangTime;
+    private Date finishedDate;
 
-    @NotNull
-    private Byte housestyleType;
+    private Byte housestyleStyle;
 
-    @NotNull
     private Byte finishType;
 
-    @NotNull
     private Byte districtid;
 
-    @NotNull
     private Byte heatingTyte;
 
-    @NotNull
     private Integer housePrice;
 
-    @NotNull
     private Integer equityTime;
 
-    @NotNull
     private Integer priceTotal;
 
     private Integer userid;
+
+    private Date creatime;
+
+    private Integer houseArea;
+
 
 }

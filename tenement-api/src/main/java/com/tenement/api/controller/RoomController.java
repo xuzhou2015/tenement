@@ -1,7 +1,6 @@
 package com.tenement.api.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.util.StringUtil;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.Response;
 import com.tenement.domain.dto.*;
@@ -33,7 +32,7 @@ import java.util.List;
  * 房屋信息
  */
 @RestController
-@RequestMapping("/room")
+@RequestMapping("/house/room")
 public class RoomController {
 
 
@@ -158,21 +157,19 @@ public class RoomController {
      * @throws RuntimeException
      */
     @RequestMapping(value = "/uploadFile")
-    public Response<UploadFileResp> uploadFile(@RequestParam("file") MultipartFile file) throws BusinessException {
+    public Response<UploadFileResp> uploadFile(@RequestParam("file") MultipartFile[] file) throws BusinessException {
 
-        String iamgeStr=roomTenementTypeService.uploadFile(file);
+        List<String> strList=roomTenementTypeService.uploadFile(file);
 
-        if(StringUtil.isNotEmpty(iamgeStr)){
+        if(strList !=null){
             UploadFileResp uploadFileResp=new UploadFileResp();
-            uploadFileResp.setImageStr(iamgeStr);
+            uploadFileResp.setStrList(strList);
             return ResponseUtils.createSuccess(uploadFileResp);
         }else{
             return ResponseUtils.createFailure();
         }
 
-
     }
-
 
     @RequestMapping(value = "/index")
     public String index() throws RuntimeException {

@@ -533,3 +533,6 @@
 2020-03-07 22:01:05 -Using a shared selector for servlet write/read
 2020-03-07 22:01:05 -Tomcat started on port(s): 8080 (http) with context path ''
 2020-03-07 22:01:05 -Started WebApplication in 2.755 seconds (JVM running for 3.255)
+2020-03-07 22:05:16 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@73d983ea: startup date [Sat Mar 07 22:01:03 CST 2020]; root of context hierarchy
+2020-03-07 22:05:16 -Unregistering JMX-exposed beans on shutdown
+2020-03-07 22:05:16 -Unregistering JMX-exposed beans

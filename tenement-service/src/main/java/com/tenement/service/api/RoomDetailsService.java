@@ -2,7 +2,6 @@ package com.tenement.service.api;
 
 import com.github.pagehelper.PageInfo;
 import com.tenement.domain.dto.*;
-import com.tenement.domain.po.RoomDetails;
 import com.tenement.domain.po.RoomNewDetails;
 import com.tenement.domain.vo.RoomDetailsInfo;
 
