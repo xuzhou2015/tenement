@@ -88,13 +88,29 @@ public class RoomController {
      * @return
      * @throws RuntimeException
      */
-    @RequestMapping("/getRoomDetails")
-    public Response<GetRoomDetailsResp> getRoomDetails(@RequestBody @Validated GetRoomDetailsReq req) throws BusinessException{
+    @RequestMapping("/getRoomNewDetails")
+    public Response<RoomNewDetailsResp> getRoomNewDetails(@RequestBody @Validated GetRoomDetailsReq req) throws BusinessException{
 
 
-       GetRoomDetailsResp getRoomDetailsResp=roomDetailsService.getRoomDetails(req.getRoomId());
+        RoomNewDetailsResp getRoomDetailsResp=roomDetailsService.getRoomDetails(req.getRoomId());
 
        return ResponseUtils.createSuccess(getRoomDetailsResp);
+    }
+
+    /**
+     *  通过ID删除房型
+     * @return
+     * @throws RuntimeException
+     */
+    @RequestMapping("/deleteNewRoom")
+    public Response deleteNewRoom(@RequestBody @Validated GetRoomDetailsReq req)throws BusinessException{
+
+
+       boolean bool=roomDetailsService.deleteRoomNewDetails(req.getRoomId());
+       if(bool){
+           return ResponseUtils.createSuccess();
+       }
+       return ResponseUtils.createFailure();
     }
 
     /**
@@ -103,11 +119,27 @@ public class RoomController {
      * @throws RuntimeException
      */
     @RequestMapping("/listRoom")
-    public  Response<PageInfo<RoomNewDetails>> listRoom(@RequestBody ListRoomDetailsReq req){
+    public  Response<PageInfo<RoomNewDetailsResp>> listRoom(@RequestBody ListRoomDetailsReq req)throws BusinessException{
 
-        PageInfo<RoomNewDetails> roomDetailsList=roomDetailsService.listRoom(req);
+        PageInfo<RoomNewDetailsResp> roomDetailsList=roomDetailsService.listRoom(req);
 
         return ResponseUtils.createSuccess(roomDetailsList);
+    }
+    /**
+     *  修改新房信息
+     * @return
+     * @throws RuntimeException
+     */
+    @RequestMapping("/updateRoomNewDetails")
+    public Response updateRoomNewDetails(@RequestBody RoomNewDetailsReq req)throws BusinessException{
+
+
+       boolean bool=roomDetailsService.updateRoomNewDetails(req);
+
+        if(bool){
+            return ResponseUtils.createSuccess();
+        }
+        return ResponseUtils.createFailure();
     }
 
     /**

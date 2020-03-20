@@ -19,4 +19,6 @@ public interface RoomNewDetailsMapper {
     int updateByPrimaryKeySelective(RoomNewDetails record);
 
     int updateByPrimaryKey(RoomNewDetails record);
+
+
 }

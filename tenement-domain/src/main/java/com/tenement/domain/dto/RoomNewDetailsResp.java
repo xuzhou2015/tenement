@@ -1,17 +1,15 @@
 package com.tenement.domain.dto;
 
+import com.tenement.domain.common.CustomConverting;
+import com.tenement.domain.common.DateConverter;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
-public class RoomNewDetailsReq implements Serializable {
-
+public class RoomNewDetailsResp {
     private Long id;
 
     private String name;
@@ -46,9 +44,11 @@ public class RoomNewDetailsReq implements Serializable {
 
     private Integer buildDate;
 
-    private Date saleDate;
+    @CustomConverting(value = DateConverter.class,parameter = "yyyy.MM.dd")
+    private String saleDate;
 
-    private Date finishedDate;
+    @CustomConverting(value = DateConverter.class,parameter = "yyyy.MM.dd")
+    private String finishedDate;
 
     private Byte housestyleStyle;
 
@@ -68,7 +68,7 @@ public class RoomNewDetailsReq implements Serializable {
 
     private Date creatime;
 
+    private Byte deleteYn;
+
     private Integer houseArea;
-
-
 }

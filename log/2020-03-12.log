@@ -321,3 +321,38 @@ org.apache.tomcat.util.http.fileupload.FileUploadBase$FileSizeLimitExceededExcep
 2020-03-12 16:59:38 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6bc407fd: startup date [Thu Mar 12 16:58:55 CST 2020]; root of context hierarchy
 2020-03-12 16:59:38 -Unregistering JMX-exposed beans on shutdown
 2020-03-12 16:59:38 -Unregistering JMX-exposed beans
+2020-03-12 17:06:56 -Loaded expression factory via original TCCL
+2020-03-12 17:06:56 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 77941 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-03-12 17:06:56 -No active profile set, falling back to default profiles: default
+2020-03-12 17:06:56 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a1de7fb: startup date [Thu Mar 12 17:06:56 CST 2020]; root of context hierarchy
+2020-03-12 17:06:57 -No MyBatis mapper was found in '[com.tenement.dao]' package. Please check your configuration.
+2020-03-12 17:06:57 -No MyBatis mapper was found in '[com.tenement.api]' package. Please check your configuration.
+2020-03-12 17:06:58 -Tomcat initialized with port(s): 8080 (http)
+2020-03-12 17:06:58 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-03-12 17:06:58 -Starting service [Tomcat]
+2020-03-12 17:06:58 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-03-12 17:06:58 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-03-12 17:06:58 -Initializing Spring embedded WebApplicationContext
+2020-03-12 17:06:58 -Root WebApplicationContext: initialization completed in 1479 ms
+2020-03-12 17:06:58 -Servlet dispatcherServlet mapped to [/]
+2020-03-12 17:06:58 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-03-12 17:06:58 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-03-12 17:06:58 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-03-12 17:06:58 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-03-12 17:06:58 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-03-12 17:06:58 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a1de7fb: startup date [Thu Mar 12 17:06:56 CST 2020]; root of context hierarchy
+2020-03-12 17:06:58 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-03-12 17:06:58 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-03-12 17:06:58 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-03-12 17:06:58 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-03-12 17:06:58 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-03-12 17:06:58 -Registering beans for JMX exposure on startup
+2020-03-12 17:06:58 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-03-12 17:06:58 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-03-12 17:06:58 -Starting ProtocolHandler ["http-nio-8080"]
+2020-03-12 17:06:58 -Using a shared selector for servlet write/read
+2020-03-12 17:06:58 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-12 17:06:58 -Started WebApplication in 2.942 seconds (JVM running for 3.53)
+2020-03-12 17:07:24 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a1de7fb: startup date [Thu Mar 12 17:06:56 CST 2020]; root of context hierarchy
+2020-03-12 17:07:24 -Unregistering JMX-exposed beans on shutdown
+2020-03-12 17:07:24 -Unregistering JMX-exposed beans

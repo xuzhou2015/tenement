@@ -49,6 +49,27 @@
         select
         <include refid="Base_Column_List" />
         from room_new_details
+       <where>
+          <trim prefixOverrides="and">
+             <if test="name !=null">
+               and name  like "%"#{name}"%"
+             </if>
+              <if test="beginSaleDate !=null and endSaleDate !=null">
+                and sale_date &gt;=#{beginSaleDate} and sale_date &lt;= #{endSaleDate}
+              </if>
+              <if test="beginFinishedDate !=null and endFinishedDate !=null">
+                and finished_date &gt;=#{beginFinishedDate} and finished_date &lt;= #{endFinishedDate}
+              </if>
+              <if test="status !=null">
+                and status=#{status}
+              </if>
+              <if test="minHousePrice !=null and maxHouserPrice !=null">
+                and house_price &gt;=#{minHousePrice} and house_price &lt;= #{maxHouserPrice}
+
+              </if>
+
+          </trim>
+       </where>
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from room_new_details
@@ -317,7 +338,7 @@
         finished_date = #{finishedDate,jdbcType=TIMESTAMP},
       </if>
       <if test="housestyleStyle != null" >
-        housestyle_style = #{housestyleType,jdbcType=TINYINT},
+        housestyle_style = #{housestyleStyle,jdbcType=TINYINT},
       </if>
       <if test="finishType != null" >
         finish_type = #{finishType,jdbcType=TINYINT},
@@ -381,4 +402,5 @@
       delete_yn = #{deleteYn,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
 </mapper>

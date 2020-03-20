@@ -53,9 +53,8 @@ public class RoomTenementTypeServiceimpl implements RoomTenementTypeService {
                 String dFileName = filename.toString()+index+ substring;
                 //保存路径
                 //springboot 默认情况下只能加载 resource文件夹下静态资源文件
-               // String path = "/file/image/";
+                String path = "/file/image/";
 
-                String path="/users/xuzhou/file";
 
                 //生成保存文件
                 File uploadFile = new File(path + dFileName);

@@ -3,13 +3,13 @@ package com.tenement.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tenement.dao.mapper.*;
+import com.tenement.domain.common.BeanUtils;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.CommonResultCode;
 import com.tenement.domain.dto.*;
 import com.tenement.domain.po.*;
 import com.tenement.domain.vo.RoomDetailsInfo;
 import com.tenement.service.api.RoomDetailsService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -66,14 +67,10 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
     @Override
     public int insertSelective(RoomNewDetailsReq record) {
 
-        Broker broker=new Broker();
 
-        RoomNewDetails roomNewDetails=new RoomNewDetails();
-
-        BeanUtils.copyProperties(record,roomNewDetails);
+        RoomNewDetails roomNewDetails= BeanUtils.convert(record,RoomNewDetails.class);
 
         roomNewDetails.setCreatime(new Date());
-
 
         roomNewDetailsMapper.insertSelective(roomNewDetails);
 
@@ -135,36 +132,56 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
      * @return
      */
     @Override
-    public  PageInfo<RoomNewDetails> listRoom(ListRoomDetailsReq req){
+    public  PageInfo<RoomNewDetailsResp> listRoom(ListRoomDetailsReq req){
 
-        if(req.getRoomPriceId() !=null){
-
-            req=checkRoomPrice(req);
-        }
-        if(req.getRoomAreaId() !=null){
-
-            req=checkRoomArea(req);
-        }
-        if(req.getRoomMarketTimeType() !=null){
-
-            req=checkRoomMarketTimeType(req);
-        }
         if(req.getPageNum()==null || req.getPageSize()==null){
             throw new BusinessException(CommonResultCode.ILLEGAL_REQ_PARAMETER);
         }
-        if(req.getOrderByType() ==null){
-            req.setOrderByType(1);
-        }
+
 
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
 
 
        List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
 
-        PageInfo<RoomNewDetails> pageInfo=new PageInfo<>(roomNewDetailsList);
+       List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
 
+       PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
 
         return pageInfo;
+    }
+    /**
+     * 修改新房信息
+     * @param req
+     * @return
+     */
+    @Override
+    public boolean updateRoomNewDetails(RoomNewDetailsReq req){
+
+        RoomNewDetails roomNewDetails=BeanUtils.convert(req,RoomNewDetails.class);
+
+        if(roomNewDetailsMapper.updateByPrimaryKeySelective(roomNewDetails) >0 ){
+
+            return true;
+        }
+        return false;
+
+    }
+
+    /**
+     * 通过id删除新房
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteRoomNewDetails(Long id){
+
+      int returid=roomNewDetailsMapper.deleteByPrimaryKey(id);
+      if(returid >0){
+          return true;
+      }else{
+          return false;
+      }
     }
 
     /**
@@ -197,175 +214,24 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
      * @return
      */
     @Override
-    public GetRoomDetailsResp getRoomDetails(Long roomId){
+    public RoomNewDetailsResp getRoomDetails(Long roomId){
 
-        GetRoomDetailsResp getRoomDetailsResp=new GetRoomDetailsResp();
 
-        RoomDetails roomDetails=roomDetailsMapper.selectByPrimaryKey(roomId);
-        if(roomDetails==null){
+       RoomNewDetails roomNewDetails=roomNewDetailsMapper.selectByPrimaryKey(roomId);
 
-            return getRoomDetailsResp;
-        }
-        getRoomDetailsResp.setRoomDetails(roomDetails);
+       if(roomNewDetails !=null){
+           RoomNewDetailsResp resp=BeanUtils.convert(roomNewDetails,RoomNewDetailsResp.class);
+           return resp;
+       }
 
-        List<RoomFile> roomFileList = roomFileMapper.selectByPrimaryList(roomDetails.getRoomId());
-
-        if(roomFileList ==null || roomFileList.size()< 1){
-            return getRoomDetailsResp;
-        }
-        getRoomDetailsResp.setRoomFileList(roomFileList);
-
-        return getRoomDetailsResp;
-    }
-
-    /**
-     * 判断价格
-     * @param listRoomDetailsReq
-     * @return
-     */
-    private ListRoomDetailsReq checkRoomPrice(ListRoomDetailsReq listRoomDetailsReq){
-
-        int price=10000;
-
-        switch (listRoomDetailsReq.getRoomPriceId()){
-            case 1:
-                listRoomDetailsReq.setRoomPriceMin(0);
-                listRoomDetailsReq.setRoomPriceMax(100*price);
-                break;
-            case 2:
-                listRoomDetailsReq.setRoomPriceMin(100*price);
-                listRoomDetailsReq.setRoomPriceMax(150*price);
-                break;
-            case 3:
-                listRoomDetailsReq.setRoomPriceMin(150*price);
-                listRoomDetailsReq.setRoomPriceMax(200*price);
-                break;
-            case 4:
-                listRoomDetailsReq.setRoomPriceMin(200*price);
-                listRoomDetailsReq.setRoomPriceMax(300*price);
-                break;
-            case 5:
-                listRoomDetailsReq.setRoomPriceMin(300*price);
-                listRoomDetailsReq.setRoomPriceMax(500*price);
-                break;
-            case 6:
-                listRoomDetailsReq.setRoomPriceMin(500*price);
-                listRoomDetailsReq.setRoomPriceMax(1000*price);
-                break;
-            case 7:
-                listRoomDetailsReq.setRoomPriceMin(1000*price);
-                listRoomDetailsReq.setRoomPriceMax(100000*price);
-                break;
-            case 8:
-                listRoomDetailsReq.setRoomPriceMin(0);
-                listRoomDetailsReq.setRoomPriceMax(10000);
-                break;
-            case 9:
-                listRoomDetailsReq.setRoomPriceMin(price);
-                listRoomDetailsReq.setRoomPriceMax(price*2);
-                break;
-            case 10:
-                listRoomDetailsReq.setRoomPriceMin(2*price);
-                listRoomDetailsReq.setRoomPriceMax(3*price);
-                break;
-            case 11:
-                listRoomDetailsReq.setRoomPriceMin(3*price);
-                listRoomDetailsReq.setRoomPriceMax(4*price);
-                break;
-            case 12:
-                listRoomDetailsReq.setRoomPriceMin(4*price);
-                listRoomDetailsReq.setRoomPriceMax(5*price);
-                break;
-            case 13:
-                listRoomDetailsReq.setRoomPriceMin(5*price);
-                listRoomDetailsReq.setRoomPriceMax(6*price);
-                break;
-            default:
-                break;
-        }
-        return listRoomDetailsReq;
-    }
-
-    /**
-     * 判断面积
-     * @param listRoomDetailsReq
-     * @return
-     */
-    private ListRoomDetailsReq checkRoomArea(ListRoomDetailsReq listRoomDetailsReq){
-
-        switch (listRoomDetailsReq.getRoomAreaId()){
-            case 1:
-                listRoomDetailsReq.setRoomAreaMin(0);
-                listRoomDetailsReq.setRoomAreaMax(60);
-                break;
-            case 2:
-                listRoomDetailsReq.setRoomAreaMin(60);
-                listRoomDetailsReq.setRoomAreaMax(80);
-                break;
-            case 3:
-                listRoomDetailsReq.setRoomAreaMin(80);
-                listRoomDetailsReq.setRoomAreaMax(100);
-                break;
-            case 4:
-                listRoomDetailsReq.setRoomAreaMin(100);
-                listRoomDetailsReq.setRoomAreaMax(120);
-                break;
-            case 5:
-                listRoomDetailsReq.setRoomAreaMin(120);
-                listRoomDetailsReq.setRoomAreaMax(150);
-                break;
-            case 6:
-                listRoomDetailsReq.setRoomAreaMin(150);
-                listRoomDetailsReq.setRoomAreaMax(200);
-                break;
-            case 7:
-                listRoomDetailsReq.setRoomAreaMin(200);
-                listRoomDetailsReq.setRoomAreaMax(20000);
-                break;
-            default:
-                break;
-        }
-        return listRoomDetailsReq;
+       return null;
 
     }
 
-    /**
-     * 判断开盘时间
-     * @param listRoomDetailsReq
-     * @return
-     */
-    private ListRoomDetailsReq checkRoomMarketTimeType(ListRoomDetailsReq listRoomDetailsReq){
-        LocalDate today = LocalDate.now();
-        switch (listRoomDetailsReq.getRoomMarketTimeType()){
-            case 1:
-                listRoomDetailsReq.setRoomMarketTimeMin(today.with(TemporalAdjusters.firstDayOfMonth()));
-                listRoomDetailsReq.setRoomMarketTimeMax(today.with(TemporalAdjusters.lastDayOfMonth()));
-                break;
-            case 2:
-                listRoomDetailsReq.setRoomMarketTimeMin(today);
-                listRoomDetailsReq.setRoomMarketTimeMax(today.plusMonths(1));
-                break;
-            case 3:
-                listRoomDetailsReq.setRoomMarketTimeMin(today);
-                listRoomDetailsReq.setRoomMarketTimeMax(today.plusMonths(3));
-                break;
-            case 4:
-                listRoomDetailsReq.setRoomMarketTimeMin(today);
-                listRoomDetailsReq.setRoomMarketTimeMax(today.plusMonths(6));
-                break;
-            case 5:
-                listRoomDetailsReq.setRoomMarketTimeMin(today.minusMonths(1));
-                listRoomDetailsReq.setRoomMarketTimeMax(today);
-                break;
-            case 6:
-                listRoomDetailsReq.setRoomMarketTimeMin(today.minusMonths(3));
-                listRoomDetailsReq.setRoomMarketTimeMax(today);
-                break;
-            default:
-                break;
-        }
-        return listRoomDetailsReq;
-    }
+
+
+
+
 
     private RoomDetails createRomDatails(RoomDetailsReq record) {
 

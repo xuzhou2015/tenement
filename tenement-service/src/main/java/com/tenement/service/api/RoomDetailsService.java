@@ -12,9 +12,13 @@ public interface RoomDetailsService {
 
     RoomBasicsTypeResp getRoomBasicsType();
 
-    PageInfo<RoomNewDetails> listRoom(ListRoomDetailsReq req);
+    PageInfo<RoomNewDetailsResp> listRoom(ListRoomDetailsReq req);
 
     PageInfo<RoomDetailsInfo> listGrabbleRoom(ListGrabbleRoomReq req);
 
-    GetRoomDetailsResp getRoomDetails(Long roomId);
+    RoomNewDetailsResp getRoomDetails(Long roomId);
+
+     boolean deleteRoomNewDetails(Long id);
+
+     boolean updateRoomNewDetails(RoomNewDetailsReq req);
 }
