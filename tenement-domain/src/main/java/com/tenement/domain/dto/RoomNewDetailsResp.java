@@ -5,11 +5,12 @@ import com.tenement.domain.common.DateConverter;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
-public class RoomNewDetailsResp {
+public class RoomNewDetailsResp implements Serializable {
     private Long id;
 
     private String name;

@@ -5,7 +5,6 @@ import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.Response;
 import com.tenement.domain.dto.*;
 import com.tenement.domain.po.District;
-import com.tenement.domain.po.RoomNewDetails;
 import com.tenement.domain.po.RoomTenementType;
 import com.tenement.domain.util.ResponseUtils;
 import com.tenement.domain.vo.RoomDetailsInfo;
