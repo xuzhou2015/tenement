@@ -8,7 +8,7 @@ import com.tenement.domain.vo.RoomDetailsInfo;
 
 public interface RoomDetailsService {
 
-    int insertSelective(RoomNewDetailsReq record);
+    RespId insertSelective(RoomNewDetailsReq record);
 
     RoomBasicsTypeResp getRoomBasicsType();
 

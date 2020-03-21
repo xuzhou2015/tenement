@@ -3,8 +3,9 @@ package com.tenement.dao.mapper;
 import com.tenement.domain.dto.BrokerExmple;
 import com.tenement.domain.po.Broker;
 
-public interface BrokerMapper {
+import java.util.List;
 
+public interface BrokerMapper {
     int deleteByPrimaryKey(Integer brokerId);
 
     int insert(Broker record);
@@ -13,8 +14,9 @@ public interface BrokerMapper {
 
     Broker selectByPrimaryKey(BrokerExmple exmple);
 
+    List<Broker> selectByPrimaryList(BrokerExmple exmple);
+
     int updateByPrimaryKeySelective(Broker record);
 
     int updateByPrimaryKey(Broker record);
-
 }

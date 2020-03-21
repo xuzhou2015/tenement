@@ -1,13 +1,15 @@
 package com.tenement.service.impl;
 
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.tenement.dao.mapper.BrokerMapper;
+import com.tenement.domain.common.BeanUtils;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.CommonResultCode;
-import com.tenement.domain.dto.BrokerExmple;
-import com.tenement.domain.dto.BrokerReq;
+import com.tenement.domain.dto.*;
 import com.tenement.domain.po.Broker;
 import com.tenement.service.api.BrokerService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,43 +24,100 @@ public class BrokerServiceimpl implements BrokerService {
 
     /**
      * 新增经济人
+     *
      * @param record
      * @return
      */
     @Override
-    public int addBroker(BrokerReq record) {
+    public RespId addBroker(BrokerReq record) {
 
 
-        Broker broker=new Broker();
+        RespId respId=new RespId();
+        Broker broker = BeanUtils.convert(record, Broker.class);
 
-        BeanUtils.copyProperties(record,broker);
 
-        BrokerExmple brokerExmple=new BrokerExmple();
+        BrokerExmple brokerExmple = new BrokerExmple();
         brokerExmple.setBrokerName(record.getBrokerName());
 
-        Broker brokers=brokerMapper.selectByPrimaryKey(brokerExmple);
-        if(brokers==null){
-            broker.setCareteTime(new Date());
+        Broker brokers = brokerMapper.selectByPrimaryKey(brokerExmple);
+        if (brokers == null) {
+            broker.setCreationTime(new Date());
             brokerMapper.insertSelective(broker);
-            return 1;
+            if(broker.getId() !=null){
+                respId.setId(broker.getId());
+            }
+            return respId;
         }
-
         throw new BusinessException(CommonResultCode.USER_REPETITION);
 
     }
 
     /**
      * 查询经济人列表
+     *
      * @param brokerExmple
      * @return
      */
     @Override
-    public List<Broker> listBroker(BrokerExmple brokerExmple){
+    public PageInfo<BrokerResp> listBroker(BrokerExmple brokerExmple) {
 
-     // List<Broker> brokerList=brokerMapper.selectByPrimaryList(brokerExmple);
 
-     // return brokerList;
+        if (brokerExmple.getPageNum() == null || brokerExmple.getPageSize() == null) {
+            throw new BusinessException(CommonResultCode.ILLEGAL_REQ_PARAMETER);
+        }
+
+        PageHelper.startPage(brokerExmple.getPageNum(), brokerExmple.getPageSize());
+
+        List<Broker> brokerList = brokerMapper.selectByPrimaryList(brokerExmple);
+
+        if (brokerList != null && brokerList.size() > 0) {
+
+            List<BrokerResp> brokerResps = BeanUtils.convertList(brokerList, BrokerResp.class);
+
+            PageInfo<BrokerResp> pageInfo = new PageInfo<>(brokerResps);
+
+            return pageInfo;
+        }
 
         return null;
+    }
+
+    /**
+     * 查询经济人详情
+     * @param brokerExmple
+     * @return
+     */
+    @Override
+    public BrokerResp getBroker(BrokerExmple brokerExmple){
+
+        BrokerResp brokerResp=null;
+
+        Broker broker=brokerMapper.selectByPrimaryKey(brokerExmple);
+        if(broker !=null){
+
+             brokerResp=BeanUtils.convert(broker,BrokerResp.class);
+
+        }
+        return brokerResp;
+
+    }
+    @Override
+    public boolean updateBroker(Broker req){
+
+        if(brokerMapper.updateByPrimaryKey(req) > 0){
+            return true;
+        }
+
+        return false;
+
+    }
+    @Override
+    public boolean deleteBroker(Integer brokerId){
+
+        if(brokerMapper.deleteByPrimaryKey(brokerId) >0){
+
+            return true;
+        }
+        return false;
     }
 }

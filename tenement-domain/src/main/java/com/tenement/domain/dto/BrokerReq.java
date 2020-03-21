@@ -16,35 +16,46 @@ public class BrokerReq implements Serializable {
 
 
 
-    @NotBlank
+    private Integer id;
+
     private String brokerName;
 
-    @NotBlank
+
     private String brokerPhone;
 
-    @NotNull
+
     private Double rank;
 
-    @NotNull
+
     private Double roomGoal;
 
-    @NotNull
+
     private Double serviceGoal;
 
-    @NotNull
+
     private Double evaluateGoal;
 
-    @NotBlank
+
     private String companyName;
 
-    @NotBlank
+
     private String shopName;
 
-    @NotBlank
+
     private String cardNumber;
 
-    @NotBlank
+
     private String companyCode;
+
+    private String userPhoto;
+
+    private String wx;
+
+    private Integer creationUserid;
+
+    private String creationName;
+
+
 
 
 }

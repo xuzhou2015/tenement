@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tenement.dao.mapper.RoomNewDetailsMapper" >
   <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomNewDetails" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="img" property="img" jdbcType="VARCHAR" />
@@ -32,12 +32,13 @@
     <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
     <result column="delete_yn" property="deleteYn" jdbcType="TINYINT" />
     <result column="house_area" property="houseArea" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, title, img, management_type, address, build_area, status, telephone, metro_yn, 
     school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, house_style,
     build_date, sale_date, finished_date, housestyle_style, finish_type, districtId, heating_tyte,
-    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area
+    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -87,7 +88,7 @@
       house_price, equity_time, price_total, 
       userId, creatime, delete_yn
       )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
       #{img,jdbcType=VARCHAR}, #{managementType,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR}, 
       #{buildArea,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{telephone,jdbcType=VARCHAR}, 
       #{metroYn,jdbcType=TINYINT}, #{schoolYn,jdbcType=TINYINT}, #{elevatorYn,jdbcType=TINYINT}, 
@@ -99,7 +100,7 @@
       #{userid,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}, #{deleteYn,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomNewDetails" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  keyColumn="id" parameterType="com.tenement.domain.po.RoomNewDetails" >
     insert into room_new_details
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -189,10 +190,13 @@
       <if test="deleteYn != null" >
         delete_yn,
       </if>
+      <if test="brokerId !=null">
+        broker_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
@@ -277,6 +281,9 @@
       </if>
       <if test="deleteYn != null" >
         #{deleteYn,jdbcType=TINYINT},
+      </if>
+      <if test="brokerId !=null">
+        #{brokerId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -368,7 +375,7 @@
         delete_yn = #{deleteYn,jdbcType=TINYINT},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomNewDetails" >
     update room_new_details
@@ -400,7 +407,7 @@
       userId = #{userid,jdbcType=INTEGER},
       creatime = #{creatime,jdbcType=TIMESTAMP},
       delete_yn = #{deleteYn,jdbcType=TINYINT}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 
 </mapper>

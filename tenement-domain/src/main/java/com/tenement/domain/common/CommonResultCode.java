@@ -16,7 +16,9 @@ public enum  CommonResultCode implements ResultCode {
 
     USER_REPETITION(4, "此用户名已存在"),
 
-    DUPLICATE_KEY(3, "唯一校验失败,请检查是否存在同样的数据");
+    DUPLICATE_KEY(3, "唯一校验失败,请检查是否存在同样的数据"),
+
+    LONING(4, "请先登陆用户！");
 
 
 

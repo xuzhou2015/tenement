@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 public class RoomNewDetailsReq implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -69,6 +69,8 @@ public class RoomNewDetailsReq implements Serializable {
     private Date creatime;
 
     private Integer houseArea;
+
+    private Integer brokerId;
 
 
 }

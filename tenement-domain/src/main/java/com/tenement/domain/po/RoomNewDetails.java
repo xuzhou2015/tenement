@@ -3,7 +3,7 @@ package com.tenement.domain.po;
 import java.util.Date;
 
 public class RoomNewDetails {
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -63,11 +63,13 @@ public class RoomNewDetails {
 
     private Integer houseArea;
 
-    public Long getId() {
+    private Integer brokerId;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -303,5 +305,13 @@ public class RoomNewDetails {
 
     public void setHouseArea(Integer houseArea) {
         this.houseArea = houseArea;
+    }
+
+    public Integer getBrokerId() {
+        return brokerId;
+    }
+
+    public void setBrokerId(Integer brokerId) {
+        this.brokerId = brokerId;
     }
 }

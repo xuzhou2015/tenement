@@ -65,8 +65,9 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
 
 
     @Override
-    public int insertSelective(RoomNewDetailsReq record) {
+    public RespId insertSelective(RoomNewDetailsReq record) {
 
+        RespId respId=new RespId();
 
         RoomNewDetails roomNewDetails= BeanUtils.convert(record,RoomNewDetails.class);
 
@@ -74,7 +75,10 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
 
         roomNewDetailsMapper.insertSelective(roomNewDetails);
 
-        return 1;
+        if(roomNewDetails.getId() !=null){
+            respId.setId(roomNewDetails.getId());
+        }
+        return respId;
 
     }
 
@@ -138,17 +142,19 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
             throw new BusinessException(CommonResultCode.ILLEGAL_REQ_PARAMETER);
         }
 
-
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
-
 
        List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
 
-       List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
+       if(roomNewDetailsList !=null && roomNewDetailsList.size()>0){
+           List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
 
-       PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
+           PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
 
-        return pageInfo;
+           return pageInfo;
+       }
+        return null;
+
     }
     /**
      * 修改新房信息
