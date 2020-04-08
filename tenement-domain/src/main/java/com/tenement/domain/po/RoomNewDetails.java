@@ -65,6 +65,16 @@ public class RoomNewDetails {
 
     private Integer brokerId;
 
+    private String swiperPhoto;
+
+    private String houseStylePhoto;
+
+    private Integer homePage;
+
+    private Integer hotRecommend;
+
+    private Integer guessLike;
+
     public Integer getId() {
         return id;
     }
@@ -313,5 +323,45 @@ public class RoomNewDetails {
 
     public void setBrokerId(Integer brokerId) {
         this.brokerId = brokerId;
+    }
+
+    public String getSwiperPhoto() {
+        return swiperPhoto;
+    }
+
+    public void setSwiperPhoto(String swiperPhoto) {
+        this.swiperPhoto = swiperPhoto;
+    }
+
+    public String getHouseStylePhoto() {
+        return houseStylePhoto;
+    }
+
+    public void setHouseStylePhoto(String houseStylePhoto) {
+        this.houseStylePhoto = houseStylePhoto;
+    }
+
+    public Integer getHomePage() {
+        return homePage;
+    }
+
+    public void setHomePage(Integer homePage) {
+        this.homePage = homePage;
+    }
+
+    public Integer getHotRecommend() {
+        return hotRecommend;
+    }
+
+    public void setHotRecommend(Integer hotRecommend) {
+        this.hotRecommend = hotRecommend;
+    }
+
+    public Integer getGuessLike() {
+        return guessLike;
+    }
+
+    public void setGuessLike(Integer guessLike) {
+        this.guessLike = guessLike;
     }
 }

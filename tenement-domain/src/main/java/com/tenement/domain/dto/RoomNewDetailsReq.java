@@ -72,5 +72,15 @@ public class RoomNewDetailsReq implements Serializable {
 
     private Integer brokerId;
 
+    private String swiperPhoto;
+
+    private String houseStylePhoto;
+
+    private Integer homePage;
+
+    private Integer hotRecommend;
+
+    private Integer guessLike;
+
 
 }

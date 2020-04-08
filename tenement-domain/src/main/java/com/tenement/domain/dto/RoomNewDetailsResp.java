@@ -72,4 +72,16 @@ public class RoomNewDetailsResp implements Serializable {
     private Byte deleteYn;
 
     private Integer houseArea;
+
+    private Integer brokerId;
+
+    private String swiperPhoto;
+
+    private String houseStylePhoto;
+
+    private Integer homePage;
+
+    private Integer hotRecommend;
+
+    private Integer guessLike;
 }

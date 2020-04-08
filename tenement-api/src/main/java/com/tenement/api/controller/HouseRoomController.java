@@ -10,10 +10,7 @@ import com.tenement.domain.po.RoomTenementType;
 import com.tenement.domain.util.ResponseUtils;
 import com.tenement.domain.vo.RoomDetailsInfo;
 import com.tenement.domain.vo.SysUserVo;
-import com.tenement.service.api.DistrictService;
-import com.tenement.service.api.RoomAreaService;
-import com.tenement.service.api.RoomDetailsService;
-import com.tenement.service.api.RoomTenementTypeService;
+import com.tenement.service.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +42,8 @@ public class HouseRoomController {
 
     @Autowired
     private DistrictService districtService;
+
+
 
     /**
      *  创建房屋信息
@@ -198,6 +197,8 @@ public class HouseRoomController {
         }
 
     }
+
+
 
     @RequestMapping(value = "/index")
     public String index() throws RuntimeException {

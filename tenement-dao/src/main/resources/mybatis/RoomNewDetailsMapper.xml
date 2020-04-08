@@ -33,12 +33,17 @@
     <result column="delete_yn" property="deleteYn" jdbcType="TINYINT" />
     <result column="house_area" property="houseArea" jdbcType="INTEGER" />
     <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
+    <result column="swiper_photo" property="swiperPhoto" jdbcType="INTEGER" />
+    <result column="house_style_photo" property="houseStylePhoto" jdbcType="INTEGER" />
+    <result column="homePage" property="homePage" jdbcType="TINYINT" />
+    <result column="hotRecommend" property="hotRecommend" jdbcType="TINYINT" />
+    <result column="guessLike" property="guessLike" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, title, img, management_type, address, build_area, status, telephone, metro_yn, 
     school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, house_style,
     build_date, sale_date, finished_date, housestyle_style, finish_type, districtId, heating_tyte,
-    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id
+    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id,swiper_photo,house_style_photo,homePage,hotRecommend,guessLike
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -193,6 +198,23 @@
       <if test="brokerId !=null">
         broker_id,
       </if>
+      <if test="swiperPhoto !=null">
+        swiper_photo,
+      </if>
+      <if test="houseStylePhoto !=null">
+        house_style_photo,
+      </if>
+
+      <if test="homePage !=null">
+        homePage,
+      </if>
+
+      <if test="hotRecommend !=null">
+        hotRecommend,
+      </if>
+      <if test="guessLike !=null">
+        guessLike,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -285,6 +307,22 @@
       <if test="brokerId !=null">
         #{brokerId,jdbcType=INTEGER},
       </if>
+      <if test="swiperPhoto !=null">
+        #{swiperPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStylePhoto !=null">
+        #{houseStylePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage !=null">
+        #{homePage,jdbcType=TINYINT},
+      </if>
+
+      <if test="hotRecommend !=null">
+        #{hotRecommend,jdbcType=TINYINT},
+      </if>
+      <if test="guessLike !=null">
+        #{guessLike,jdbcType=TINYINT},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomNewDetails" >
@@ -373,6 +411,25 @@
       </if>
       <if test="deleteYn != null" >
         delete_yn = #{deleteYn,jdbcType=TINYINT},
+      </if>
+      <if test="brokerId !=null">
+        #{broker_id,jdbcType=INTEGER},
+      </if>
+      <if test="swiperPhoto !=null">
+        #{swiper_photo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStylePhoto !=null">
+        #{house_style_photo,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage !=null">
+        #{homePage,jdbcType=TINYINT},
+      </if>
+
+      <if test="hotRecommend !=null">
+        #{hotRecommend,jdbcType=TINYINT},
+      </if>
+      <if test="guessLike !=null">
+        #{guessLike,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
