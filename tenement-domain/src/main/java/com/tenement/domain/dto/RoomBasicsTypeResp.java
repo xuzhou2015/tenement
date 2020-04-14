@@ -29,4 +29,10 @@ public class RoomBasicsTypeResp implements Serializable {
 
     //装修改类型
     List<RoomDecorationType> roomDecorationTypeList;
+
+    //房型其它类型
+    List<RoomOther> roomOtherList;
+
+    List<RoomOrientation> roomOrientations;
+
 }

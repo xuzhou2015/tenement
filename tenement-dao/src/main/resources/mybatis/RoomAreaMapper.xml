@@ -4,9 +4,11 @@
   <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomArea" >
     <id column="area_id" property="areaId" jdbcType="BIGINT" />
     <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="area_min" property="areaMin" jdbcType="INTEGER" />
+    <result column="area_max" property="areaMax" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    area_id, area_name
+    area_id, area_name,area_min,area_max
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 

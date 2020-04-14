@@ -1,14 +1,23 @@
 package com.tenement.service.api;
 
+import com.github.pagehelper.PageInfo;
 import com.tenement.domain.dto.BrokerExmple;
 import com.tenement.domain.dto.BrokerReq;
+import com.tenement.domain.dto.BrokerResp;
+import com.tenement.domain.dto.RespId;
 import com.tenement.domain.po.Broker;
 
 import java.util.List;
 
 public interface BrokerService {
 
-    int addBroker(BrokerReq record);
+    RespId addBroker(BrokerReq record);
 
-    List<Broker> listBroker(BrokerExmple brokerExmple);
+    PageInfo<BrokerResp> listBroker(BrokerExmple brokerExmple);
+
+    BrokerResp getBroker(BrokerExmple brokerExmple);
+
+     boolean updateBroker(Broker req);
+
+    boolean deleteBroker(Integer brokerId);
 }

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomNewDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomNewDetails" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="management_type" property="managementType" jdbcType="TINYINT" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="build_area" property="buildArea" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="metro_yn" property="metroYn" jdbcType="TINYINT" />
+    <result column="school_yn" property="schoolYn" jdbcType="TINYINT" />
+    <result column="elevator_yn" property="elevatorYn" jdbcType="TINYINT" />
+    <result column="safety_yn" property="safetyYn" jdbcType="TINYINT" />
+    <result column="traffic_yn" property="trafficYn" jdbcType="TINYINT" />
+    <result column="business_yn" property="businessYn" jdbcType="TINYINT" />
+    <result column="house_style" property="houseStyle" jdbcType="VARCHAR" />
+    <result column="build_date" property="buildDate" jdbcType="INTEGER" />
+    <result column="sale_date" property="saleDate" jdbcType="TIMESTAMP" />
+    <result column="finished_date" property="finishedDate" jdbcType="TIMESTAMP" />
+    <result column="housestyle_style" property="housestyleStyle" jdbcType="TINYINT" />
+    <result column="finish_type" property="finishType" jdbcType="TINYINT" />
+    <result column="districtId" property="districtid" jdbcType="INTEGER" />
+    <result column="heating_tyte" property="heatingTyte" jdbcType="TINYINT" />
+    <result column="house_price" property="housePrice" jdbcType="INTEGER" />
+    <result column="equity_time" property="equityTime" jdbcType="INTEGER" />
+    <result column="price_total" property="priceTotal" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+    <result column="delete_yn" property="deleteYn" jdbcType="TINYINT" />
+    <result column="house_area" property="houseArea" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
+    <result column="swiper_photo" property="swiperPhoto" jdbcType="INTEGER" />
+    <result column="house_style_photo" property="houseStylePhoto" jdbcType="INTEGER" />
+    <result column="homePage" property="homePage" jdbcType="TINYINT" />
+    <result column="hotRecommend" property="hotRecommend" jdbcType="TINYINT" />
+    <result column="guessLike" property="guessLike" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, title, img, management_type, address, build_area, status, telephone, metro_yn, 
+    school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, house_style,
+    build_date, sale_date, finished_date, housestyle_style, finish_type, districtId, heating_tyte,
+    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id,swiper_photo,house_style_photo,homePage,hotRecommend,guessLike
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_new_details
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectByPrimaryList" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListRoomDetailsReq">
+        select
+        <include refid="Base_Column_List" />
+        from room_new_details
+       <where>
+          <trim prefixOverrides="and">
+             <if test="name !=null">
+               and name  like "%"#{name}"%"
+             </if>
+              <if test="beginSaleDate !=null and endSaleDate !=null">
+                and sale_date &gt;=#{beginSaleDate} and sale_date &lt;= #{endSaleDate}
+              </if>
+              <if test="beginFinishedDate !=null and endFinishedDate !=null">
+                and finished_date &gt;=#{beginFinishedDate} and finished_date &lt;= #{endFinishedDate}
+              </if>
+              <if test="status !=null">
+                and status=#{status}
+              </if>
+              <if test="minHousePrice !=null and maxHouserPrice !=null">
+                and house_price &gt;=#{minHousePrice} and house_price &lt;= #{maxHouserPrice}
+
+              </if>
+            <if test="homePage !=null">
+              and homePage=#{homePage}
+            </if>
+            <if test="hotRecommend !=null">
+              and hotRecommend=#{hotRecommend}
+            </if>
+            <if test="guessLike !=null">
+              and guessLike=#{guessLike}
+            </if>
+
+          </trim>
+       </where>
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from room_new_details
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.RoomNewDetails" >
+    insert into room_new_details (id, name, title, 
+      img, management_type, address, 
+      build_area, status, telephone, 
+      metro_yn, school_yn, elevator_yn, 
+      safety_yn, traffic_yn, business_yn,
+      houseStyle, build_date,
+      sale_date, finished_date, housestyle_style,
+      finish_type, districtId, heating_tyte, 
+      house_price, equity_time, price_total, 
+      userId, creatime, delete_yn
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{img,jdbcType=VARCHAR}, #{managementType,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR}, 
+      #{buildArea,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{telephone,jdbcType=VARCHAR}, 
+      #{metroYn,jdbcType=TINYINT}, #{schoolYn,jdbcType=TINYINT}, #{elevatorYn,jdbcType=TINYINT}, 
+      #{safetyYn,jdbcType=TINYINT}, #{trafficYn,jdbcType=TINYINT}, #{businessYn,jdbcType=TINYINT}, 
+      #{houseStyle,jdbcType=VARCHAR}, #{buildDate,jdbcType=INTEGER},
+      #{saleDate,jdbcType=TIMESTAMP}, #{finishedDate,jdbcType=TIMESTAMP}, #{housestyleStyle,jdbcType=TINYINT},
+      #{finishType,jdbcType=TINYINT}, #{districtid,jdbcType=TINYINT}, #{heatingTyte,jdbcType=TINYINT}, 
+      #{housePrice,jdbcType=INTEGER}, #{equityTime,jdbcType=INTEGER}, #{priceTotal,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}, #{deleteYn,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  keyColumn="id" parameterType="com.tenement.domain.po.RoomNewDetails" >
+    insert into room_new_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="managementType != null" >
+        management_type,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="buildArea != null" >
+        build_area,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="metroYn != null" >
+        metro_yn,
+      </if>
+      <if test="schoolYn != null" >
+        school_yn,
+      </if>
+      <if test="elevatorYn != null" >
+        elevator_yn,
+      </if>
+      <if test="safetyYn != null" >
+        safety_yn,
+      </if>
+      <if test="trafficYn != null" >
+        traffic_yn,
+      </if>
+      <if test="businessYn != null" >
+        business_yn,
+      </if>
+      <if test="houseStyle!= null" >
+        house_style,
+      </if>
+      <if test="buildDate != null" >
+        build_date,
+      </if>
+      <if test="saleDate != null" >
+        sale_date,
+      </if>
+      <if test="finishedDate != null" >
+        finished_date,
+      </if>
+      <if test="housestyleStyle != null" >
+        housestyle_style,
+      </if>
+      <if test="finishType != null" >
+        finish_type,
+      </if>
+      <if test="districtid != null" >
+        districtId,
+      </if>
+      <if test="heatingTyte != null" >
+        heating_tyte,
+      </if>
+      <if test="housePrice != null" >
+        house_price,
+      </if>
+      <if test="equityTime != null" >
+        equity_time,
+      </if>
+      <if test="priceTotal != null" >
+        price_total,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="creatime != null" >
+        creatime,
+      </if>
+      <if test="deleteYn != null" >
+        delete_yn,
+      </if>
+      <if test="brokerId !=null">
+        broker_id,
+      </if>
+      <if test="swiperPhoto !=null">
+        swiper_photo,
+      </if>
+      <if test="houseStylePhoto !=null">
+        house_style_photo,
+      </if>
+
+      <if test="homePage !=null">
+        homePage,
+      </if>
+
+      <if test="hotRecommend !=null">
+        hotRecommend,
+      </if>
+      <if test="guessLike !=null">
+        guessLike,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="managementType != null" >
+        #{managementType,jdbcType=TINYINT},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null" >
+        #{buildArea,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="metroYn != null" >
+        #{metroYn,jdbcType=TINYINT},
+      </if>
+      <if test="schoolYn != null" >
+        #{schoolYn,jdbcType=TINYINT},
+      </if>
+      <if test="elevatorYn != null" >
+        #{elevatorYn,jdbcType=TINYINT},
+      </if>
+      <if test="safetyYn != null" >
+        #{safetyYn,jdbcType=TINYINT},
+      </if>
+      <if test="trafficYn != null" >
+        #{trafficYn,jdbcType=TINYINT},
+      </if>
+      <if test="businessYn != null" >
+        #{businessYn,jdbcType=TINYINT},
+      </if>
+      <if test="houseStyle != null" >
+        #{houseStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null" >
+        #{buildDate,jdbcType=INTEGER},
+      </if>
+      <if test="saleDate != null" >
+        #{saleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishedDate != null" >
+        #{finishedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="housestyleStyle != null" >
+        #{housestyleStyle,jdbcType=TINYINT},
+      </if>
+      <if test="finishType != null" >
+        #{finishType,jdbcType=TINYINT},
+      </if>
+      <if test="districtid != null" >
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="heatingTyte != null" >
+        #{heatingTyte,jdbcType=TINYINT},
+      </if>
+      <if test="housePrice != null" >
+        #{housePrice,jdbcType=INTEGER},
+      </if>
+      <if test="equityTime != null" >
+        #{equityTime,jdbcType=INTEGER},
+      </if>
+      <if test="priceTotal != null" >
+        #{priceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        #{deleteYn,jdbcType=TINYINT},
+      </if>
+      <if test="brokerId !=null">
+        #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="swiperPhoto !=null">
+        #{swiperPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStylePhoto !=null">
+        #{houseStylePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage !=null">
+        #{homePage,jdbcType=TINYINT},
+      </if>
+
+      <if test="hotRecommend !=null">
+        #{hotRecommend,jdbcType=TINYINT},
+      </if>
+      <if test="guessLike !=null">
+        #{guessLike,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomNewDetails" >
+    update room_new_details
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="managementType != null" >
+        management_type = #{managementType,jdbcType=TINYINT},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null" >
+        build_area = #{buildArea,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="metroYn != null" >
+        metro_yn = #{metroYn,jdbcType=TINYINT},
+      </if>
+      <if test="schoolYn != null" >
+        school_yn = #{schoolYn,jdbcType=TINYINT},
+      </if>
+      <if test="elevatorYn != null" >
+        elevator_yn = #{elevatorYn,jdbcType=TINYINT},
+      </if>
+      <if test="safetyYn != null" >
+        safety_yn = #{safetyYn,jdbcType=TINYINT},
+      </if>
+      <if test="trafficYn != null" >
+        traffic_yn = #{trafficYn,jdbcType=TINYINT},
+      </if>
+      <if test="businessYn != null" >
+        business_yn = #{businessYn,jdbcType=TINYINT},
+      </if>
+      <if test="houseStyle!= null" >
+        house_style= #{houseStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null" >
+        build_date = #{buildDate,jdbcType=INTEGER},
+      </if>
+      <if test="saleDate != null" >
+        sale_date = #{saleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishedDate != null" >
+        finished_date = #{finishedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="housestyleStyle != null" >
+        housestyle_style = #{housestyleStyle,jdbcType=TINYINT},
+      </if>
+      <if test="finishType != null" >
+        finish_type = #{finishType,jdbcType=TINYINT},
+      </if>
+      <if test="districtid != null" >
+        districtId = #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="heatingTyte != null" >
+        heating_tyte = #{heatingTyte,jdbcType=TINYINT},
+      </if>
+      <if test="housePrice != null" >
+        house_price = #{housePrice,jdbcType=INTEGER},
+      </if>
+      <if test="equityTime != null" >
+        equity_time = #{equityTime,jdbcType=INTEGER},
+      </if>
+      <if test="priceTotal != null" >
+        price_total = #{priceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        delete_yn = #{deleteYn,jdbcType=TINYINT},
+      </if>
+      <if test="brokerId !=null">
+        #{broker_id,jdbcType=INTEGER},
+      </if>
+      <if test="swiperPhoto !=null">
+        #{swiper_photo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStylePhoto !=null">
+        #{house_style_photo,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage !=null">
+        #{homePage,jdbcType=TINYINT},
+      </if>
+
+      <if test="hotRecommend !=null">
+        #{hotRecommend,jdbcType=TINYINT},
+      </if>
+      <if test="guessLike !=null">
+        #{guessLike,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomNewDetails" >
+    update room_new_details
+    set name = #{name,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      management_type = #{managementType,jdbcType=TINYINT},
+      address = #{address,jdbcType=VARCHAR},
+      build_area = #{buildArea,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      metro_yn = #{metroYn,jdbcType=TINYINT},
+      school_yn = #{schoolYn,jdbcType=TINYINT},
+      elevator_yn = #{elevatorYn,jdbcType=TINYINT},
+      safety_yn = #{safetyYn,jdbcType=TINYINT},
+      traffic_yn = #{trafficYn,jdbcType=TINYINT},
+      business_yn = #{businessYn,jdbcType=TINYINT},
+      house_style=#{houseStyle,jdbcType=VARCHAR},
+      build_date = #{buildDate,jdbcType=INTEGER},
+      sale_date = #{saleDate,jdbcType=TIMESTAMP},
+      finished_date = #{finishedDate,jdbcType=TIMESTAMP},
+      housestyle_style = #{housestyleStyle,jdbcType=TINYINT},
+      finish_type = #{finishType,jdbcType=TINYINT},
+      districtId = #{districtid,jdbcType=TINYINT},
+      heating_tyte = #{heatingTyte,jdbcType=TINYINT},
+      house_price = #{housePrice,jdbcType=INTEGER},
+      equity_time = #{equityTime,jdbcType=INTEGER},
+      price_total = #{priceTotal,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER},
+      creatime = #{creatime,jdbcType=TIMESTAMP},
+      delete_yn = #{deleteYn,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

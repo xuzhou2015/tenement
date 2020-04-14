@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+	http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <!-- BeanUtils 使用的 -->
+
+    <configuration>
+        <custom-converters>
+            <!-- 通用 -->
+
+            <!-- 日期 -->
+            <converter type="com.tenement.domain.common.DateConverter">
+                <class-a>java.util.Date</class-a>
+                <class-b>java.lang.String</class-b>
+            </converter>
+
+            <converter type="com.tenement.domain.common.DateConverter">
+                <class-a>java.util.Date</class-a>
+                <class-b>java.lang.Long</class-b>
+            </converter>
+
+        </custom-converters>
+    </configuration>
+
+    <!--<mapping>-->
+    <!--<class-a>com.lepay.simvo.dto.Simple</class-a>-->
+    <!--<class-b>com.lepay.simple.domain.Simple</class-b>-->
+
+    <!--<field custom-converter="com.kaffa.latte.bean.converter.RsaDecryptConverter">-->
+
+    <!--<a>a</a>-->
+
+    <!--<b>b</b>-->
+    <!--</field>-->
+    <!--</mapping>-->
+
+</mappings>  

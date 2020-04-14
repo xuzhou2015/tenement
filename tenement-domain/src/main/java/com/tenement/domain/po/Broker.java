@@ -3,7 +3,7 @@ package com.tenement.domain.po;
 import java.util.Date;
 
 public class Broker {
-    private Integer brokerId;
+    private Integer id;
 
     private String brokerName;
 
@@ -23,16 +23,25 @@ public class Broker {
 
     private String cardNumber;
 
+    private String userphoto;
+
+    private String wx;
+
     private String companyCode;
 
-    private Date careteTime;
+    private Date creationTime;
 
-    public Integer getBrokerId() {
-        return brokerId;
+    private Integer creationUserid;
+
+    private String creationName;
+
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setBrokerId(Integer brokerId) {
-        this.brokerId = brokerId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getBrokerName() {
@@ -107,6 +116,22 @@ public class Broker {
         this.cardNumber = cardNumber;
     }
 
+    public String getUserphoto() {
+        return userphoto;
+    }
+
+    public void setUserphoto(String userphoto) {
+        this.userphoto = userphoto;
+    }
+
+    public String getWx() {
+        return wx;
+    }
+
+    public void setWx(String wx) {
+        this.wx = wx;
+    }
+
     public String getCompanyCode() {
         return companyCode;
     }
@@ -115,11 +140,27 @@ public class Broker {
         this.companyCode = companyCode;
     }
 
-    public Date getCareteTime() {
-        return careteTime;
+    public Date getCreationTime() {
+        return creationTime;
     }
 
-    public void setCareteTime(Date careteTime) {
-        this.careteTime = careteTime;
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public Integer getCreationUserid() {
+        return creationUserid;
+    }
+
+    public void setCreationUserid(Integer creationUserid) {
+        this.creationUserid = creationUserid;
+    }
+
+    public String getCreationName() {
+        return creationName;
+    }
+
+    public void setCreationName(String creationName) {
+        this.creationName = creationName;
     }
 }

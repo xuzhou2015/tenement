@@ -1,192 +1,234 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tenement.dao.mapper.BrokerMapper">
-  <resultMap id="BaseResultMap" type="com.tenement.domain.po.Broker">
-    <id column="broker_id" jdbcType="INTEGER" property="brokerId" />
-    <result column="broker_name" jdbcType="VARCHAR" property="brokerName" />
-    <result column="broker_phone" jdbcType="VARCHAR" property="brokerPhone" />
-    <result column="rank" jdbcType="DOUBLE" property="rank" />
-    <result column="room_goal" jdbcType="DOUBLE" property="roomGoal" />
-    <result column="service_goal" jdbcType="DOUBLE" property="serviceGoal" />
-    <result column="evaluate_goal" jdbcType="DOUBLE" property="evaluateGoal" />
-    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
-    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
-    <result column="card_number" jdbcType="VARCHAR" property="cardNumber" />
-    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
-    <result column="carete_time" jdbcType="TIMESTAMP" property="careteTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.BrokerMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.Broker" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="broker_name" property="brokerName" jdbcType="VARCHAR" />
+    <result column="broker_phone" property="brokerPhone" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="DOUBLE" />
+    <result column="room_goal" property="roomGoal" jdbcType="DOUBLE" />
+    <result column="service_goal" property="serviceGoal" jdbcType="DOUBLE" />
+    <result column="evaluate_goal" property="evaluateGoal" jdbcType="DOUBLE" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="card_number" property="cardNumber" jdbcType="VARCHAR" />
+    <result column="userPhoto" property="userphoto" jdbcType="VARCHAR" />
+    <result column="wx" property="wx" jdbcType="VARCHAR" />
+    <result column="company_code" property="companyCode" jdbcType="VARCHAR" />
+    <result column="creation_time" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="creation_userid" property="creationUserid" jdbcType="INTEGER" />
+    <result column="creation_name" property="creationName" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
-    broker_id, broker_name, broker_phone, rank, room_goal, service_goal, evaluate_goal, 
-    company_name, shop_name, card_number, company_code, carete_time
+  <sql id="Base_Column_List" >
+    id, broker_name, broker_phone, rank, room_goal, service_goal, evaluate_goal,
+    company_name, shop_name, card_number, userPhoto, wx, company_code, creation_time, 
+    creation_userid, creation_name
   </sql>
-
-  <select id="selectByPrimaryKey" parameterType="com.tenement.domain.dto.BrokerExmple" resultMap="BaseResultMap">
-    select
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.BrokerExmple" >
+    select 
     <include refid="Base_Column_List" />
     from broker
-     <where>
-       <trim prefixOverrides="and" />
-       <if test="brokerId !=null">
-         and broker_id = #{brokerId,jdbcType=INTEGER}
-       </if>
-       <if test="brokerName !=null and brokerName !=''">
-         and broker_name=#{brokerName}
-       </if>
-       limit 1
-     </where>
-
+    <where>
+     <trim prefixOverrides="and">
+      <if test="brokerName !=null">
+        and broker_name=#{brokerName}
+      </if>
+      <if test="id !=null ">
+        and id=#{id}
+        </if>
+      </trim>
+    </where>
+    limit 1
   </select>
-  <select id="selectByPrimaryList" parameterType="com.tenement.domain.dto.BrokerExmple" resultMap="BaseResultMap">
+  <select id="selectByPrimaryList" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.BrokerExmple" >
     select
     <include refid="Base_Column_List" />
     from broker
     <where>
-      <trim prefixOverrides="and" />
-      <if test="brokerId !=null">
-        and broker_id = #{brokerId,jdbcType=INTEGER}
-      </if>
-      <if test="brokerName !=null and brokerName !=''">
-        and broker_name=#{brokerName}
-      </if>
+      <trim prefixOverrides="and">
+        <if test="brokerName !=null ">
+          and broker_name like "%"#{brokerName}"%"
+        </if>
+        <if test="brokerPhone !=null ">
+          and broker_phone like "%"#{brokerPhone}"%"
+        </if>
 
+      </trim>
     </where>
-
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from broker
-    where broker_id = #{brokerId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tenement.domain.po.Broker">
-    insert into broker (broker_id, broker_name, broker_phone, 
+  <insert id="insert" parameterType="com.tenement.domain.po.Broker" >
+    insert into broker (id, broker_name, broker_phone,
       rank, room_goal, service_goal, 
       evaluate_goal, company_name, shop_name, 
-      card_number, company_code, carete_time
-      )
-    values (#{brokerId,jdbcType=INTEGER}, #{brokerName,jdbcType=VARCHAR}, #{brokerPhone,jdbcType=VARCHAR}, 
+      card_number, userPhoto, wx, 
+      company_code, creation_time, creation_userid, 
+      creation_name)
+    values (#{id,jdbcType=INTEGER}, #{brokerName,jdbcType=VARCHAR}, #{brokerPhone,jdbcType=VARCHAR},
       #{rank,jdbcType=DOUBLE}, #{roomGoal,jdbcType=DOUBLE}, #{serviceGoal,jdbcType=DOUBLE}, 
       #{evaluateGoal,jdbcType=DOUBLE}, #{companyName,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, 
-      #{cardNumber,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR}, #{careteTime,jdbcType=TIMESTAMP}
-      )
+      #{cardNumber,jdbcType=VARCHAR}, #{userphoto,jdbcType=VARCHAR}, #{wx,jdbcType=VARCHAR}, 
+      #{companyCode,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{creationUserid,jdbcType=INTEGER}, 
+      #{creationName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tenement.domain.po.Broker">
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  keyColumn="id" parameterType="com.tenement.domain.po.Broker" >
     insert into broker
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="brokerId != null">
-        broker_id,
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
       </if>
-      <if test="brokerName != null">
+      <if test="brokerName != null" >
         broker_name,
       </if>
-      <if test="brokerPhone != null">
+      <if test="brokerPhone != null" >
         broker_phone,
       </if>
-      <if test="rank != null">
+      <if test="rank != null" >
         rank,
       </if>
-      <if test="roomGoal != null">
+      <if test="roomGoal != null" >
         room_goal,
       </if>
-      <if test="serviceGoal != null">
+      <if test="serviceGoal != null" >
         service_goal,
       </if>
-      <if test="evaluateGoal != null">
+      <if test="evaluateGoal != null" >
         evaluate_goal,
       </if>
-      <if test="companyName != null">
+      <if test="companyName != null" >
         company_name,
       </if>
-      <if test="shopName != null">
+      <if test="shopName != null" >
         shop_name,
       </if>
-      <if test="cardNumber != null">
+      <if test="cardNumber != null" >
         card_number,
       </if>
-      <if test="companyCode != null">
+      <if test="userphoto != null" >
+        userPhoto,
+      </if>
+      <if test="wx != null" >
+        wx,
+      </if>
+      <if test="companyCode != null" >
         company_code,
       </if>
-      <if test="careteTime != null">
-        carete_time,
+      <if test="creationTime != null" >
+        creation_time,
+      </if>
+      <if test="creationUserid != null" >
+        creation_userid,
+      </if>
+      <if test="creationName != null" >
+        creation_name,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="brokerId != null">
-        #{brokerId,jdbcType=INTEGER},
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="brokerName != null">
+      <if test="brokerName != null" >
         #{brokerName,jdbcType=VARCHAR},
       </if>
-      <if test="brokerPhone != null">
+      <if test="brokerPhone != null" >
         #{brokerPhone,jdbcType=VARCHAR},
       </if>
-      <if test="rank != null">
+      <if test="rank != null" >
         #{rank,jdbcType=DOUBLE},
       </if>
-      <if test="roomGoal != null">
+      <if test="roomGoal != null" >
         #{roomGoal,jdbcType=DOUBLE},
       </if>
-      <if test="serviceGoal != null">
+      <if test="serviceGoal != null" >
         #{serviceGoal,jdbcType=DOUBLE},
       </if>
-      <if test="evaluateGoal != null">
+      <if test="evaluateGoal != null" >
         #{evaluateGoal,jdbcType=DOUBLE},
       </if>
-      <if test="companyName != null">
+      <if test="companyName != null" >
         #{companyName,jdbcType=VARCHAR},
       </if>
-      <if test="shopName != null">
+      <if test="shopName != null" >
         #{shopName,jdbcType=VARCHAR},
       </if>
-      <if test="cardNumber != null">
+      <if test="cardNumber != null" >
         #{cardNumber,jdbcType=VARCHAR},
       </if>
-      <if test="companyCode != null">
+      <if test="userphoto != null" >
+        #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wx != null" >
+        #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null" >
         #{companyCode,jdbcType=VARCHAR},
       </if>
-      <if test="careteTime != null">
-        #{careteTime,jdbcType=TIMESTAMP},
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationUserid != null" >
+        #{creationUserid,jdbcType=INTEGER},
+      </if>
+      <if test="creationName != null" >
+        #{creationName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.Broker">
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.Broker" >
     update broker
-    <set>
-      <if test="brokerName != null">
+    <set >
+      <if test="brokerName != null" >
         broker_name = #{brokerName,jdbcType=VARCHAR},
       </if>
-      <if test="brokerPhone != null">
+      <if test="brokerPhone != null" >
         broker_phone = #{brokerPhone,jdbcType=VARCHAR},
       </if>
-      <if test="rank != null">
+      <if test="rank != null" >
         rank = #{rank,jdbcType=DOUBLE},
       </if>
-      <if test="roomGoal != null">
+      <if test="roomGoal != null" >
         room_goal = #{roomGoal,jdbcType=DOUBLE},
       </if>
-      <if test="serviceGoal != null">
+      <if test="serviceGoal != null" >
         service_goal = #{serviceGoal,jdbcType=DOUBLE},
       </if>
-      <if test="evaluateGoal != null">
+      <if test="evaluateGoal != null" >
         evaluate_goal = #{evaluateGoal,jdbcType=DOUBLE},
       </if>
-      <if test="companyName != null">
+      <if test="companyName != null" >
         company_name = #{companyName,jdbcType=VARCHAR},
       </if>
-      <if test="shopName != null">
+      <if test="shopName != null" >
         shop_name = #{shopName,jdbcType=VARCHAR},
       </if>
-      <if test="cardNumber != null">
+      <if test="cardNumber != null" >
         card_number = #{cardNumber,jdbcType=VARCHAR},
       </if>
-      <if test="companyCode != null">
+      <if test="userphoto != null" >
+        userPhoto = #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wx != null" >
+        wx = #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null" >
         company_code = #{companyCode,jdbcType=VARCHAR},
       </if>
-      <if test="careteTime != null">
-        carete_time = #{careteTime,jdbcType=TIMESTAMP},
+      <if test="creationTime != null" >
+        creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationUserid != null" >
+        creation_userid = #{creationUserid,jdbcType=INTEGER},
+      </if>
+      <if test="creationName != null" >
+        creation_name = #{creationName,jdbcType=VARCHAR},
       </if>
     </set>
-    where broker_id = #{brokerId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.Broker">
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.Broker" >
     update broker
     set broker_name = #{brokerName,jdbcType=VARCHAR},
       broker_phone = #{brokerPhone,jdbcType=VARCHAR},
@@ -197,8 +239,12 @@
       company_name = #{companyName,jdbcType=VARCHAR},
       shop_name = #{shopName,jdbcType=VARCHAR},
       card_number = #{cardNumber,jdbcType=VARCHAR},
+      userPhoto = #{userphoto,jdbcType=VARCHAR},
+      wx = #{wx,jdbcType=VARCHAR},
       company_code = #{companyCode,jdbcType=VARCHAR},
-      carete_time = #{careteTime,jdbcType=TIMESTAMP}
-    where broker_id = #{brokerId,jdbcType=INTEGER}
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      creation_userid = #{creationUserid,jdbcType=INTEGER},
+      creation_name = #{creationName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

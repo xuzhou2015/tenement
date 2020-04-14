@@ -1,23 +1,18 @@
 package com.tenement.domain.po;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class RoomArea {
     private Long areaId;
 
     private String areaName;
 
-    public Long getAreaId() {
-        return areaId;
-    }
+    private Integer areaMin;
 
-    public void setAreaId(Long areaId) {
-        this.areaId = areaId;
-    }
+    private Integer areaMax;
 
-    public String getAreaName() {
-        return areaName;
-    }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
-    }
 }

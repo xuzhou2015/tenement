@@ -21,68 +21,70 @@ public class ListRoomDetailsReq implements Serializable {
      */
     private Integer pageSize;
 
-    /**
-     * 排序类型(1 价格正序，1 价格倒序,3 开盘时间正序，4 开盘时间倒序)
-     */
-    private Integer orderByType;
+
 
     /**
-     * 城市ID
+     * 小区名称
      */
-    private Integer districtid;
+    private String name;
 
     /**
-     * 价格ID
+     * 开盘查询开始时间
      */
-    private Integer roomPriceId;
+    private String  beginSaleDate;
+
 
     /**
-     * 价格类型（1：单价格，2：总价）
+     * 开盘查询结束时间
      */
-    private Integer roomPriceType;
+    private String endSaleDate;
+
+
 
     /**
-     * 价格上显
+     * 交房询开始时间
      */
-    private Integer roomPriceMax;
+    private String  beginFinishedDate;
+
 
     /**
-     * 价格下显
+     * 交房时间询结束时间
      */
-    private Integer roomPriceMin;
+    private String endFinishedDate;
+
 
     /**
-     * 销售状态
+     * 售楼状态
      */
-    private Integer roomMarketStatus;
+    private Integer status;
+
 
     /**
-     * 物业类型
+     * 最小单价
      */
-    private Integer roomTenementType;
+    private Integer minHousePrice;
 
     /**
-     * 开盘时间类型
+     * 最大单价
      */
-    private Integer roomMarketTimeType;
+    private Integer maxHouserPrice;
 
-    private LocalDate roomMarketTimeMin;
-
-    private LocalDate roomMarketTimeMax;
 
     /**
-     * 装修类型
+     *是否首页
      */
-    private Integer roomDecorationType;
+    private Integer homePage;
 
     /**
-     * 面积
+     * 是否热销榜
      */
-    private Integer roomAreaId;
+    private Integer hotRecommend;
 
-    private Integer roomAreaMax;
+    /**
+     * 猜你喜欢
+     */
+    private Integer guessLike;
 
-    private Integer roomAreaMin;
 
 
 

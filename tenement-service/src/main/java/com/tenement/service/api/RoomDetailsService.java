@@ -2,19 +2,23 @@ package com.tenement.service.api;
 
 import com.github.pagehelper.PageInfo;
 import com.tenement.domain.dto.*;
-import com.tenement.domain.po.RoomDetails;
+import com.tenement.domain.po.RoomNewDetails;
 import com.tenement.domain.vo.RoomDetailsInfo;
 
 
 public interface RoomDetailsService {
 
-    int insertSelective(RoomDetailsReq record);
+    RespId insertSelective(RoomNewDetailsReq record);
 
     RoomBasicsTypeResp getRoomBasicsType();
 
-    PageInfo<RoomDetailsInfo> listRoom(ListRoomDetailsReq req);
+    PageInfo<RoomNewDetailsResp> listRoom(ListRoomDetailsReq req);
 
     PageInfo<RoomDetailsInfo> listGrabbleRoom(ListGrabbleRoomReq req);
 
-    GetRoomDetailsResp getRoomDetails(Long roomId);
+    RoomNewDetailsResp getRoomDetails(Long roomId);
+
+     boolean deleteRoomNewDetails(Long id);
+
+     boolean updateRoomNewDetails(RoomNewDetailsReq req);
 }
