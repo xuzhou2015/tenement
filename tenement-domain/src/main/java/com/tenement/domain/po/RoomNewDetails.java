@@ -45,7 +45,7 @@ public class RoomNewDetails {
 
     private Byte finishType;
 
-    private Byte districtid;
+    private Integer districtid;
 
     private Byte heatingTyte;
 
@@ -245,11 +245,11 @@ public class RoomNewDetails {
         this.finishType = finishType;
     }
 
-    public Byte getDistrictid() {
+    public Integer getDistrictid() {
         return districtid;
     }
 
-    public void setDistrictid(Byte districtid) {
+    public void setDistrictid(Integer districtid) {
         this.districtid = districtid;
     }
 

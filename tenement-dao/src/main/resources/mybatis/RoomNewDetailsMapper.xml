@@ -23,7 +23,7 @@
     <result column="finished_date" property="finishedDate" jdbcType="TIMESTAMP" />
     <result column="housestyle_style" property="housestyleStyle" jdbcType="TINYINT" />
     <result column="finish_type" property="finishType" jdbcType="TINYINT" />
-    <result column="districtId" property="districtid" jdbcType="TINYINT" />
+    <result column="districtId" property="districtid" jdbcType="INTEGER" />
     <result column="heating_tyte" property="heatingTyte" jdbcType="TINYINT" />
     <result column="house_price" property="housePrice" jdbcType="INTEGER" />
     <result column="equity_time" property="equityTime" jdbcType="INTEGER" />
@@ -73,6 +73,15 @@
                 and house_price &gt;=#{minHousePrice} and house_price &lt;= #{maxHouserPrice}
 
               </if>
+            <if test="homePage !=null">
+              and homePage=#{homePage}
+            </if>
+            <if test="hotRecommend !=null">
+              and hotRecommend=#{hotRecommend}
+            </if>
+            <if test="guessLike !=null">
+              and guessLike=#{guessLike}
+            </if>
 
           </trim>
        </where>
@@ -281,7 +290,7 @@
         #{finishType,jdbcType=TINYINT},
       </if>
       <if test="districtid != null" >
-        #{districtid,jdbcType=TINYINT},
+        #{districtid,jdbcType=INTEGER},
       </if>
       <if test="heatingTyte != null" >
         #{heatingTyte,jdbcType=TINYINT},
@@ -389,7 +398,7 @@
         finish_type = #{finishType,jdbcType=TINYINT},
       </if>
       <if test="districtid != null" >
-        districtId = #{districtid,jdbcType=TINYINT},
+        districtId = #{districtid,jdbcType=INTEGER},
       </if>
       <if test="heatingTyte != null" >
         heating_tyte = #{heatingTyte,jdbcType=TINYINT},

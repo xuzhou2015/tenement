@@ -44,6 +44,7 @@ public class commentsConntroller {
             throw new BusinessException(CommonResultCode.LONING);
         }
         req.setUid(sysUserVo.getId());
+        req.setUsernmae(sysUserVo.getTrueName());
         commentsService.addComments(req);
         return ResponseUtils.createSuccess();
     }
@@ -61,6 +62,7 @@ public class commentsConntroller {
             throw new BusinessException(CommonResultCode.LONING);
         }
         req.setAnsweruid(sysUserVo.getId());
+        req.setAnswernmae(sysUserVo.getTrueName());
         commentsService.answerComments(req);
         return ResponseUtils.createSuccess();
     }

@@ -100,6 +100,11 @@ public class UserController {
 
         return ResponseUtils.createSuccess();
     }
+    @RequestMapping("/loginss")
+    public Response logins(Double st) {
+      String str=String.valueOf(st * 100);
+        return ResponseUtils.createSuccess();
+    }
 
 
 

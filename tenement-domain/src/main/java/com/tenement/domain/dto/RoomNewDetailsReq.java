@@ -54,7 +54,7 @@ public class RoomNewDetailsReq implements Serializable {
 
     private Byte finishType;
 
-    private Byte districtid;
+    private Integer districtid;
 
     private Byte heatingTyte;
 

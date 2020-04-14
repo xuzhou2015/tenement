@@ -14,10 +14,12 @@
     <result column="answertime" property="answertime" jdbcType="TIMESTAMP" />
     <result column="answercontent" property="answercontent" jdbcType="VARCHAR" />
     <result column="down" property="down" jdbcType="INTEGER" />
+    <result column="usernmae" property="usernmae" jdbcType="VARCHAR" />
+    <result column="answernmae" property="answernmae" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, uid, newhouseid, usedhouseid, rentinghouseid, content, createtime, top, answeruid, 
-    answertime, answercontent, down
+    answertime, answercontent, down,usernmae,answernmae
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -98,6 +100,13 @@
       <if test="down != null" >
         down,
       </if>
+      <if test="usernmae != null" >
+        usernmae,
+      </if>
+      <if test="answernmae != null" >
+        answernmae,
+      </if>
+
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -135,6 +144,12 @@
       </if>
       <if test="down != null" >
         #{down,jdbcType=INTEGER},
+      </if>
+      <if test="usernmae != null" >
+        #{usernmae,jdbcType=VARCHAR},
+      </if>
+      <if test="answernmae != null" >
+        #{answernmae,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -174,6 +189,13 @@
       <if test="down != null" >
         down = #{down,jdbcType=INTEGER},
       </if>
+      <if test="usernmae != null" >
+        usernmae= #{usernmae,jdbcType=VARCHAR},
+      </if>
+      <if test="answernmae != null" >
+        answernmae=#{answernmae,jdbcType=VARCHAR},
+      </if>
+
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>

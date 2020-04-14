@@ -45,6 +45,13 @@ public class CommentsReq {
     private Integer type=0;
 
 
+    private String answernmae;
+
+    private String usernmae;
+
+
+
+
     /**
      * 当时查询页数
      */

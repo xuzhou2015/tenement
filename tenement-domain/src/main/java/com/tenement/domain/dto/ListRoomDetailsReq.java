@@ -70,6 +70,20 @@ public class ListRoomDetailsReq implements Serializable {
     private Integer maxHouserPrice;
 
 
+    /**
+     *是否首页
+     */
+    private Integer homePage;
+
+    /**
+     * 是否热销榜
+     */
+    private Integer hotRecommend;
+
+    /**
+     * 猜你喜欢
+     */
+    private Integer guessLike;
 
 
 

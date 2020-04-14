@@ -27,6 +27,10 @@ public class Comments {
 
     private Integer down;
 
+    private String answernmae;
+
+    private String usernmae;
+
     public Integer getId() {
         return id;
     }
@@ -121,5 +125,21 @@ public class Comments {
 
     public void setDown(Integer down) {
         this.down = down;
+    }
+
+    public String getAnswernmae() {
+        return answernmae;
+    }
+
+    public void setAnswernmae(String answernmae) {
+        this.answernmae = answernmae;
+    }
+
+    public String getUsernmae() {
+        return usernmae;
+    }
+
+    public void setUsernmae(String usernmae) {
+        this.usernmae = usernmae;
     }
 }
