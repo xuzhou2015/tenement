@@ -32,18 +32,25 @@
     <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
     <result column="delete_yn" property="deleteYn" jdbcType="TINYINT" />
     <result column="house_area" property="houseArea" jdbcType="INTEGER" />
-    <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerid" jdbcType="INTEGER" />
     <result column="swiper_photo" property="swiperPhoto" jdbcType="INTEGER" />
     <result column="house_style_photo" property="houseStylePhoto" jdbcType="INTEGER" />
     <result column="homePage" property="homePage" jdbcType="TINYINT" />
     <result column="hotRecommend" property="hotRecommend" jdbcType="TINYINT" />
     <result column="guessLike" property="guessLike" jdbcType="TINYINT" />
+    <result column="management" property="management" jdbcType="VARCHAR" />
+    <result column="managementPrice" property="managementPrice" jdbcType="DOUBLE" />
+    <result column="greenPoint" property="greenPoint" jdbcType="VARCHAR" />
+    <result column="personNum" property="personNum" jdbcType="INTEGER" />
+    <result column="carNum" property="carNum" jdbcType="INTEGER" />
+    <result column="projectAdvantage" property="projectAdvantage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, title, img, management_type, address, build_area, status, telephone, metro_yn, 
     school_yn, elevator_yn, safety_yn, traffic_yn, business_yn, house_style,
     build_date, sale_date, finished_date, housestyle_style, finish_type, districtId, heating_tyte,
-    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id,swiper_photo,house_style_photo,homePage,hotRecommend,guessLike
+    house_price, equity_time, price_total, userId, creatime, delete_yn,house_area,broker_id,swiper_photo,house_style_photo,homePage,hotRecommend,guessLike,
+    management,managementPrice,greenPoint,personNum,carNum,projectAdvantage
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -85,6 +92,60 @@
 
           </trim>
        </where>
+    </select>
+    <select id="listGrabbleRoom" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListGrabbleRoomReq" >
+      select
+      <include refid="Base_Column_List" />
+      from room_new_details
+      <where>
+        <trim prefixOverrides="and" />
+        <if test="districtid !=null">
+          and districtId=#{districtid}
+        </if>
+        <if test="name !=null ">
+          and name like '%${name}%'
+        </if>
+
+        <if test="priceMin !=null and priceMax !=null">
+          and price_total &gt;=#{priceMin} and price_total &lt;=#{priceMax}
+        </if>
+        <if test="houseAreaMin !=null and houseAreaMax !=null">
+
+          and house_area &gt;=#{houseAreaMin} and house_area &lt;=#{houseAreaMax}
+        </if>
+        <if test="houseStyles !=null">
+          and house_style=#{houseStyles}
+        </if>
+        <if test="metroYn !=null">
+          and metro_yn=#{metroYn}
+
+        </if>
+        <if test="schoolYn !=null">
+          and school_yn=#{schoolYn}
+
+        </if>
+        <if test="elevatorYn !=null">
+          and elevator_yn=#{elevatorYn}
+
+        </if>
+        <if test="safetyYn !=null">
+          and safety_yn=#{safetyYn}
+
+        </if>
+        <if test="managementType !=null">
+          and management_type=#{managementType}
+
+        </if>
+        <if test="status !=null">
+          and status=#{status}
+
+        </if>
+        <if test="equityTime !=null">
+          and equity_time=#{equityTime}
+
+        </if>
+
+      </where>
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from room_new_details
@@ -204,7 +265,7 @@
       <if test="deleteYn != null" >
         delete_yn,
       </if>
-      <if test="brokerId !=null">
+      <if test="brokerid !=null">
         broker_id,
       </if>
       <if test="swiperPhoto !=null">
@@ -223,6 +284,25 @@
       </if>
       <if test="guessLike !=null">
         guessLike,
+      </if>
+
+      <if test="management !=null">
+        management,
+      </if>
+      <if test="managementPrice !=null">
+        managementPrice,
+      </if>
+      <if test="greenPoint !=null">
+        greenPoint,
+      </if>
+      <if test="personNum !=null">
+        personNum,
+      </if>
+      <if test="carNum !=null">
+        carNum,
+      </if>
+      <if test="projectAdvantage !=null">
+        projectAdvantage,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -313,8 +393,8 @@
       <if test="deleteYn != null" >
         #{deleteYn,jdbcType=TINYINT},
       </if>
-      <if test="brokerId !=null">
-        #{brokerId,jdbcType=INTEGER},
+      <if test="brokerid !=null">
+        #{brokerid,jdbcType=INTEGER},
       </if>
       <if test="swiperPhoto !=null">
         #{swiperPhoto,jdbcType=VARCHAR},
@@ -331,6 +411,25 @@
       </if>
       <if test="guessLike !=null">
         #{guessLike,jdbcType=TINYINT},
+      </if>
+
+      <if test="management !=null">
+        #{management,jdbcType=VARCHAR},
+      </if>
+      <if test="managementPrice !=null">
+        #{managementPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="greenPoint !=null">
+        #{greenPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="personNum !=null">
+        #{personNum,jdbcType=INTEGER},
+      </if>
+      <if test="carNum !=null">
+        #{carNum,jdbcType=INTEGER},
+      </if>
+      <if test="projectAdvantage !=null">
+        #{projectAdvantage,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -421,24 +520,43 @@
       <if test="deleteYn != null" >
         delete_yn = #{deleteYn,jdbcType=TINYINT},
       </if>
-      <if test="brokerId !=null">
-        #{broker_id,jdbcType=INTEGER},
+      <if test="brokerid !=null">
+        broker_id=#{brokerid,jdbcType=INTEGER},
       </if>
       <if test="swiperPhoto !=null">
-        #{swiper_photo,jdbcType=VARCHAR},
+        swiper_photo=  #{swiperPhoto,jdbcType=VARCHAR},
       </if>
       <if test="houseStylePhoto !=null">
-        #{house_style_photo,jdbcType=VARCHAR},
+        house_style_photo= #{houseStylePhoto,jdbcType=VARCHAR},
       </if>
       <if test="homePage !=null">
-        #{homePage,jdbcType=TINYINT},
+        homePage= #{homePage,jdbcType=TINYINT},
       </if>
 
       <if test="hotRecommend !=null">
-        #{hotRecommend,jdbcType=TINYINT},
+        hotRecommend= #{hotRecommend,jdbcType=TINYINT},
       </if>
       <if test="guessLike !=null">
-        #{guessLike,jdbcType=TINYINT},
+        guessLike= #{guessLike,jdbcType=TINYINT},
+      </if>
+
+      <if test="management !=null">
+        management =#{management,jdbcType=VARCHAR},
+      </if>
+      <if test="managementPrice !=null">
+        managementPrice=#{managementPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="greenPoint !=null">
+        greenPoint=#{greenPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="personNum !=null">
+        personNum=#{personNum,jdbcType=INTEGER},
+      </if>
+      <if test="carNum !=null">
+        carNum=#{carNum,jdbcType=INTEGER},
+      </if>
+      <if test="projectAdvantage !=null">
+        projectAdvantage= #{projectAdvantage,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

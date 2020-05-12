@@ -14,7 +14,7 @@ public interface RoomDetailsService {
 
     PageInfo<RoomNewDetailsResp> listRoom(ListRoomDetailsReq req);
 
-    PageInfo<RoomDetailsInfo> listGrabbleRoom(ListGrabbleRoomReq req);
+    PageInfo<RoomNewDetailsResp> listGrabbleRoom(ListGrabbleRoomReq req);
 
     RoomNewDetailsResp getRoomDetails(Long roomId);
 

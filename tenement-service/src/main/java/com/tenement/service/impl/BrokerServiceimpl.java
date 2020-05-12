@@ -9,6 +9,7 @@ import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.CommonResultCode;
 import com.tenement.domain.dto.*;
 import com.tenement.domain.po.Broker;
+import com.tenement.domain.po.RoomNewDetails;
 import com.tenement.service.api.BrokerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,9 +73,18 @@ public class BrokerServiceimpl implements BrokerService {
 
         if (brokerList != null && brokerList.size() > 0) {
 
-            List<BrokerResp> brokerResps = BeanUtils.convertList(brokerList, BrokerResp.class);
+            PageInfo<Broker> pageInfos=new PageInfo<Broker>(brokerList);
 
+            long total=pageInfos.getTotal();
+            int pagenum=pageInfos.getPageNum();
+            int pagesize=pageInfos.getPageSize();
+
+
+            List<BrokerResp> brokerResps = BeanUtils.convertList(brokerList, BrokerResp.class);
             PageInfo<BrokerResp> pageInfo = new PageInfo<>(brokerResps);
+            pageInfo.setTotal(total);
+            pageInfo.setPageNum(pagenum);
+            pageInfo.setPageSize(pagesize);
 
             return pageInfo;
         }

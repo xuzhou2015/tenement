@@ -2,6 +2,7 @@ package com.tenement.api.config;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.CommonResultCode;
 import com.tenement.domain.common.Response;
 import com.tenement.domain.common.StringUtils;
@@ -39,7 +40,11 @@ public class AgbweappControllerAdvice implements RequestBodyAdvice {
     @ExceptionHandler(value = {JsonMappingException.class, JsonParseException.class})
     public Response errorHandler(Exception e) {
 
-        return ResponseUtils.create(CommonResultCode.ILLEGAL_REQ_PARAMETER);
+        String str=e.getMessage();
+        BusinessException businessException=new BusinessException();
+        return ResponseUtils.create(businessException.getStatusCode(),str);
+
+       // return ResponseUtils.create(CommonResultCode.ILLEGAL_REQ_PARAMETER);
 
     }
 

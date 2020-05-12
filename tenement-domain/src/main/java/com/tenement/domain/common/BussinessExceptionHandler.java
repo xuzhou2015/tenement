@@ -28,8 +28,12 @@ public class BussinessExceptionHandler {
             IOException {
 
         try{
-            BusinessException businessException=(BusinessException)e;
-            return ResponseUtils.create(businessException.getStatusCode(),businessException.getRsMsg());
+            String str=e.getMessage();
+            BusinessException businessException=new BusinessException();
+            return ResponseUtils.create(businessException.getStatusCode(),str);
+
+//            BusinessException businessException=(BusinessException)e;
+//            return ResponseUtils.create(businessException.getStatusCode(),businessException.getRsMsg());
 
         }catch (Exception x){
             log.error(x.toString());

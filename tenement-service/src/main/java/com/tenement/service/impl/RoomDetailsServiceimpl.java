@@ -1,5 +1,6 @@
 package com.tenement.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tenement.dao.mapper.*;
@@ -10,6 +11,7 @@ import com.tenement.domain.dto.*;
 import com.tenement.domain.po.*;
 import com.tenement.domain.vo.RoomDetailsInfo;
 import com.tenement.service.api.RoomDetailsService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -142,17 +144,27 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
             throw new BusinessException(CommonResultCode.ILLEGAL_REQ_PARAMETER);
         }
 
+
+
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
+        List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
+        if(roomNewDetailsList !=null && roomNewDetailsList.size()>0){
+            PageInfo<RoomNewDetails> pageInfos=new PageInfo<RoomNewDetails>(roomNewDetailsList);
+            long total=pageInfos.getTotal();
+            int pagenum=pageInfos.getPageNum();
+            int pagesize=pageInfos.getPageSize();
 
-       List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.selectByPrimaryList(req);
 
-       if(roomNewDetailsList !=null && roomNewDetailsList.size()>0){
-           List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
+            List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
+            PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
+            pageInfo.setTotal(total);
+            pageInfo.setPageNum(pagenum);
+            pageInfo.setPageSize(pagesize);
 
-           PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
 
-           return pageInfo;
-       }
+
+            return pageInfo;
+        }
         return null;
 
     }
@@ -196,22 +208,59 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
      * @return
      */
     @Override
-    public PageInfo<RoomDetailsInfo> listGrabbleRoom(ListGrabbleRoomReq req){
+    public PageInfo<RoomNewDetailsResp> listGrabbleRoom(ListGrabbleRoomReq req){
 
-         if(req.getDistrictid()==null){
-             throw new BusinessException(CommonResultCode.ILLEGAL_REQ_PARAMETER);
+         //总价
+         if(!StringUtils.isEmpty(req.getPriceTotal())){
+
+             String[] priceArray=req.getPriceTotal().split("\\|");
+             if(priceArray.length<2){
+                 Integer price=Integer.valueOf(priceArray[0]);
+                 if(price<=100){
+                     req.setPriceMin(0);
+                     req.setPriceMax(price);
+                 }
+                 if(price>=2000){
+                     req.setPriceMin(price);
+                     req.setPriceMax(1000000);
+                 }
+             }else{
+
+                 req.setPriceMin(Integer.valueOf(priceArray[0]));
+                 req.setPriceMax(Integer.valueOf(priceArray[1]));
+             }
          }
-         if(!StringUtils.isEmpty(req.getSearchKey())){
-             req.setOwnerarea(req.getSearchKey());
-             req.setRoomName(req.getSearchKey());
+         //面积
+         if(!StringUtils.isEmpty(req.getHouseArea())){
+             String[] houseAreaArray=req.getHouseArea().split("\\|");
+             if(houseAreaArray.length<2){
+                 Integer houseArea=Integer.valueOf(houseAreaArray[0]);
+                 if(houseArea<=100){
+                     req.setHouseAreaMin(0);
+                     req.setHouseAreaMax(houseArea);
+                 }
+                 if(houseArea>=500){
+                     req.setHouseAreaMin(houseArea);
+                     req.setHouseAreaMax(1000000);
+                 }
+             }else{
+                 req.setHouseAreaMin(Integer.valueOf(houseAreaArray[0]));
+                 req.setHouseAreaMax(Integer.valueOf(houseAreaArray[1]));
+             }
+
          }
+
 
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
-        List<RoomDetailsInfo> roomDetailsList=roomDetailsMapper.listGrabbleRoom(req);
+        List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.listGrabbleRoom(req);
+        if(roomNewDetailsList !=null && roomNewDetailsList.size()>0){
+            List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
 
-        PageInfo<RoomDetailsInfo> pageInfo=new PageInfo<>(roomDetailsList);
+            PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
 
-        return pageInfo;
+            return pageInfo;
+        }
+        return null;
     }
 
     /**

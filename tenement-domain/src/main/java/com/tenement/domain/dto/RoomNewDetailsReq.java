@@ -3,8 +3,10 @@ package com.tenement.domain.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +14,7 @@ import java.util.Date;
 @Setter
 public class RoomNewDetailsReq implements Serializable {
 
+    //@Max(value = 20,message = "最大长度为20")
     private Integer id;
 
     private String name;
@@ -70,7 +73,7 @@ public class RoomNewDetailsReq implements Serializable {
 
     private Integer houseArea;
 
-    private Integer brokerId;
+    private Integer brokerid;
 
     private String swiperPhoto;
 
@@ -81,6 +84,18 @@ public class RoomNewDetailsReq implements Serializable {
     private Integer hotRecommend;
 
     private Integer guessLike;
+
+    private Double managementPrice;
+
+    private String management;
+
+    private String greenPoint;
+
+    private Integer personNum;
+
+    private Integer carNum;
+
+    private String projectAdvantage;
 
 
 }

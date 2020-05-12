@@ -28,15 +28,13 @@ public class CommentsReq {
 
     private String content;
 
-    @CustomConverting(value = DateConverter.class,parameter = "yyyy.MM.dd")
-    private String createtime;
+
 
     private Integer top;
 
     private Integer answeruid;
 
-    @CustomConverting(value = DateConverter.class,parameter = "yyyy.MM.dd")
-    private String answertime;
+
 
     private String answercontent;
 
@@ -45,9 +43,9 @@ public class CommentsReq {
     private Integer type=0;
 
 
-    private String answernmae;
+    private String answername;
 
-    private String usernmae;
+    private String username;
 
 
 

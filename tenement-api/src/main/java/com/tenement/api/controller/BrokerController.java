@@ -34,7 +34,7 @@ public class BrokerController {
      * @return
      */
     @RequestMapping("/addBroker")
-    public Response<RespId> addBroker(@RequestBody BrokerReq req, HttpServletRequest request) throws BusinessException {
+    public Response<RespId> addBroker(HttpServletRequest request,@RequestBody BrokerReq req) throws BusinessException {
 
         HttpSession session = request.getSession();
         SysUserVo sysUserVo = (SysUserVo) session.getAttribute("user");
@@ -56,7 +56,7 @@ public class BrokerController {
      * @return
      */
     @RequestMapping("/listBroker")
-    public Response<PageInfo<BrokerResp>> listBroker(@RequestBody BrokerExmple brokerExmple) throws BusinessException {
+    public Response<PageInfo<BrokerResp>> listBroker(HttpServletRequest request,@RequestBody BrokerExmple brokerExmple) throws BusinessException {
 
         PageInfo<BrokerResp> brokerList = brokerService.listBroker(brokerExmple);
 
@@ -70,7 +70,7 @@ public class BrokerController {
      * @return
      */
     @RequestMapping("/getBroker")
-    public Response<BrokerResp> getBroker(@RequestBody BrokerExmple brokerExmple) throws BusinessException {
+    public Response<BrokerResp> getBroker(HttpServletRequest request,@RequestBody BrokerExmple brokerExmple) throws BusinessException {
 
         BrokerResp brokerResp = brokerService.getBroker(brokerExmple);
 
@@ -84,7 +84,7 @@ public class BrokerController {
      * @return
      */
     @RequestMapping("/updateBroker")
-    public Response updateBroker(@RequestBody Broker req) throws BusinessException {
+    public Response updateBroker(HttpServletRequest request,@RequestBody Broker req) throws BusinessException {
 
         boolean bool = brokerService.updateBroker(req);
         if (bool) {
@@ -101,7 +101,7 @@ public class BrokerController {
      * @return
      */
     @RequestMapping("/deleteBroker")
-    public Response deleteBroker(@RequestBody BrokerExmple brokerExmple) throws BusinessException{
+    public Response deleteBroker(HttpServletRequest request,@RequestBody BrokerExmple brokerExmple) throws BusinessException{
 
         boolean bool = brokerService.deleteBroker(brokerExmple.getId());
         if (bool) {

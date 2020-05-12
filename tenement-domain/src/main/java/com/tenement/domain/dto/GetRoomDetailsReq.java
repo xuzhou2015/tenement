@@ -11,5 +11,5 @@ import java.io.Serializable;
 public class GetRoomDetailsReq implements Serializable {
 
     @NotNull
-    private Long roomId;
+    private Long id;
 }

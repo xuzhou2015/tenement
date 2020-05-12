@@ -67,13 +67,14 @@ public class RoomNewDetailsResp implements Serializable {
 
     private Integer userid;
 
+    @CustomConverting(value = DateConverter.class,parameter = "yyyy.MM.dd")
     private Date creatime;
 
     private Byte deleteYn;
 
     private Integer houseArea;
 
-    private Integer brokerId;
+    private Integer brokerid;
 
     private String swiperPhoto;
 
@@ -84,4 +85,16 @@ public class RoomNewDetailsResp implements Serializable {
     private Integer hotRecommend;
 
     private Integer guessLike;
+
+    private Double managementPrice;
+
+    private String management;
+
+    private String greenPoint;
+
+    private Integer personNum;
+
+    private Integer carNum;
+
+    private String projectAdvantage;
 }

@@ -1,5 +1,6 @@
 package com.tenement.dao.mapper;
 
+import com.tenement.domain.dto.ListGrabbleRoomReq;
 import com.tenement.domain.dto.ListRoomDetailsReq;
 import com.tenement.domain.po.RoomNewDetails;
 
@@ -15,6 +16,8 @@ public interface RoomNewDetailsMapper {
     RoomNewDetails selectByPrimaryKey(Long id);
 
     List<RoomNewDetails> selectByPrimaryList(ListRoomDetailsReq req);
+
+    List<RoomNewDetails> listGrabbleRoom(ListGrabbleRoomReq req);
 
     int updateByPrimaryKeySelective(RoomNewDetails record);
 

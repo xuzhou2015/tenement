@@ -41,8 +41,8 @@ public class CommentsResp {
 
     private Integer down;
 
-    private String answernmae;
+    private String answername;
 
-    private String usernmae;
+    private String username;
 
 }

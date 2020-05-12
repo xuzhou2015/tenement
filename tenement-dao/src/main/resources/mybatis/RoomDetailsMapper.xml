@@ -65,17 +65,55 @@
     </select>
     <select id="listGrabbleRoom" resultMap="BaseRoomDetailsInfo"  parameterType="com.tenement.domain.dto.ListGrabbleRoomReq">
          select
-         A.*,B.file_url
-        from room_details A left join room_file B on A.room_id=B.room_details_id
+         *
+        from room_details
         <where>
             <trim prefixOverrides="and" />
             <if test="districtid !=null">
-                and A.district_id=#{districtid}
+                and district_id=#{districtid}
             </if>
-            <if test="searchKey !=null and searchKey !=''">
-                and (A.name like '%${roomName}%' or A.ownerarea like '%${ownerarea}%')
+            <if test="name !=null ">
+                and name like '%${name}%'
             </if>
-            group by A.room_id
+
+            <if test="priceMin !=null and priceMax !=null">
+               and price_total &gt;=#{priceMin} and price_total &lt;=#{priceMax}
+            </if>
+            <if test="houseAreaMin !=null and houseAreaMax !=null">
+
+             and house_area &gt;=#{houseAreaMin} and house_area &lt;=#{houseAreaMax}
+            </if>
+            <if test="houseStyles !=null">
+                and housestyle_style=#{houseStyles}
+            </if>
+            <if test="metroYn !=null">
+               and metro_yn=#{metroYn}
+
+            </if>
+            <if test="schoolYn !=null">
+                and school_yn=#{schoolYn}
+
+            </if>
+            <if test="elevatorYn !=null">
+                and elevator_yn=#{elevatorYn}
+
+            </if>
+            <if test="safetyYn !=null">
+                and safety_yn=#{safetyYn}
+
+            </if>
+            <if test="managementType !=null">
+                and management_type=#{managementType}
+
+            </if>
+            <if test="status !=null">
+                and status=#{status}
+
+            </if>
+            <if test="equityTime !=null">
+                and equity_time=#{equityTime}
+
+            </if>
 
         </where>
     </select>
