@@ -51,7 +51,12 @@ public class AspectController {
 //            Signature sig = joinPoint.getSignature();
 //            MethodSignature msig = (MethodSignature) sig;
 //            Method method=msig.getMethod();
-//
+//            HttpSession session = request.getSession();
+//            SysUserVo sysUserVo = (SysUserVo) session.getAttribute("user");
+//            if (sysUserVo == null) {
+//                throw new BusinessException(CommonResultCode.LONING);
+//            }
+
 //            NoNeedToLogin noNeedToLogin = method.getAnnotation(NoNeedToLogin.class);
 //            if (noNeedToLogin != null) {
 //                HttpSession session = request.getSession();
@@ -60,7 +65,7 @@ public class AspectController {
 //                    throw new BusinessException(CommonResultCode.LONING);
 //                }
 //            }
-//        }
+    //    }
 
 
 
@@ -75,19 +80,19 @@ public class AspectController {
      */
     @After(value="pointCut()")
     public void doAfter(JoinPoint joinPoint) throws  Exception{
-        Object[] args = joinPoint.getArgs(); // 参数值
-        if(args.length>0){
-            HttpServletRequest request=(HttpServletRequest)args[0];
-
-            String ip=getIp(request);
-            // AddressUtils addressUtils = new AddressUtils();
-            //  String city=addressUtils.getAddresses("ip="+ip, "utf-8");
-
-          //  VisitLog visitLog=new VisitLog();
-          //  visitLog.setIp(ip);
-            // visitLog.setCity(city);
-          //  visitLogService.insertSelective(visitLog);
-        }
+//        Object[] args = joinPoint.getArgs(); // 参数值
+//        if(args.length>0){
+//            HttpServletRequest request=(HttpServletRequest)args[0];
+//
+//            String ip=getIp(request);
+//            // AddressUtils addressUtils = new AddressUtils();
+//            //  String city=addressUtils.getAddresses("ip="+ip, "utf-8");
+//
+//          //  VisitLog visitLog=new VisitLog();
+//          //  visitLog.setIp(ip);
+//            // visitLog.setCity(city);
+//          //  visitLogService.insertSelective(visitLog);
+//        }
 
 
     }

@@ -64,7 +64,7 @@
         from room_new_details
        <where>
           <trim prefixOverrides="and">
-             <if test="name !=null">
+             <if test="name !=null and name !=''">
                and name  like "%"#{name}"%"
              </if>
               <if test="beginSaleDate !=null and endSaleDate !=null">
@@ -92,6 +92,7 @@
 
           </trim>
        </where>
+      order by creatime desc
     </select>
     <select id="listGrabbleRoom" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListGrabbleRoomReq" >
       select
@@ -102,7 +103,7 @@
         <if test="districtid !=null">
           and districtId=#{districtid}
         </if>
-        <if test="name !=null ">
+        <if test="name !=null and name !='' ">
           and name like '%${name}%'
         </if>
 

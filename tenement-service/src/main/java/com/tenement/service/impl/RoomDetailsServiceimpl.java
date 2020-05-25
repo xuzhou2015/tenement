@@ -254,9 +254,17 @@ public class RoomDetailsServiceimpl implements RoomDetailsService {
         PageHelper.startPage(req.getPageNum(),req.getPageSize());
         List<RoomNewDetails> roomNewDetailsList=roomNewDetailsMapper.listGrabbleRoom(req);
         if(roomNewDetailsList !=null && roomNewDetailsList.size()>0){
-            List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
+            PageInfo<RoomNewDetails> pageInfos=new PageInfo<RoomNewDetails>(roomNewDetailsList);
+            long total=pageInfos.getTotal();
+            int pagenum=pageInfos.getPageNum();
+            int pagesize=pageInfos.getPageSize();
 
+
+            List<RoomNewDetailsResp> roomNewDetailsRespList=BeanUtils.convertList(roomNewDetailsList,RoomNewDetailsResp.class);
             PageInfo<RoomNewDetailsResp> pageInfo=new PageInfo<>(roomNewDetailsRespList);
+            pageInfo.setTotal(total);
+            pageInfo.setPageNum(pagenum);
+            pageInfo.setPageSize(pagesize);
 
             return pageInfo;
         }

@@ -12,6 +12,7 @@ import com.tenement.domain.vo.SysUserVo;
 import com.tenement.service.api.SysMenuService;
 import com.tenement.service.api.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,11 +51,7 @@ public class UserController {
     @RequestMapping("/login")
     public Response login(HttpServletRequest request, @RequestBody @Valid UserLogin req) throws BusinessException {
 
-        Integer s=1;
 
-        if(s !=0){
-            String c="adfaf";
-        }
 
         SysUserVo sysUser = sysUserService.login(req);
         if (sysUser != null && sysUser.getPassword().equals(req.getPassword())) {

@@ -20,6 +20,8 @@ public enum  CommonResultCode implements ResultCode {
 
     LONING(4, "请先登陆用户！"),
 
+    ID_ERROR(6,"Id不能为空"),
+
     LENGTH_ERROR(5,"输入的字符串超过限制了！");
 
 
