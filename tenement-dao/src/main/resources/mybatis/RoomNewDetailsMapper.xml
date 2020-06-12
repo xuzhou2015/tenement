@@ -114,26 +114,26 @@
 
           and house_area &gt;=#{houseAreaMin} and house_area &lt;=#{houseAreaMax}
         </if>
-        <if test="houseStyles !=null">
+        <if test="houseStyles !=null and houseStyles !=''">
           and house_style=#{houseStyles}
         </if>
-        <if test="metroYn !=null">
+        <if test="metroYn !=null and metroYn !=''">
           and metro_yn=#{metroYn}
 
         </if>
-        <if test="schoolYn !=null">
+        <if test="schoolYn !=null and schoolYn !=''">
           and school_yn=#{schoolYn}
 
         </if>
-        <if test="elevatorYn !=null">
+        <if test="elevatorYn !=null and elevatorYn !=''">
           and elevator_yn=#{elevatorYn}
 
         </if>
-        <if test="safetyYn !=null">
+        <if test="safetyYn !=null and safetyYn !=''">
           and safety_yn=#{safetyYn}
 
         </if>
-        <if test="managementType !=null">
+        <if test="managementType !=null and managementType !=''">
           and management_type=#{managementType}
 
         </if>
@@ -144,6 +144,26 @@
         <if test="equityTime !=null">
           and equity_time=#{equityTime}
 
+        </if>
+        <if test="beginSaleDate !=null and endSaleDate !=null">
+          and sale_date &gt;=#{beginSaleDate} and sale_date &lt;= #{endSaleDate}
+        </if>
+        <if test="beginFinishedDate !=null and endFinishedDate !=null">
+          and finished_date &gt;=#{beginFinishedDate} and finished_date &lt;= #{endFinishedDate}
+        </if>
+
+        <if test="minHousePrice !=null and maxHouserPrice !=null">
+          and house_price &gt;=#{minHousePrice} and house_price &lt;= #{maxHouserPrice}
+
+        </if>
+        <if test="homePage !=null">
+          and homePage=#{homePage}
+        </if>
+        <if test="hotRecommend !=null">
+          and hotRecommend=#{hotRecommend}
+        </if>
+        <if test="guessLike !=null">
+          and guessLike=#{guessLike}
         </if>
 
       </where>

@@ -16,7 +16,7 @@ public class RoomTwoDetails {
 
     private String houseStyle;
 
-    private Integer riceTotal;
+    private Integer PriceTotal;
 
     private Integer housePrice;
 

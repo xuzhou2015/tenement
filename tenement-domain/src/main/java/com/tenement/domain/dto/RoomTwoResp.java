@@ -22,7 +22,7 @@ public class RoomTwoResp implements Serializable {
 
     private String houseStyle;
 
-    private Integer riceTotal;
+    private Integer priceTotal;
 
     private Integer housePrice;
 

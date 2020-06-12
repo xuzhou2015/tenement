@@ -23,7 +23,7 @@ public class RoomTwoReq extends Page implements Serializable {
 
     private String houseStyle;
 
-    private Integer riceTotal;
+    private Integer priceTotal;
 
     private Integer housePrice;
 

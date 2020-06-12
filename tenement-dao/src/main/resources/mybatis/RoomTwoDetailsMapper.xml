@@ -6,7 +6,7 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="districtid" property="districtid" jdbcType="INTEGER" />
     <result column="house_style" property="houseStyle" jdbcType="VARCHAR" />
-    <result column="rice_total" property="riceTotal" jdbcType="INTEGER" />
+    <result column="price_total" property="priceTotal" jdbcType="INTEGER" />
     <result column="house_price" property="housePrice" jdbcType="INTEGER" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="house_area" property="houseArea" jdbcType="INTEGER" />
@@ -34,7 +34,7 @@
     <result column="deleted" property="deleted" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, districtid, house_style, rice_total, house_price, address, house_area, 
+    id, name, districtid, house_style, price_total, house_price, address, house_area,
     reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, 
     fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage,
     room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, 
@@ -57,7 +57,7 @@
   </delete>
   <insert id="insert" parameterType="com.tenement.domain.po.RoomTwoDetails" >
     insert into room_two_details (id, name, districtid, 
-      house_style, rice_total, house_price, 
+      house_style, price_total, house_price,
       address, house_area, reference_pay, 
       build_date, house_position, reference_month_pay, 
       house_type, house_floor, fitment_status, 
@@ -68,7 +68,7 @@
       create_date, create_userid, deleted
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{districtid,jdbcType=INTEGER},
-      #{houseStyle,jdbcType=VARCHAR}, #{riceTotal,jdbcType=INTEGER}, #{housePrice,jdbcType=INTEGER}, 
+      #{houseStyle,jdbcType=VARCHAR}, #{priceTotal,jdbcType=INTEGER}, #{housePrice,jdbcType=INTEGER},
       #{address,jdbcType=VARCHAR}, #{houseArea,jdbcType=INTEGER}, #{referencePay,jdbcType=INTEGER}, 
       #{buildDate,jdbcType=INTEGER}, #{housePosition,jdbcType=VARCHAR}, #{referenceMonthPay,jdbcType=INTEGER}, 
       #{houseType,jdbcType=VARCHAR}, #{houseFloor,jdbcType=INTEGER}, #{fitmentStatus,jdbcType=INTEGER}, 
@@ -94,8 +94,8 @@
       <if test="houseStyle != null" >
         house_style,
       </if>
-      <if test="riceTotal != null" >
-        rice_total,
+      <if test="priceTotal != null" >
+        price_total,
       </if>
       <if test="housePrice != null" >
         house_price,
@@ -186,8 +186,8 @@
       <if test="houseStyle != null" >
         #{houseStyle,jdbcType=VARCHAR},
       </if>
-      <if test="riceTotal != null" >
-        #{riceTotal,jdbcType=INTEGER},
+      <if test="priceTotal != null" >
+        #{priceTotal,jdbcType=INTEGER},
       </if>
       <if test="housePrice != null" >
         #{housePrice,jdbcType=INTEGER},
@@ -278,8 +278,8 @@
       <if test="houseStyle != null" >
         house_style = #{houseStyle,jdbcType=VARCHAR},
       </if>
-      <if test="riceTotal != null" >
-        rice_total = #{riceTotal,jdbcType=INTEGER},
+      <if test="priceTotal != null" >
+        price_total = #{priceTotal,jdbcType=INTEGER},
       </if>
       <if test="housePrice != null" >
         house_price = #{housePrice,jdbcType=INTEGER},
@@ -364,7 +364,7 @@
     set name = #{name,jdbcType=VARCHAR},
       districtid = #{districtid,jdbcType=INTEGER},
       house_style = #{houseStyle,jdbcType=VARCHAR},
-      rice_total = #{riceTotal,jdbcType=INTEGER},
+      price_total = #{priceTotal,jdbcType=INTEGER},
       house_price = #{housePrice,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},
       house_area = #{houseArea,jdbcType=INTEGER},

@@ -89,4 +89,60 @@ public class ListGrabbleRoomReq implements Serializable {
      * 产权年限
      */
     private Integer equityTime;
+
+
+
+    /**
+     * 开盘查询开始时间
+     */
+    private String  beginSaleDate;
+
+
+    /**
+     * 开盘查询结束时间
+     */
+    private String endSaleDate;
+
+
+
+    /**
+     * 交房询开始时间
+     */
+    private String  beginFinishedDate;
+
+
+    /**
+     * 交房时间询结束时间
+     */
+    private String endFinishedDate;
+
+
+
+    /**
+     * 最小单价
+     */
+    private Integer minHousePrice;
+
+    /**
+     * 最大单价
+     */
+    private Integer maxHouserPrice;
+
+
+    /**
+     *是否首页
+     */
+    private Integer homePage;
+
+    /**
+     * 是否热销榜
+     */
+    private Integer hotRecommend;
+
+    /**
+     * 猜你喜欢
+     */
+    private Integer guessLike;
+
+
 }
