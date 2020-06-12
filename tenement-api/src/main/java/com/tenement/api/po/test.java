@@ -74,6 +74,10 @@ public class test {
     }
 
     private static String ConvertStream2Json(InputStream inputStream) {
+
+
+        String str="adfadfad";
+
         String jsonStr = "";
         // ByteArrayOutputStream相当于内存输出流
         ByteArrayOutputStream out = new ByteArrayOutputStream();
