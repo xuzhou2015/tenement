@@ -12,12 +12,12 @@ public class BrokerExmple implements Serializable {
     /**
      * 当时查询页数
      */
-    private Integer pageNum;
+    private Integer pageNum=10;
 
     /**
      * 每页显示条数
      */
-    private Integer pageSize;
+    private Integer pageSize=10;
 
 
     private Integer id;

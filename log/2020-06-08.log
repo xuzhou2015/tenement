@@ -1,0 +1,5 @@
+2020-06-08 00:00:01 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7d1cfb8b: startup date [Sun Jun 07 23:42:40 CST 2020]; root of context hierarchy
+2020-06-08 00:00:01 -Unregistering JMX-exposed beans on shutdown
+2020-06-08 00:00:01 -Unregistering JMX-exposed beans
+2020-06-08 00:00:01 -HikariPool-1 - Shutdown initiated...
+2020-06-08 00:00:01 -HikariPool-1 - Shutdown completed.

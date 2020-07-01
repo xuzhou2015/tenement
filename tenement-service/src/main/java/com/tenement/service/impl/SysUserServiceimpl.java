@@ -11,6 +11,7 @@ import com.tenement.domain.po.SysUserRole;
 import com.tenement.domain.vo.SysUserVo;
 import com.tenement.service.api.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -34,6 +35,7 @@ public class SysUserServiceimpl implements SysUserService {
      * @return
      */
     @Override
+  //  @Cacheable(value = "SysUserVo",key="'usrid'+#req.userName",unless="#result == null")
     public SysUserVo login(UserLogin req) {
 
         UserExmple userExmple=new UserExmple();

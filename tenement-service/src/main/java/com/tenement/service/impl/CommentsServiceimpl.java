@@ -109,9 +109,19 @@ public class CommentsServiceimpl implements CommentsService {
         }
         List<Comments> commentsList=commentsMapper.selectByList(exmple);
         if(commentsList !=null ){
+
+            PageInfo<Comments> pageInfos=new PageInfo<Comments>(commentsList);
+
+            long total=pageInfos.getTotal();
+            int pagenum=pageInfos.getPageNum();
+            int pagesize=pageInfos.getPageSize();
+
             List<CommentsResp> commentsRespList=BeanUtils.convertList(commentsList,CommentsResp.class);
 
             PageInfo<CommentsResp> pageInfo = new PageInfo<>(commentsRespList);
+            pageInfo.setTotal(total);
+            pageInfo.setPageNum(pagenum);
+            pageInfo.setPageSize(pagesize);
 
             return pageInfo;
         }

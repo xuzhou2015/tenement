@@ -27,9 +27,9 @@ public class Comments {
 
     private Integer down;
 
-    private String answernmae;
+    private String answername;
 
-    private String usernmae;
+    private String username;
 
     public Integer getId() {
         return id;
@@ -127,19 +127,19 @@ public class Comments {
         this.down = down;
     }
 
-    public String getAnswernmae() {
-        return answernmae;
+    public String getAnswername() {
+        return answername;
     }
 
-    public void setAnswernmae(String answernmae) {
-        this.answernmae = answernmae;
+    public void setAnswername(String answername) {
+        this.answername = answername;
     }
 
-    public String getUsernmae() {
-        return usernmae;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernmae(String usernmae) {
-        this.usernmae = usernmae;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

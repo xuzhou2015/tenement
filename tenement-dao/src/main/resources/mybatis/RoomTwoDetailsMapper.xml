@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomTwoDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomTwoDetails" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="districtid" property="districtid" jdbcType="INTEGER" />
+    <result column="house_style" property="houseStyle" jdbcType="VARCHAR" />
+    <result column="price_total" property="priceTotal" jdbcType="INTEGER" />
+    <result column="house_price" property="housePrice" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="house_area" property="houseArea" jdbcType="INTEGER" />
+    <result column="reference_pay" property="referencePay" jdbcType="INTEGER" />
+    <result column="build_date" property="buildDate" jdbcType="INTEGER" />
+    <result column="house_position" property="housePosition" jdbcType="VARCHAR" />
+    <result column="reference_month_pay" property="referenceMonthPay" jdbcType="INTEGER" />
+    <result column="house_type" property="houseType" jdbcType="VARCHAR" />
+    <result column="house_floor" property="houseFloor" jdbcType="INTEGER" />
+    <result column="fitment_status" property="fitmentStatus" jdbcType="INTEGER" />
+    <result column="elevator_yn" property="elevatorYn" jdbcType="INTEGER" />
+    <result column="book_limit" property="bookLimit" jdbcType="INTEGER" />
+    <result column="equity_type" property="equityType" jdbcType="VARCHAR" />
+    <result column="heating_type" property="heatingType" jdbcType="VARCHAR" />
+    <result column="project_advantage" property="projectAdvantage" jdbcType="VARCHAR" />
+    <result column="room_photo" property="roomPhoto" jdbcType="VARCHAR" />
+    <result column="house_structural" property="houseStructural" jdbcType="VARCHAR" />
+    <result column="list_photo" property="listPhoto" jdbcType="VARCHAR" />
+    <result column="brokerid" property="brokerid" jdbcType="INTEGER" />
+    <result column="home_page" property="homePage" jdbcType="INTEGER" />
+    <result column="hot_recommend" property="hotRecommend" jdbcType="INTEGER" />
+    <result column="guess_like" property="guessLike" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="create_userid" property="createUserid" jdbcType="INTEGER" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, districtid, house_style, price_total, house_price, address, house_area,
+    reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, 
+    fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage,
+    room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, 
+    create_date, create_userid, deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_two_details
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectRoomTwolist" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.RoomTwoReq" >
+    select
+    <include refid="Base_Column_List" />
+    from room_two_details
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room_two_details
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.RoomTwoDetails" >
+    insert into room_two_details (id, name, districtid, 
+      house_style, price_total, house_price,
+      address, house_area, reference_pay, 
+      build_date, house_position, reference_month_pay, 
+      house_type, house_floor, fitment_status, 
+      elevator_yn, book_limit, equity_type, 
+      heating_type, project_advantage, room_photo,
+      house_structural, list_photo, brokerid, 
+      home_page, hot_recommend, guess_like, 
+      create_date, create_userid, deleted
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{districtid,jdbcType=INTEGER},
+      #{houseStyle,jdbcType=VARCHAR}, #{priceTotal,jdbcType=INTEGER}, #{housePrice,jdbcType=INTEGER},
+      #{address,jdbcType=VARCHAR}, #{houseArea,jdbcType=INTEGER}, #{referencePay,jdbcType=INTEGER}, 
+      #{buildDate,jdbcType=INTEGER}, #{housePosition,jdbcType=VARCHAR}, #{referenceMonthPay,jdbcType=INTEGER}, 
+      #{houseType,jdbcType=VARCHAR}, #{houseFloor,jdbcType=INTEGER}, #{fitmentStatus,jdbcType=INTEGER}, 
+      #{elevatorYn,jdbcType=INTEGER}, #{bookLimit,jdbcType=INTEGER}, #{equityType,jdbcType=VARCHAR}, 
+      #{heatingType,jdbcType=VARCHAR}, #{projectAdvantage,jdbcType=VARCHAR}, #{roomPhoto,jdbcType=VARCHAR},
+      #{houseStructural,jdbcType=VARCHAR}, #{listPhoto,jdbcType=VARCHAR}, #{brokerid,jdbcType=INTEGER}, 
+      #{homePage,jdbcType=INTEGER}, #{hotRecommend,jdbcType=INTEGER}, #{guessLike,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createUserid,jdbcType=INTEGER}, #{deleted,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomTwoDetails" >
+    insert into room_two_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="districtid != null" >
+        districtid,
+      </if>
+      <if test="houseStyle != null" >
+        house_style,
+      </if>
+      <if test="priceTotal != null" >
+        price_total,
+      </if>
+      <if test="housePrice != null" >
+        house_price,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="houseArea != null" >
+        house_area,
+      </if>
+      <if test="referencePay != null" >
+        reference_pay,
+      </if>
+      <if test="buildDate != null" >
+        build_date,
+      </if>
+      <if test="housePosition != null" >
+        house_position,
+      </if>
+      <if test="referenceMonthPay != null" >
+        reference_month_pay,
+      </if>
+      <if test="houseType != null" >
+        house_type,
+      </if>
+      <if test="houseFloor != null" >
+        house_floor,
+      </if>
+      <if test="fitmentStatus != null" >
+        fitment_status,
+      </if>
+      <if test="elevatorYn != null" >
+        elevator_yn,
+      </if>
+      <if test="bookLimit != null" >
+        book_limit,
+      </if>
+      <if test="equityType != null" >
+        equity_type,
+      </if>
+      <if test="heatingType != null" >
+        heating_type,
+      </if>
+      <if test="projectAdvantage != null" >
+        project_advantage,
+      </if>
+      <if test="roomPhoto != null" >
+        room_photo,
+      </if>
+      <if test="houseStructural != null" >
+        house_structural,
+      </if>
+      <if test="listPhoto != null" >
+        list_photo,
+      </if>
+      <if test="brokerid != null" >
+        brokerid,
+      </if>
+      <if test="homePage != null" >
+        home_page,
+      </if>
+      <if test="hotRecommend != null" >
+        hot_recommend,
+      </if>
+      <if test="guessLike != null" >
+        guess_like,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createUserid != null" >
+        create_userid,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="districtid != null" >
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="houseStyle != null" >
+        #{houseStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="priceTotal != null" >
+        #{priceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="housePrice != null" >
+        #{housePrice,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null" >
+        #{houseArea,jdbcType=INTEGER},
+      </if>
+      <if test="referencePay != null" >
+        #{referencePay,jdbcType=INTEGER},
+      </if>
+      <if test="buildDate != null" >
+        #{buildDate,jdbcType=INTEGER},
+      </if>
+      <if test="housePosition != null" >
+        #{housePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceMonthPay != null" >
+        #{referenceMonthPay,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null" >
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFloor != null" >
+        #{houseFloor,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentStatus != null" >
+        #{fitmentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="elevatorYn != null" >
+        #{elevatorYn,jdbcType=INTEGER},
+      </if>
+      <if test="bookLimit != null" >
+        #{bookLimit,jdbcType=INTEGER},
+      </if>
+      <if test="equityType != null" >
+        #{equityType,jdbcType=VARCHAR},
+      </if>
+      <if test="heatingType != null" >
+        #{heatingType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAdvantage != null" >
+        #{projectAdvantage,jdbcType=VARCHAR},
+      </if>
+      <if test="roomPhoto != null" >
+        #{roomPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStructural != null" >
+        #{houseStructural,jdbcType=VARCHAR},
+      </if>
+      <if test="listPhoto != null" >
+        #{listPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerid != null" >
+        #{brokerid,jdbcType=INTEGER},
+      </if>
+      <if test="homePage != null" >
+        #{homePage,jdbcType=INTEGER},
+      </if>
+      <if test="hotRecommend != null" >
+        #{hotRecommend,jdbcType=INTEGER},
+      </if>
+      <if test="guessLike != null" >
+        #{guessLike,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserid != null" >
+        #{createUserid,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomTwoDetails" >
+    update room_two_details
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="districtid != null" >
+        districtid = #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="houseStyle != null" >
+        house_style = #{houseStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="priceTotal != null" >
+        price_total = #{priceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="housePrice != null" >
+        house_price = #{housePrice,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null" >
+        house_area = #{houseArea,jdbcType=INTEGER},
+      </if>
+      <if test="referencePay != null" >
+        reference_pay = #{referencePay,jdbcType=INTEGER},
+      </if>
+      <if test="buildDate != null" >
+        build_date = #{buildDate,jdbcType=INTEGER},
+      </if>
+      <if test="housePosition != null" >
+        house_position = #{housePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceMonthPay != null" >
+        reference_month_pay = #{referenceMonthPay,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null" >
+        house_type = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFloor != null" >
+        house_floor = #{houseFloor,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentStatus != null" >
+        fitment_status = #{fitmentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="elevatorYn != null" >
+        elevator_yn = #{elevatorYn,jdbcType=INTEGER},
+      </if>
+      <if test="bookLimit != null" >
+        book_limit = #{bookLimit,jdbcType=INTEGER},
+      </if>
+      <if test="equityType != null" >
+        equity_type = #{equityType,jdbcType=VARCHAR},
+      </if>
+      <if test="heatingType != null" >
+        heating_type = #{heatingType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAdvantage != null" >
+        project_advantage = #{projectAdvantage,jdbcType=VARCHAR},
+      </if>
+      <if test="roomPhoto != null" >
+        room_photo = #{roomPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStructural != null" >
+        house_structural = #{houseStructural,jdbcType=VARCHAR},
+      </if>
+      <if test="listPhoto != null" >
+        list_photo = #{listPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerid != null" >
+        brokerid = #{brokerid,jdbcType=INTEGER},
+      </if>
+      <if test="homePage != null" >
+        home_page = #{homePage,jdbcType=INTEGER},
+      </if>
+      <if test="hotRecommend != null" >
+        hot_recommend = #{hotRecommend,jdbcType=INTEGER},
+      </if>
+      <if test="guessLike != null" >
+        guess_like = #{guessLike,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserid != null" >
+        create_userid = #{createUserid,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomTwoDetails" >
+    update room_two_details
+    set name = #{name,jdbcType=VARCHAR},
+      districtid = #{districtid,jdbcType=INTEGER},
+      house_style = #{houseStyle,jdbcType=VARCHAR},
+      price_total = #{priceTotal,jdbcType=INTEGER},
+      house_price = #{housePrice,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      house_area = #{houseArea,jdbcType=INTEGER},
+      reference_pay = #{referencePay,jdbcType=INTEGER},
+      build_date = #{buildDate,jdbcType=INTEGER},
+      house_position = #{housePosition,jdbcType=VARCHAR},
+      reference_month_pay = #{referenceMonthPay,jdbcType=INTEGER},
+      house_type = #{houseType,jdbcType=VARCHAR},
+      house_floor = #{houseFloor,jdbcType=INTEGER},
+      fitment_status = #{fitmentStatus,jdbcType=INTEGER},
+      elevator_yn = #{elevatorYn,jdbcType=INTEGER},
+      book_limit = #{bookLimit,jdbcType=INTEGER},
+      equity_type = #{equityType,jdbcType=VARCHAR},
+      heating_type = #{heatingType,jdbcType=VARCHAR},
+      project_advantage = #{projectAdvantage,jdbcType=VARCHAR},
+      room_photo = #{roomPhoto,jdbcType=VARCHAR},
+      house_structural = #{houseStructural,jdbcType=VARCHAR},
+      list_photo = #{listPhoto,jdbcType=VARCHAR},
+      brokerid = #{brokerid,jdbcType=INTEGER},
+      home_page = #{homePage,jdbcType=INTEGER},
+      hot_recommend = #{hotRecommend,jdbcType=INTEGER},
+      guess_like = #{guessLike,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_userid = #{createUserid,jdbcType=INTEGER},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

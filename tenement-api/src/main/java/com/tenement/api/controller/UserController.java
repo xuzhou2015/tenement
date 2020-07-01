@@ -1,6 +1,7 @@
 package com.tenement.api.controller;
 
 
+import com.tenement.api.config.NoNeedToLogin;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.Response;
 import com.tenement.domain.dto.CommentsReq;
@@ -11,6 +12,7 @@ import com.tenement.domain.vo.SysUserVo;
 import com.tenement.service.api.SysMenuService;
 import com.tenement.service.api.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -44,7 +49,9 @@ public class UserController {
      * @throws RuntimeException
      */
     @RequestMapping("/login")
-    public Response login(@RequestBody @Valid UserLogin req, HttpServletRequest request) throws BusinessException {
+    public Response login(HttpServletRequest request, @RequestBody @Valid UserLogin req) throws BusinessException {
+
+
 
         SysUserVo sysUser = sysUserService.login(req);
         if (sysUser != null && sysUser.getPassword().equals(req.getPassword())) {
@@ -58,6 +65,7 @@ public class UserController {
 
     /**
      * 新增用户
+     *
      * @param req
      * @return
      */
@@ -72,11 +80,12 @@ public class UserController {
 
     /**
      * 获取菜单
+     *
      * @param request
      * @return
      */
     @RequestMapping("/listMenu")
-    public Response<List<SysMenu>> getMenu(HttpServletRequest request)  throws BusinessException {
+    public Response<List<SysMenu>> getMenu(HttpServletRequest request) throws BusinessException {
 
         HttpSession session = request.getSession();
         SysUserVo sysUserVo = (SysUserVo) session.getAttribute("user");
@@ -98,11 +107,6 @@ public class UserController {
 
         SysUserVo username = (SysUserVo) session.getAttribute("user");
 
-        return ResponseUtils.createSuccess();
-    }
-    @RequestMapping("/loginss")
-    public Response logins(Double st) {
-      String str=String.valueOf(st * 100);
         return ResponseUtils.createSuccess();
     }
 
