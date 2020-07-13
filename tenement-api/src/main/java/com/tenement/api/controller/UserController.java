@@ -1,10 +1,9 @@
 package com.tenement.api.controller;
 
 
-import com.tenement.api.config.NoNeedToLogin;
+
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.Response;
-import com.tenement.domain.dto.CommentsReq;
 import com.tenement.domain.dto.UserLogin;
 import com.tenement.domain.po.SysMenu;
 import com.tenement.domain.util.ResponseUtils;
@@ -12,19 +11,25 @@ import com.tenement.domain.vo.SysUserVo;
 import com.tenement.service.api.SysMenuService;
 import com.tenement.service.api.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisClusterConnection;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisSentinelConnection;
+import org.springframework.integration.redis.util.RedisLockRegistry;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 
 
 /**
@@ -39,6 +44,12 @@ public class UserController {
 
     @Autowired
     private SysMenuService sysMenuService;
+
+
+
+
+    @Autowired
+    private RedisLockRegistry redisLockRegistry;
 
     /**
      * 登陆
@@ -103,11 +114,27 @@ public class UserController {
     @RequestMapping("/logins")
     public Response logins(HttpServletRequest request) {
 
-        HttpSession session = request.getSession();
 
-        SysUserVo username = (SysUserVo) session.getAttribute("user");
+      Lock lock=redisLockRegistry.obtain("xuzhou1230000");
 
-        return ResponseUtils.createSuccess();
+      try{
+
+          boolean bool=lock.tryLock(10, TimeUnit.SECONDS);
+          if(bool){
+
+              String str="adad";
+          }
+      }catch (Exception e){
+
+          return ResponseUtils.createFailure();
+
+      }finally {
+          lock.unlock();
+      }
+
+        return ResponseUtils.createFailure();
+
+
     }
 
 

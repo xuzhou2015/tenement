@@ -1,0 +1,844 @@
+2020-07-13 10:15:28 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33853 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:15:28 -No active profile set, falling back to default profiles: default
+2020-07-13 10:15:28 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@62ef27a8: startup date [Mon Jul 13 10:15:28 CST 2020]; root of context hierarchy
+2020-07-13 10:15:29 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:15:29 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:15:29 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:15:29 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:15:29 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2c5aced7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:15:29 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$974c8a06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:15:30 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:15:30 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:15:30 -Starting service [Tomcat]
+2020-07-13 10:15:30 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:15:30 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:15:30 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:15:30 -Root WebApplicationContext: initialization completed in 2047 ms
+2020-07-13 10:15:30 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:15:30 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:15:30 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:15:30 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:15:30 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:15:31 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 10:15:32 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@62ef27a8: startup date [Mon Jul 13 10:15:28 CST 2020]; root of context hierarchy
+2020-07-13 10:15:32 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-07-13 10:15:32 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-07-13 10:15:32 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-07-13 10:15:32 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 10:15:32 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 10:15:32 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 10:15:32 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 10:15:32 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-07-13 10:15:32 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 10:15:32 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-07-13 10:15:32 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-07-13 10:15:32 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 10:15:32 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 10:15:32 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-07-13 10:15:32 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-07-13 10:15:32 -Adding welcome page template: index
+2020-07-13 10:15:32 -Initializing ExecutorService  'taskScheduler'
+2020-07-13 10:15:33 -Registering beans for JMX exposure on startup
+2020-07-13 10:15:33 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-07-13 10:15:33 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-07-13 10:15:33 -Starting beans in phase 0
+2020-07-13 10:15:33 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 10:15:33 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-07-13 10:15:33 -started _org.springframework.integration.errorLogger
+2020-07-13 10:15:33 -Starting ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:15:33 -Using a shared selector for servlet write/read
+2020-07-13 10:15:33 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-13 10:15:33 -Started WebApplication in 5.268 seconds (JVM running for 6.128)
+2020-07-13 10:16:15 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-07-13 10:16:15 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-07-13 10:16:15 -FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2020-07-13 10:16:19 -Starting without optional epoll library
+2020-07-13 10:16:19 -Starting without optional kqueue library
+2020-07-13 10:16:52 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@62ef27a8: startup date [Mon Jul 13 10:15:28 CST 2020]; root of context hierarchy
+2020-07-13 10:16:52 -Stopping beans in phase 0
+2020-07-13 10:16:52 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 10:16:52 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-07-13 10:16:52 -stopped _org.springframework.integration.errorLogger
+2020-07-13 10:16:52 -Shutting down ExecutorService 'taskScheduler'
+2020-07-13 10:16:52 -Unregistering JMX-exposed beans on shutdown
+2020-07-13 10:16:52 -Unregistering JMX-exposed beans
+2020-07-13 10:28:26 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33916 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:28:26 -No active profile set, falling back to default profiles: default
+2020-07-13 10:28:26 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@16ce702d: startup date [Mon Jul 13 10:28:26 CST 2020]; root of context hierarchy
+2020-07-13 10:28:27 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:28:27 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:28:27 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:28:27 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:28:27 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7b40106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:28:27 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$72a5bc35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:28:28 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:28:28 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:28:28 -Starting service [Tomcat]
+2020-07-13 10:28:28 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:28:28 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:28:28 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:28:28 -Root WebApplicationContext: initialization completed in 1892 ms
+2020-07-13 10:28:28 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:28:28 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:28:28 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:28:28 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:28:28 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:28:29 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-13 10:28:29 -Stopping service [Tomcat]
+2020-07-13 10:28:29 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:28:29 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisLockRegistry in com.tenement.api.controller.UserController required a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' in your configuration.
+
+2020-07-13 10:32:06 -Loaded expression factory via original TCCL
+2020-07-13 10:32:06 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33945 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:32:06 -No active profile set, falling back to default profiles: default
+2020-07-13 10:32:06 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@74bf1791: startup date [Mon Jul 13 10:32:06 CST 2020]; root of context hierarchy
+2020-07-13 10:32:07 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:32:07 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:32:07 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:32:07 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:32:07 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c4eecc9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:32:07 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$7740a7f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:32:08 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:32:08 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:32:08 -Starting service [Tomcat]
+2020-07-13 10:32:08 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:32:08 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:32:08 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:32:08 -Root WebApplicationContext: initialization completed in 1876 ms
+2020-07-13 10:32:08 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:32:08 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:32:08 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:32:08 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:32:08 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:32:09 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistry' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:32:09 -Stopping service [Tomcat]
+2020-07-13 10:32:09 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:32:09 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistry in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:33:28 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33952 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:33:28 -No active profile set, falling back to default profiles: default
+2020-07-13 10:33:28 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@24111ef1: startup date [Mon Jul 13 10:33:28 CST 2020]; root of context hierarchy
+2020-07-13 10:33:29 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:33:29 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:33:29 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:33:29 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:33:29 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b6d7a088] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:33:29 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$21c95bb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:33:30 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:33:30 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:33:30 -Starting service [Tomcat]
+2020-07-13 10:33:30 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:33:30 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:33:30 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:33:30 -Root WebApplicationContext: initialization completed in 1640 ms
+2020-07-13 10:33:30 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:33:30 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:33:30 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:33:30 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:33:30 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:33:30 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistry' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:33:30 -Stopping service [Tomcat]
+2020-07-13 10:33:30 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:33:30 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistry in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:35:38 -Loaded expression factory via original TCCL
+2020-07-13 10:35:38 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33968 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:35:38 -No active profile set, falling back to default profiles: default
+2020-07-13 10:35:38 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6155d082: startup date [Mon Jul 13 10:35:38 CST 2020]; root of context hierarchy
+2020-07-13 10:35:39 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:35:39 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:35:39 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:35:39 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:35:39 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4d7e61f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:35:39 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$b8701d20] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:35:39 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:35:40 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:35:40 -Starting service [Tomcat]
+2020-07-13 10:35:40 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:35:40 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:35:40 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:35:40 -Root WebApplicationContext: initialization completed in 1698 ms
+2020-07-13 10:35:40 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:35:40 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:35:40 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:35:40 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:35:40 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:35:40 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistry' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:35:40 -Stopping service [Tomcat]
+2020-07-13 10:35:40 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:35:40 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistry in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:38:25 -Loaded expression factory via original TCCL
+2020-07-13 10:38:26 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 33988 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:38:26 -No active profile set, falling back to default profiles: default
+2020-07-13 10:38:26 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@40238dd0: startup date [Mon Jul 13 10:38:26 CST 2020]; root of context hierarchy
+2020-07-13 10:38:26 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:38:26 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:38:26 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:38:26 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:38:27 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cb27da9b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:38:27 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$361995ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:38:27 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:38:27 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:38:27 -Starting service [Tomcat]
+2020-07-13 10:38:27 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:38:27 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:38:27 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:38:27 -Root WebApplicationContext: initialization completed in 1630 ms
+2020-07-13 10:38:27 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:38:27 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:38:27 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:38:27 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:38:27 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:38:28 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistry' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:38:28 -Stopping service [Tomcat]
+2020-07-13 10:38:28 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:38:28 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistry in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:40:52 -Loaded expression factory via original TCCL
+2020-07-13 10:40:52 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34017 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:40:52 -No active profile set, falling back to default profiles: default
+2020-07-13 10:40:52 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@59a008ba: startup date [Mon Jul 13 10:40:52 CST 2020]; root of context hierarchy
+2020-07-13 10:40:52 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:40:52 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:40:53 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:40:53 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:40:53 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a808103b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:40:53 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$12f9cb6a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:40:53 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:40:53 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:40:53 -Starting service [Tomcat]
+2020-07-13 10:40:53 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:40:53 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:40:53 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:40:53 -Root WebApplicationContext: initialization completed in 1607 ms
+2020-07-13 10:40:53 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:40:53 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:40:53 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:40:53 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:40:53 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:40:54 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistrys' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistrys' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:40:54 -Stopping service [Tomcat]
+2020-07-13 10:40:54 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:40:54 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistrys in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:43:31 -Loaded expression factory via original TCCL
+2020-07-13 10:43:31 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34030 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:43:31 -No active profile set, falling back to default profiles: default
+2020-07-13 10:43:31 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@74f5ce22: startup date [Mon Jul 13 10:43:31 CST 2020]; root of context hierarchy
+2020-07-13 10:43:32 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:43:32 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:43:32 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:43:32 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:43:32 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6330f4a8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:43:32 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$ce22afd7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:43:33 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:43:33 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:43:33 -Starting service [Tomcat]
+2020-07-13 10:43:33 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:43:33 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:43:33 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:43:33 -Root WebApplicationContext: initialization completed in 1683 ms
+2020-07-13 10:43:33 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:43:33 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:43:33 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:43:33 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:43:33 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:43:34 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistrys' defined in class path resource [com/tenement/domain/common/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistrys' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:43:34 -Stopping service [Tomcat]
+2020-07-13 10:43:34 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:43:34 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistrys in com.tenement.domain.common.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:46:30 -Loaded expression factory via original TCCL
+2020-07-13 10:46:30 -HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2020-07-13 10:46:30 -HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2020-07-13 10:46:30 -HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2020-07-13 10:46:30 -HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2020-07-13 10:46:30 -HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2020-07-13 10:46:30 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34065 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:46:30 -No active profile set, falling back to default profiles: default
+2020-07-13 10:46:30 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47f9738: startup date [Mon Jul 13 10:46:30 CST 2020]; root of context hierarchy
+2020-07-13 10:46:31 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:46:31 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:46:31 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:46:31 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:46:31 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$21171d2d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:46:31 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$8c08d85c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:46:32 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:46:32 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:46:32 -Starting service [Tomcat]
+2020-07-13 10:46:32 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:46:32 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:46:32 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:46:32 -Root WebApplicationContext: initialization completed in 1709 ms
+2020-07-13 10:46:32 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:46:32 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:46:32 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:46:32 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:46:32 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:46:33 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-13 10:46:33 -Stopping service [Tomcat]
+2020-07-13 10:46:33 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:46:33 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisLockRegistry in com.tenement.api.controller.UserController required a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' in your configuration.
+
+2020-07-13 10:51:59 -Loaded expression factory via original TCCL
+2020-07-13 10:51:59 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34105 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:51:59 -No active profile set, falling back to default profiles: default
+2020-07-13 10:51:59 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6155d082: startup date [Mon Jul 13 10:51:59 CST 2020]; root of context hierarchy
+2020-07-13 10:51:59 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.tenement.api.WebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'redisUtils' for bean class [com.tenement.domain.common.RedisUtils] conflicts with existing, non-compatible bean definition of same name and class [com.tenement.api.config.RedisUtils]
+2020-07-13 10:51:59 -Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.tenement.api.WebApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'redisUtils' for bean class [com.tenement.domain.common.RedisUtils] conflicts with existing, non-compatible bean definition of same name and class [com.tenement.api.config.RedisUtils]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:780)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1277)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1265)
+	at com.tenement.api.WebApplication.main(WebApplication.java:19)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'redisUtils' for bean class [com.tenement.domain.common.RedisUtils] conflicts with existing, non-compatible bean definition of same name and class [com.tenement.api.config.RedisUtils]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170)
+	... 13 common frames omitted
+2020-07-13 10:53:25 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34116 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:53:25 -No active profile set, falling back to default profiles: default
+2020-07-13 10:53:25 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31ff43be: startup date [Mon Jul 13 10:53:25 CST 2020]; root of context hierarchy
+2020-07-13 10:53:26 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:53:26 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:53:26 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:53:26 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:53:26 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$db0c1ff5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:53:26 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$45fddb24] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:53:27 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:53:27 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:53:27 -Starting service [Tomcat]
+2020-07-13 10:53:27 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:53:27 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:53:27 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:53:27 -Root WebApplicationContext: initialization completed in 1732 ms
+2020-07-13 10:53:27 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:53:27 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:53:27 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:53:27 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:53:27 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:53:28 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisLockRegistry' defined in class path resource [com/tenement/api/config/RedisUtils.class]: Unsatisfied dependency expressed through method 'redisLockRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-07-13 10:53:28 -Stopping service [Tomcat]
+2020-07-13 10:53:28 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:53:28 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisLockRegistry in com.tenement.api.config.RedisUtils required a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.jedis.JedisConnectionFactory' in your configuration.
+
+2020-07-13 10:55:49 -Loaded expression factory via original TCCL
+2020-07-13 10:55:49 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34134 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 10:55:49 -No active profile set, falling back to default profiles: default
+2020-07-13 10:55:49 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1fde5d22: startup date [Mon Jul 13 10:55:49 CST 2020]; root of context hierarchy
+2020-07-13 10:55:49 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 10:55:49 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 10:55:50 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 10:55:50 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 10:55:50 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$50741e61] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:55:50 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$bb65d990] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 10:55:50 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 10:55:50 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 10:55:50 -Starting service [Tomcat]
+2020-07-13 10:55:50 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 10:55:50 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 10:55:50 -Initializing Spring embedded WebApplicationContext
+2020-07-13 10:55:50 -Root WebApplicationContext: initialization completed in 1655 ms
+2020-07-13 10:55:51 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 10:55:51 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 10:55:51 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 10:55:51 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 10:55:51 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 10:55:51 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-13 10:55:51 -Stopping service [Tomcat]
+2020-07-13 10:55:51 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 10:55:51 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisLockRegistry in com.tenement.api.controller.UserController required a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' in your configuration.
+
+2020-07-13 11:15:58 -Loaded expression factory via original TCCL
+2020-07-13 11:15:58 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34266 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 11:15:58 -No active profile set, falling back to default profiles: default
+2020-07-13 11:15:58 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@479460a6: startup date [Mon Jul 13 11:15:58 CST 2020]; root of context hierarchy
+2020-07-13 11:15:59 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 11:15:59 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 11:15:59 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 11:15:59 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 11:15:59 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c0856752] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:15:59 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$2b772281] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:16:00 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 11:16:00 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:16:00 -Starting service [Tomcat]
+2020-07-13 11:16:00 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 11:16:00 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 11:16:00 -Initializing Spring embedded WebApplicationContext
+2020-07-13 11:16:00 -Root WebApplicationContext: initialization completed in 1770 ms
+2020-07-13 11:16:00 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 11:16:00 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 11:16:00 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 11:16:00 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 11:16:00 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 11:16:01 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:16:01 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@479460a6: startup date [Mon Jul 13 11:15:58 CST 2020]; root of context hierarchy
+2020-07-13 11:16:01 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-07-13 11:16:01 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-07-13 11:16:01 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-07-13 11:16:01 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:16:01 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:16:01 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:16:01 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:16:01 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:16:01 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:16:01 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:16:01 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-07-13 11:16:01 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:16:01 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:16:01 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-07-13 11:16:01 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-07-13 11:16:01 -Adding welcome page template: index
+2020-07-13 11:16:02 -Initializing ExecutorService  'taskScheduler'
+2020-07-13 11:16:02 -Registering beans for JMX exposure on startup
+2020-07-13 11:16:02 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-07-13 11:16:02 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-07-13 11:16:02 -Starting beans in phase 0
+2020-07-13 11:16:02 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:16:02 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-07-13 11:16:02 -started _org.springframework.integration.errorLogger
+2020-07-13 11:16:02 -Starting ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:16:02 -Using a shared selector for servlet write/read
+2020-07-13 11:16:02 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-13 11:16:02 -Started WebApplication in 4.31 seconds (JVM running for 4.915)
+2020-07-13 11:16:09 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-07-13 11:16:09 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-07-13 11:16:09 -FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2020-07-13 11:16:16 -Starting without optional epoll library
+2020-07-13 11:16:16 -Starting without optional kqueue library
+2020-07-13 11:19:03 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@479460a6: startup date [Mon Jul 13 11:15:58 CST 2020]; root of context hierarchy
+2020-07-13 11:19:03 -Stopping beans in phase 0
+2020-07-13 11:19:03 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:19:03 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-07-13 11:19:03 -stopped _org.springframework.integration.errorLogger
+2020-07-13 11:19:03 -Shutting down ExecutorService 'taskScheduler'
+2020-07-13 11:19:03 -Unregistering JMX-exposed beans on shutdown
+2020-07-13 11:19:03 -Unregistering JMX-exposed beans
+2020-07-13 11:19:08 -Loaded expression factory via original TCCL
+2020-07-13 11:19:08 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34282 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 11:19:08 -No active profile set, falling back to default profiles: default
+2020-07-13 11:19:08 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2dcd168a: startup date [Mon Jul 13 11:19:08 CST 2020]; root of context hierarchy
+2020-07-13 11:19:08 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 11:19:08 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 11:19:09 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 11:19:09 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 11:19:09 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$98d13306] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:19:09 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$3c2ee35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:19:09 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 11:19:09 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:19:09 -Starting service [Tomcat]
+2020-07-13 11:19:09 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 11:19:09 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 11:19:09 -Initializing Spring embedded WebApplicationContext
+2020-07-13 11:19:09 -Root WebApplicationContext: initialization completed in 1751 ms
+2020-07-13 11:19:09 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 11:19:09 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 11:19:09 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 11:19:09 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 11:19:09 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 11:19:10 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'redisLockRegistry'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-13 11:19:10 -Stopping service [Tomcat]
+2020-07-13 11:19:10 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-13 11:19:10 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisLockRegistry in com.tenement.api.controller.UserController required a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.integration.redis.util.RedisLockRegistry' in your configuration.
+
+2020-07-13 11:19:29 -Loaded expression factory via original TCCL
+2020-07-13 11:19:29 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34287 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 11:19:29 -No active profile set, falling back to default profiles: default
+2020-07-13 11:19:29 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2ea6e30c: startup date [Mon Jul 13 11:19:29 CST 2020]; root of context hierarchy
+2020-07-13 11:19:30 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 11:19:30 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 11:19:30 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 11:19:30 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 11:19:31 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$84943e07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:19:31 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$ef85f936] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:19:31 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 11:19:31 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:19:31 -Starting service [Tomcat]
+2020-07-13 11:19:31 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 11:19:31 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 11:19:31 -Initializing Spring embedded WebApplicationContext
+2020-07-13 11:19:31 -Root WebApplicationContext: initialization completed in 1789 ms
+2020-07-13 11:19:31 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 11:19:31 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 11:19:31 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 11:19:31 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 11:19:31 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 11:19:32 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:19:32 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2ea6e30c: startup date [Mon Jul 13 11:19:29 CST 2020]; root of context hierarchy
+2020-07-13 11:19:32 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-07-13 11:19:32 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-07-13 11:19:32 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-07-13 11:19:32 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:19:32 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:19:32 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:19:32 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:19:32 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:19:32 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:19:32 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:19:32 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-07-13 11:19:33 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:19:33 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:19:33 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-07-13 11:19:33 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-07-13 11:19:33 -Adding welcome page template: index
+2020-07-13 11:19:33 -Initializing ExecutorService  'taskScheduler'
+2020-07-13 11:19:33 -Registering beans for JMX exposure on startup
+2020-07-13 11:19:33 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-07-13 11:19:33 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-07-13 11:19:33 -Starting beans in phase 0
+2020-07-13 11:19:33 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:19:33 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-07-13 11:19:33 -started _org.springframework.integration.errorLogger
+2020-07-13 11:19:33 -Starting ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:19:33 -Using a shared selector for servlet write/read
+2020-07-13 11:19:33 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-13 11:19:33 -Started WebApplication in 4.48 seconds (JVM running for 5.101)
+2020-07-13 11:21:15 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-07-13 11:21:15 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-07-13 11:21:15 -FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2020-07-13 11:21:22 -Starting without optional epoll library
+2020-07-13 11:21:22 -Starting without optional kqueue library
+2020-07-13 11:23:42 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2ea6e30c: startup date [Mon Jul 13 11:19:29 CST 2020]; root of context hierarchy
+2020-07-13 11:23:42 -Stopping beans in phase 0
+2020-07-13 11:23:42 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:23:42 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-07-13 11:23:42 -stopped _org.springframework.integration.errorLogger
+2020-07-13 11:23:42 -Shutting down ExecutorService 'taskScheduler'
+2020-07-13 11:23:42 -Unregistering JMX-exposed beans on shutdown
+2020-07-13 11:23:42 -Unregistering JMX-exposed beans
+2020-07-13 11:23:54 -Loaded expression factory via original TCCL
+2020-07-13 11:23:55 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 34320 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-07-13 11:23:55 -No active profile set, falling back to default profiles: default
+2020-07-13 11:23:55 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6155d082: startup date [Mon Jul 13 11:23:55 CST 2020]; root of context hierarchy
+2020-07-13 11:23:55 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-13 11:23:55 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-07-13 11:23:56 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-07-13 11:23:56 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-07-13 11:23:56 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b33f4b18] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:23:56 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$1e310647] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-13 11:23:56 -Tomcat initialized with port(s): 8080 (http)
+2020-07-13 11:23:56 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:23:56 -Starting service [Tomcat]
+2020-07-13 11:23:56 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-07-13 11:23:56 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-07-13 11:23:57 -Initializing Spring embedded WebApplicationContext
+2020-07-13 11:23:57 -Root WebApplicationContext: initialization completed in 2044 ms
+2020-07-13 11:23:57 -Servlet dispatcherServlet mapped to [/]
+2020-07-13 11:23:57 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-13 11:23:57 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-13 11:23:57 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-13 11:23:57 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-13 11:23:58 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:23:58 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6155d082: startup date [Mon Jul 13 11:23:55 CST 2020]; root of context hierarchy
+2020-07-13 11:23:58 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-07-13 11:23:58 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-07-13 11:23:58 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-07-13 11:23:58 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:23:58 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:23:58 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:23:58 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-07-13 11:23:58 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:23:58 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-07-13 11:23:58 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-07-13 11:23:58 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-07-13 11:23:58 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:23:58 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-13 11:23:58 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-07-13 11:23:58 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-07-13 11:23:58 -Adding welcome page template: index
+2020-07-13 11:23:59 -Initializing ExecutorService  'taskScheduler'
+2020-07-13 11:23:59 -Registering beans for JMX exposure on startup
+2020-07-13 11:23:59 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-07-13 11:23:59 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-07-13 11:23:59 -Starting beans in phase 0
+2020-07-13 11:23:59 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:23:59 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-07-13 11:23:59 -started _org.springframework.integration.errorLogger
+2020-07-13 11:23:59 -Starting ProtocolHandler ["http-nio-8080"]
+2020-07-13 11:23:59 -Using a shared selector for servlet write/read
+2020-07-13 11:23:59 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-13 11:23:59 -Started WebApplication in 4.926 seconds (JVM running for 5.596)
+2020-07-13 11:24:34 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-07-13 11:24:34 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-07-13 11:24:34 -FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2020-07-13 11:24:39 -Starting without optional epoll library
+2020-07-13 11:24:39 -Starting without optional kqueue library
+2020-07-13 11:26:10 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6155d082: startup date [Mon Jul 13 11:23:55 CST 2020]; root of context hierarchy
+2020-07-13 11:26:10 -Stopping beans in phase 0
+2020-07-13 11:26:10 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-07-13 11:26:10 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-07-13 11:26:10 -stopped _org.springframework.integration.errorLogger
+2020-07-13 11:26:10 -Shutting down ExecutorService 'taskScheduler'
+2020-07-13 11:26:10 -Unregistering JMX-exposed beans on shutdown
+2020-07-13 11:26:10 -Unregistering JMX-exposed beans

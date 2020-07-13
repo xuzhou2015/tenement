@@ -4,6 +4,9 @@ package com.tenement.api.po;
 
 
 
+import com.tenement.domain.common.RedisUtils;
+
+import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,10 +22,16 @@ import java.net.URL;
  * @version: 1
  */
 public class test {
+
+
+
+
     public static void main(String[] args) {
 
 
-     String str="ccc";
+
+
+
 
 
     }
