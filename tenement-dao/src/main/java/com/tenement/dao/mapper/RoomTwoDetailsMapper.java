@@ -1,5 +1,6 @@
 package com.tenement.dao.mapper;
 
+import com.tenement.domain.dto.ListTwoRoomReq;
 import com.tenement.domain.dto.RoomTwoReq;
 import com.tenement.domain.po.RoomTwoDetails;
 
@@ -14,7 +15,7 @@ public interface RoomTwoDetailsMapper {
 
     RoomTwoDetails selectByPrimaryKey(Integer id);
 
-    List<RoomTwoDetails> selectRoomTwolist(RoomTwoReq req);
+    List<RoomTwoDetails> selectRoomTwolist(ListTwoRoomReq req);
 
     int updateByPrimaryKeySelective(RoomTwoDetails record);
 

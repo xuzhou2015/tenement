@@ -46,10 +46,32 @@
     from room_two_details
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectRoomTwolist" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.RoomTwoReq" >
+  <select id="selectRoomTwolist" resultMap="BaseResultMap" parameterType="com.tenement.domain.dto.ListTwoRoomReq" >
     select
     <include refid="Base_Column_List" />
     from room_two_details
+     <where>
+       <trim prefixOverrides="and">
+         <if test="districtid !=null">
+           and districtid=#{districtid}
+         </if>
+         <if test="name !=null and name !='' ">
+           and name like '%${name}%'
+         </if>
+         <if test="priceMin !=null and priceMax !=null">
+           and price_total &gt;=#{priceMin} and price_total &lt;=#{priceMax}
+         </if>
+         <if test="houseAreaMin !=null and houseAreaMax !=null">
+           and house_area &gt;=#{houseAreaMin} and house_area &lt;=#{houseAreaMax}
+         </if>
+         <if test="hotRecommend !=null">
+           and hot_recommend=#{hotRecommend}
+         </if>
+         <if test="projectAdvantage !=null and projectAdvantage !='' ">
+           and project_advantage like '%${projectAdvantage}%'
+         </if>
+       </trim>
+     </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from room_two_details

@@ -1,6 +1,7 @@
 package com.tenement.service.api;
 
 import com.github.pagehelper.PageInfo;
+import com.tenement.domain.dto.ListTwoRoomReq;
 import com.tenement.domain.dto.RoomTwoReq;
 import com.tenement.domain.dto.RoomTwoResp;
 
@@ -14,7 +15,7 @@ public interface RoomTwoDetailsService {
 
     int addTwoRoom(RoomTwoReq req);
 
-    PageInfo<RoomTwoResp> listTwoRoom(RoomTwoReq req);
+    PageInfo<RoomTwoResp> listTwoRoom(ListTwoRoomReq req);
 
     RoomTwoResp getTwoRoom(RoomTwoReq req);
 

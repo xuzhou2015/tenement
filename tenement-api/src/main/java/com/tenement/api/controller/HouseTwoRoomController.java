@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.tenement.domain.common.BusinessException;
 import com.tenement.domain.common.CommonResultCode;
 import com.tenement.domain.common.Response;
+import com.tenement.domain.dto.ListTwoRoomReq;
 import com.tenement.domain.dto.RoomTwoReq;
 import com.tenement.domain.dto.RoomTwoResp;
 import com.tenement.domain.util.ResponseUtils;
@@ -56,7 +57,7 @@ public class HouseTwoRoomController {
      * @return
      */
     @RequestMapping("/listTwoRoom")
-    public Response<PageInfo<RoomTwoResp>> listTwoRoom(@RequestBody RoomTwoReq req){
+    public Response<PageInfo<RoomTwoResp>> listTwoRoom(@RequestBody ListTwoRoomReq req){
 
       PageInfo<RoomTwoResp> pageInfo=roomTwoDetailsService.listTwoRoom(req);
 
