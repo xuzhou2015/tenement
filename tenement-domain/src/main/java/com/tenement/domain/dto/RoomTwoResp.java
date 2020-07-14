@@ -72,5 +72,7 @@ public class RoomTwoResp implements Serializable {
 
     private Integer createUserid;
 
+    private String telephone;
+
 
 }

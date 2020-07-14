@@ -73,6 +73,8 @@ public class RoomTwoReq extends Page implements Serializable {
 
     private Integer createUserid;
 
+    private String telephone;
+
 
 
 }

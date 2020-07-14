@@ -68,4 +68,6 @@ public class RoomTwoDetails {
 
     private Integer deleted;
 
+    private String telephone;
+
 }

@@ -32,13 +32,14 @@
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="create_userid" property="createUserid" jdbcType="INTEGER" />
     <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, districtid, house_style, price_total, house_price, address, house_area,
     reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, 
     fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage,
     room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, 
-    create_date, create_userid, deleted
+    create_date, create_userid, deleted,telephone
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -194,6 +195,9 @@
       <if test="deleted != null" >
         deleted,
       </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -286,6 +290,9 @@
       <if test="deleted != null" >
         #{deleted,jdbcType=INTEGER},
       </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomTwoDetails" >
@@ -377,6 +384,9 @@
       </if>
       <if test="deleted != null" >
         deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="telephone != null" >
+        telephone= #{telephone,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
