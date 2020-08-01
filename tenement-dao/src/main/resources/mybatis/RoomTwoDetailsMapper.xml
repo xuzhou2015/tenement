@@ -18,7 +18,7 @@
     <result column="house_floor" property="houseFloor" jdbcType="INTEGER" />
     <result column="fitment_status" property="fitmentStatus" jdbcType="INTEGER" />
     <result column="elevator_yn" property="elevatorYn" jdbcType="INTEGER" />
-    <result column="book_limit" property="bookLimit" jdbcType="INTEGER" />
+    <result column="book_limit" property="bookLimit" jdbcType="VARCHAR" />
     <result column="equity_type" property="equityType" jdbcType="VARCHAR" />
     <result column="heating_type" property="heatingType" jdbcType="VARCHAR" />
     <result column="project_advantage" property="projectAdvantage" jdbcType="VARCHAR" />
@@ -223,7 +223,7 @@
         #{elevatorYn,jdbcType=INTEGER},
       </if>
       <if test="bookLimit != null" >
-        #{bookLimit,jdbcType=INTEGER},
+        #{bookLimit,jdbcType=VARCHAR},
       </if>
       <if test="equityType != null" >
         #{equityType,jdbcType=VARCHAR},
@@ -315,7 +315,7 @@
         elevator_yn = #{elevatorYn,jdbcType=INTEGER},
       </if>
       <if test="bookLimit != null" >
-        book_limit = #{bookLimit,jdbcType=INTEGER},
+        book_limit = #{bookLimit,jdbcType=VARCHAR},
       </if>
       <if test="equityType != null" >
         equity_type = #{equityType,jdbcType=VARCHAR},
@@ -376,7 +376,7 @@
       house_floor = #{houseFloor,jdbcType=INTEGER},
       fitment_status = #{fitmentStatus,jdbcType=INTEGER},
       elevator_yn = #{elevatorYn,jdbcType=INTEGER},
-      book_limit = #{bookLimit,jdbcType=INTEGER},
+      book_limit = #{bookLimit,jdbcType=VARCHAR},
       equity_type = #{equityType,jdbcType=VARCHAR},
       heating_type = #{heatingType,jdbcType=VARCHAR},
       project_advantage = #{projectAdvantage,jdbcType=VARCHAR},

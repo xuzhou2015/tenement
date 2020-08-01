@@ -4,7 +4,7 @@ package com.tenement.api.po;
 
 
 
-import com.tenement.domain.common.RedisUtils;
+
 
 import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
@@ -13,6 +13,9 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 /**
@@ -23,10 +26,14 @@ import java.net.URL;
  */
 public class test {
 
+      long ss=System.currentTimeMillis()/1000;
+
+      String sss="afaf";
 
 
 
     public static void main(String[] args) {
+
 
 
 
