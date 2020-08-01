@@ -1,0 +1,325 @@
+2020-08-01 12:02:44 -Loaded expression factory via original TCCL
+2020-08-01 12:02:44 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 11020 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-08-01 12:02:44 -No active profile set, falling back to default profiles: default
+2020-08-01 12:02:44 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@460ebd80: startup date [Sat Aug 01 12:02:44 CST 2020]; root of context hierarchy
+2020-08-01 12:02:44 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-01 12:02:44 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-08-01 12:02:45 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-08-01 12:02:45 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-08-01 12:02:45 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bcbcfe9c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:02:45 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$27aeb9cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:02:46 -Tomcat initialized with port(s): 8080 (http)
+2020-08-01 12:02:46 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:02:46 -Starting service [Tomcat]
+2020-08-01 12:02:46 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-08-01 12:02:46 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-08-01 12:02:46 -Initializing Spring embedded WebApplicationContext
+2020-08-01 12:02:46 -Root WebApplicationContext: initialization completed in 2189 ms
+2020-08-01 12:02:46 -Servlet dispatcherServlet mapped to [/]
+2020-08-01 12:02:46 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-08-01 12:02:46 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-08-01 12:02:46 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-08-01 12:02:46 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-08-01 12:02:47 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:02:47 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@460ebd80: startup date [Sat Aug 01 12:02:44 CST 2020]; root of context hierarchy
+2020-08-01 12:02:47 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-08-01 12:02:47 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-08-01 12:02:47 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-08-01 12:02:47 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.ListTwoRoomReq)
+2020-08-01 12:02:47 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:02:47 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:02:47 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:02:47 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:02:47 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:02:47 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:02:47 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-08-01 12:02:47 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:02:47 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:02:47 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-08-01 12:02:47 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-08-01 12:02:47 -Adding welcome page template: index
+2020-08-01 12:02:48 -Initializing ExecutorService  'taskScheduler'
+2020-08-01 12:02:48 -Registering beans for JMX exposure on startup
+2020-08-01 12:02:48 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-08-01 12:02:48 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-08-01 12:02:48 -Starting beans in phase 0
+2020-08-01 12:02:48 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:02:48 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-08-01 12:02:48 -started _org.springframework.integration.errorLogger
+2020-08-01 12:02:48 -Starting ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:02:48 -Using a shared selector for servlet write/read
+2020-08-01 12:02:48 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-01 12:02:48 -Started WebApplication in 5.347 seconds (JVM running for 5.986)
+2020-08-01 12:03:41 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-08-01 12:03:41 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-01 12:03:41 -FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2020-08-01 12:03:49 -Resolved [com.tenement.domain.common.BusinessException: biz exception([4,-1]请先登陆用户！)]
+2020-08-01 12:04:10 -HikariPool-1 - Starting...
+2020-08-01 12:04:10 -HikariPool-1 - Start completed.
+2020-08-01 12:04:10 -==>  Preparing: select A.id, A.password, A.phone, A.true_name as trueName, A.user_name as userName, A.create_time as createTime, B.role_id as roleId from sys_user A inner join sys_user_role B on A.id=B.user_id where user_name = ? 
+2020-08-01 12:04:10 -==> Parameters: admins(String)
+2020-08-01 12:04:10 -<==      Total: 1
+2020-08-01 12:04:26 -Trying to find Dozer configuration file: dozer.properties
+2020-08-01 12:04:26 -Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+2020-08-01 12:04:26 -Initializing Dozer. Version: 5.4.0, Thread Name: http-nio-8080-exec-3
+2020-08-01 12:04:26 -Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+2020-08-01 12:04:26 -Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+2020-08-01 12:04:26 -Initializing a new instance of dozer bean mapper.
+2020-08-01 12:04:26 -Using the following xml files to load custom mappings for the bean mapper instance: [bean.xml]
+2020-08-01 12:04:26 -Trying to find xml mapping file: bean.xml
+2020-08-01 12:04:26 -Using URL [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml] to load custom xml mappings
+2020-08-01 12:04:26 -Successfully loaded custom xml mappings from URL: [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml]
+2020-08-01 12:04:26 -==>  Preparing: insert into room_two_details ( name, districtid, house_style, price_total, house_price, address, house_area, reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage, room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, create_userid, telephone ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-08-01 12:04:26 -==> Parameters: 龙湖rrrrrr(String), 2(Integer), qer(String), 100(Integer), 200(Integer), (String), 0(Integer), 0(Integer), 0(Integer), (String), 0(Integer), (String), 0(Integer), 0(Integer), 0(Integer), 满5年(String), 234(String), 2341(String), 31(String), 13(String), 3(String), 14(String), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 4(Integer), 1234321(String)
+2020-08-01 12:04:26 -<==    Updates: 1
+2020-08-01 12:22:55 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@460ebd80: startup date [Sat Aug 01 12:02:44 CST 2020]; root of context hierarchy
+2020-08-01 12:22:55 -Stopping beans in phase 0
+2020-08-01 12:22:55 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:22:55 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-08-01 12:22:55 -stopped _org.springframework.integration.errorLogger
+2020-08-01 12:22:55 -Shutting down ExecutorService 'taskScheduler'
+2020-08-01 12:22:55 -Unregistering JMX-exposed beans on shutdown
+2020-08-01 12:22:55 -Unregistering JMX-exposed beans
+2020-08-01 12:22:55 -HikariPool-1 - Shutdown initiated...
+2020-08-01 12:22:55 -HikariPool-1 - Shutdown completed.
+2020-08-01 12:23:03 -Loaded expression factory via original TCCL
+2020-08-01 12:23:03 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 11125 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-08-01 12:23:03 -No active profile set, falling back to default profiles: default
+2020-08-01 12:23:03 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7776ab: startup date [Sat Aug 01 12:23:03 CST 2020]; root of context hierarchy
+2020-08-01 12:23:04 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-01 12:23:04 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-08-01 12:23:05 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-08-01 12:23:05 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-08-01 12:23:05 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$867e7fdd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:23:05 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$f1703b0c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:23:06 -Tomcat initialized with port(s): 8080 (http)
+2020-08-01 12:23:06 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:23:06 -Starting service [Tomcat]
+2020-08-01 12:23:06 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-08-01 12:23:06 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-08-01 12:23:06 -Initializing Spring embedded WebApplicationContext
+2020-08-01 12:23:06 -Root WebApplicationContext: initialization completed in 2634 ms
+2020-08-01 12:23:06 -Servlet dispatcherServlet mapped to [/]
+2020-08-01 12:23:06 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-08-01 12:23:06 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-08-01 12:23:06 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-08-01 12:23:06 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-08-01 12:23:07 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:23:07 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7776ab: startup date [Sat Aug 01 12:23:03 CST 2020]; root of context hierarchy
+2020-08-01 12:23:07 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-08-01 12:23:07 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-08-01 12:23:07 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-08-01 12:23:07 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.ListTwoRoomReq)
+2020-08-01 12:23:07 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:23:07 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:23:07 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:23:07 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:23:07 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:23:07 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:23:07 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-08-01 12:23:07 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:23:07 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:23:07 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-08-01 12:23:07 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-08-01 12:23:07 -Adding welcome page template: index
+2020-08-01 12:23:08 -Initializing ExecutorService  'taskScheduler'
+2020-08-01 12:23:08 -Registering beans for JMX exposure on startup
+2020-08-01 12:23:08 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-08-01 12:23:08 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-08-01 12:23:08 -Starting beans in phase 0
+2020-08-01 12:23:08 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:23:08 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-08-01 12:23:08 -started _org.springframework.integration.errorLogger
+2020-08-01 12:23:08 -Starting ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:23:08 -Using a shared selector for servlet write/read
+2020-08-01 12:23:08 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-01 12:23:08 -Started WebApplication in 5.695 seconds (JVM running for 6.339)
+2020-08-01 12:24:20 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-08-01 12:24:20 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-01 12:24:20 -FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2020-08-01 12:24:49 -HikariPool-1 - Starting...
+2020-08-01 12:24:49 -HikariPool-1 - Start completed.
+2020-08-01 12:24:49 -==>  Preparing: SELECT count(0) FROM room_two_details WHERE book_limit LIKE '%%' 
+2020-08-01 12:24:49 -==> Parameters: 
+2020-08-01 12:24:49 -<==      Total: 1
+2020-08-01 12:24:49 -==>  Preparing: select id, name, districtid, house_style, price_total, house_price, address, house_area, reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage, room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, create_date, create_userid, deleted,telephone from room_two_details WHERE book_limit like '%%' LIMIT ? 
+2020-08-01 12:24:49 -==> Parameters: 10(Integer)
+2020-08-01 12:24:49 -<==      Total: 7
+2020-08-01 12:24:49 -Trying to find Dozer configuration file: dozer.properties
+2020-08-01 12:24:49 -Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+2020-08-01 12:24:49 -Initializing Dozer. Version: 5.4.0, Thread Name: http-nio-8080-exec-1
+2020-08-01 12:24:49 -Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+2020-08-01 12:24:49 -Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+2020-08-01 12:24:49 -Initializing a new instance of dozer bean mapper.
+2020-08-01 12:24:49 -Using the following xml files to load custom mappings for the bean mapper instance: [bean.xml]
+2020-08-01 12:24:49 -Trying to find xml mapping file: bean.xml
+2020-08-01 12:24:49 -Using URL [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml] to load custom xml mappings
+2020-08-01 12:24:50 -Successfully loaded custom xml mappings from URL: [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml]
+2020-08-01 12:25:23 -==>  Preparing: SELECT count(0) FROM room_two_details WHERE book_limit LIKE '%%' 
+2020-08-01 12:25:23 -==> Parameters: 
+2020-08-01 12:25:23 -<==      Total: 1
+2020-08-01 12:25:23 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7776ab: startup date [Sat Aug 01 12:23:03 CST 2020]; root of context hierarchy
+2020-08-01 12:25:23 -==>  Preparing: select id, name, districtid, house_style, price_total, house_price, address, house_area, reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage, room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, create_date, create_userid, deleted,telephone from room_two_details WHERE book_limit like '%%' LIMIT ? 
+2020-08-01 12:25:23 -==> Parameters: 10(Integer)
+2020-08-01 12:25:23 -Stopping beans in phase 0
+2020-08-01 12:25:23 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:25:23 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-08-01 12:25:23 -stopped _org.springframework.integration.errorLogger
+2020-08-01 12:25:23 -Shutting down ExecutorService 'taskScheduler'
+2020-08-01 12:25:23 -<==      Total: 7
+2020-08-01 12:25:23 -Unregistering JMX-exposed beans on shutdown
+2020-08-01 12:25:23 -Unregistering JMX-exposed beans
+2020-08-01 12:25:23 -HikariPool-1 - Shutdown initiated...
+2020-08-01 12:25:23 -HikariPool-1 - Shutdown completed.
+2020-08-01 12:25:45 -Loaded expression factory via original TCCL
+2020-08-01 12:25:45 -Starting WebApplication on xuzhoudeMacBook-Pro.local with PID 11136 (/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes started by xuzhou in /Users/xuzhou/IdeaProjects/tenement)
+2020-08-01 12:25:45 -No active profile set, falling back to default profiles: default
+2020-08-01 12:25:45 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6138e79a: startup date [Sat Aug 01 12:25:45 CST 2020]; root of context hierarchy
+2020-08-01 12:25:45 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-01 12:25:45 -No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-08-01 12:25:46 -No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-08-01 12:25:46 -No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-08-01 12:25:46 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$42366deb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:25:46 -Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$ad28291a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-01 12:25:46 -Tomcat initialized with port(s): 8080 (http)
+2020-08-01 12:25:46 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:25:46 -Starting service [Tomcat]
+2020-08-01 12:25:46 -Starting Servlet Engine: Apache Tomcat/8.5.34
+2020-08-01 12:25:46 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xuzhou/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-08-01 12:25:46 -Initializing Spring embedded WebApplicationContext
+2020-08-01 12:25:46 -Root WebApplicationContext: initialization completed in 1707 ms
+2020-08-01 12:25:46 -Servlet dispatcherServlet mapped to [/]
+2020-08-01 12:25:46 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-08-01 12:25:46 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-08-01 12:25:46 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-08-01 12:25:46 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-08-01 12:25:47 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:25:47 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6138e79a: startup date [Sat Aug 01 12:25:45 CST 2020]; root of context hierarchy
+2020-08-01 12:25:47 -Detected RequestBodyAdvice bean in agbweappControllerAdvice
+2020-08-01 12:25:47 -Mapped "{[/house/broker/addBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.BrokerController.addBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/broker/listBroker]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.BrokerResp>> com.tenement.api.controller.BrokerController.listBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/broker/getBroker]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.BrokerResp> com.tenement.api.controller.BrokerController.getBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/broker/updateBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.updateBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.po.Broker) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/broker/deleteBroker]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.BrokerController.deleteBroker(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.BrokerExmple) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/listRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/addRoomDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RespId> com.tenement.api.controller.HouseRoomController.addRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/getRoomBasicsType]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomBasicsTypeResp> com.tenement.api.controller.HouseRoomController.getRoomBasicsType() throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/getRoomNewDetails]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomNewDetailsResp> com.tenement.api.controller.HouseRoomController.getRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/deleteNewRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.deleteNewRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.GetRoomDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/updateRoomNewDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseRoomController.updateRoomNewDetails(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomNewDetailsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/listGrabbleRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomNewDetailsResp>> com.tenement.api.controller.HouseRoomController.listGrabbleRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListGrabbleRoomReq)
+2020-08-01 12:25:47 -Mapped "{[/house/room/listRoomTenementType]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.RoomTenementType>> com.tenement.api.controller.HouseRoomController.listRoomTenementType(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.ListRoomTenementTypeReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/lisDistrict]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.District>> com.tenement.api.controller.HouseRoomController.lisDistrict(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.LisDistrictReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/uploadFile]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.UploadFileResp> com.tenement.api.controller.HouseRoomController.uploadFile(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[]) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/room/index]}" onto public java.lang.String com.tenement.api.controller.HouseRoomController.index() throws java.lang.RuntimeException
+2020-08-01 12:25:47 -Mapped "{[/house/twoRoom/addTwoRoomDetails]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.addTwoRoom(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.RoomTwoReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/twoRoom/listTwoRoom]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.RoomTwoResp>> com.tenement.api.controller.HouseTwoRoomController.listTwoRoom(com.tenement.domain.dto.ListTwoRoomReq)
+2020-08-01 12:25:47 -Mapped "{[/house/twoRoom/getTwoRoom]}" onto public com.tenement.domain.common.Response<com.tenement.domain.dto.RoomTwoResp> com.tenement.api.controller.HouseTwoRoomController.getTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:25:47 -Mapped "{[/house/twoRoom/updateTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.updateTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:25:47 -Mapped "{[/house/twoRoom/deleteTwoRoom]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.HouseTwoRoomController.deleteTwoRoom(com.tenement.domain.dto.RoomTwoReq)
+2020-08-01 12:25:47 -Mapped "{[/house/user/addUser]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.addUser(com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/user/login]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.login(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.UserLogin) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/user/listMenu]}" onto public com.tenement.domain.common.Response<java.util.List<com.tenement.domain.po.SysMenu>> com.tenement.api.controller.UserController.getMenu(javax.servlet.http.HttpServletRequest) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/user/logins]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.UserController.logins(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:25:47 -Mapped "{[/house/comments/addComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.addComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/comments/answerComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.answerComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/comments/updateComments]}" onto public com.tenement.domain.common.Response com.tenement.api.controller.commentsConntroller.updateComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/house/comments/listComments]}" onto public com.tenement.domain.common.Response<com.github.pagehelper.PageInfo<com.tenement.domain.dto.CommentsResp>> com.tenement.api.controller.commentsConntroller.listComments(javax.servlet.http.HttpServletRequest,com.tenement.domain.dto.CommentsReq) throws com.tenement.domain.common.BusinessException
+2020-08-01 12:25:47 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-08-01 12:25:47 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-08-01 12:25:47 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:25:47 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-01 12:25:48 -Detected @ExceptionHandler methods in agbweappControllerAdvice
+2020-08-01 12:25:48 -Detected @ExceptionHandler methods in bussinessExceptionHandler
+2020-08-01 12:25:48 -Adding welcome page template: index
+2020-08-01 12:25:48 -Initializing ExecutorService  'taskScheduler'
+2020-08-01 12:25:49 -Registering beans for JMX exposure on startup
+2020-08-01 12:25:49 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-08-01 12:25:49 -Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-08-01 12:25:49 -Starting beans in phase 0
+2020-08-01 12:25:49 -Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:25:49 -Channel 'tenement.errorChannel' has 1 subscriber(s).
+2020-08-01 12:25:49 -started _org.springframework.integration.errorLogger
+2020-08-01 12:25:49 -Starting ProtocolHandler ["http-nio-8080"]
+2020-08-01 12:25:49 -Using a shared selector for servlet write/read
+2020-08-01 12:25:49 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-01 12:25:49 -Started WebApplication in 4.344 seconds (JVM running for 4.986)
+2020-08-01 12:26:18 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-08-01 12:26:18 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-01 12:26:18 -FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2020-08-01 12:26:36 -HikariPool-1 - Starting...
+2020-08-01 12:26:39 -HikariPool-1 - Start completed.
+2020-08-01 12:26:40 -==>  Preparing: SELECT count(0) FROM room_two_details WHERE book_limit LIKE '%满5年%' 
+2020-08-01 12:26:40 -==> Parameters: 
+2020-08-01 12:26:40 -<==      Total: 1
+2020-08-01 12:26:40 -==>  Preparing: select id, name, districtid, house_style, price_total, house_price, address, house_area, reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage, room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, create_date, create_userid, deleted,telephone from room_two_details WHERE book_limit like '%满5年%' LIMIT ? 
+2020-08-01 12:26:40 -==> Parameters: 10(Integer)
+2020-08-01 12:26:40 -<==      Total: 2
+2020-08-01 12:26:42 -Trying to find Dozer configuration file: dozer.properties
+2020-08-01 12:26:42 -Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+2020-08-01 12:26:42 -Initializing Dozer. Version: 5.4.0, Thread Name: http-nio-8080-exec-1
+2020-08-01 12:26:42 -Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+2020-08-01 12:26:42 -Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+2020-08-01 12:26:42 -Initializing a new instance of dozer bean mapper.
+2020-08-01 12:26:42 -Using the following xml files to load custom mappings for the bean mapper instance: [bean.xml]
+2020-08-01 12:26:42 -Trying to find xml mapping file: bean.xml
+2020-08-01 12:26:42 -Using URL [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml] to load custom xml mappings
+2020-08-01 12:26:42 -Successfully loaded custom xml mappings from URL: [file:/Users/xuzhou/IdeaProjects/tenement/tenement-api/target/classes/bean.xml]
+2020-08-01 12:27:28 -==>  Preparing: SELECT count(0) FROM room_two_details WHERE book_limit LIKE '%满5年,满2年%' 
+2020-08-01 12:27:28 -==> Parameters: 
+2020-08-01 12:27:28 -<==      Total: 1
+2020-08-01 12:27:28 -==>  Preparing: select id, name, districtid, house_style, price_total, house_price, address, house_area, reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage, room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, create_date, create_userid, deleted,telephone from room_two_details WHERE book_limit like '%满5年,满2年%' LIMIT ? 
+2020-08-01 12:27:28 -==> Parameters: 10(Integer)
+2020-08-01 12:27:28 -<==      Total: 1
+2020-08-01 12:27:46 -Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6138e79a: startup date [Sat Aug 01 12:25:45 CST 2020]; root of context hierarchy
+2020-08-01 12:27:46 -Stopping beans in phase 0
+2020-08-01 12:27:46 -Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-08-01 12:27:46 -Channel 'tenement.errorChannel' has 0 subscriber(s).
+2020-08-01 12:27:46 -stopped _org.springframework.integration.errorLogger
+2020-08-01 12:27:46 -Shutting down ExecutorService 'taskScheduler'
+2020-08-01 12:27:46 -Unregistering JMX-exposed beans on shutdown
+2020-08-01 12:27:46 -Unregistering JMX-exposed beans
+2020-08-01 12:27:46 -HikariPool-1 - Shutdown initiated...
+2020-08-01 12:27:46 -HikariPool-1 - Shutdown completed.

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author 徐周
@@ -31,6 +32,7 @@ public class ListTwoRoomReq extends Page implements Serializable {
 
     private Integer houseAreaMax;
 
+    private String bookLimit;
 
 
     private Integer hotRecommend;

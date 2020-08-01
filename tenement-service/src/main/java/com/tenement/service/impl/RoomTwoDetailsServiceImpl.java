@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -81,6 +82,15 @@ public class RoomTwoDetailsServiceImpl implements RoomTwoDetailsService {
                 req.setHouseAreaMax(Integer.valueOf(houseAreaArray[1]));
             }
 
+        }
+        if(!StringUtils.isEmpty(req.getBookLimit())){
+            String[] booklimitArray=req.getBookLimit().split("\\|");
+            String booklimit="";
+            for(String str:booklimitArray){
+                booklimit+=str+",";
+            }
+            booklimit=booklimit.substring(0,booklimit.length()-1);
+            req.setBookLimit(booklimit);
         }
         if(req.getHotRecommend() !=null && req.getHotRecommend() >1){
             req.setHotRecommend(null);
