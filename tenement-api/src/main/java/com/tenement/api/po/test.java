@@ -11,6 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -20,12 +22,11 @@ import java.net.URL;
  * @version: 1
  */
 public class test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws  Exception{
 
+      Long sss= System.currentTimeMillis() / 1000;
 
-
-
-     String s="adfaf";
+        String s="adfaf";
 
 
 

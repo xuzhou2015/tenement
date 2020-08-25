@@ -33,13 +33,17 @@
     <result column="create_userid" property="createUserid" jdbcType="INTEGER" />
     <result column="deleted" property="deleted" jdbcType="INTEGER" />
     <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="extendStructural" property="extendStructural" jdbcType="VARCHAR" />
+    <result column="extend1" property="extend1" jdbcType="VARCHAR" />
+    <result column="extend2" property="extend2" jdbcType="VARCHAR" />
+    <result column="extend3" property="extend3" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, districtid, house_style, price_total, house_price, address, house_area,
     reference_pay, build_date, house_position, reference_month_pay, house_type, house_floor, 
     fitment_status, elevator_yn, book_limit, equity_type, heating_type, project_advantage,
     room_photo, house_structural, list_photo, brokerid, home_page, hot_recommend, guess_like, 
-    create_date, create_userid, deleted,telephone
+    create_date, create_userid, deleted,telephone,extendStructural,extend1,extend2,extend3
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -201,6 +205,18 @@
       <if test="telephone != null" >
         telephone,
       </if>
+      <if test="extendStructural != null" >
+        extendStructural,
+      </if>
+      <if test="extend1 != null" >
+        extend1,
+      </if>
+      <if test="extend2 != null" >
+        extend2,
+      </if>
+      <if test="extend3 != null" >
+        extend3,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -296,6 +312,18 @@
       <if test="telephone != null" >
         #{telephone,jdbcType=VARCHAR},
       </if>
+      <if test="extendStructural != null" >
+        #{extendStructural,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null" >
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null" >
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null" >
+        #{extend3,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomTwoDetails" >
@@ -390,6 +418,18 @@
       </if>
       <if test="telephone != null" >
         telephone= #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="extendStructural != null" >
+        extendStructural= #{extendStructural,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null" >
+        extend1=#{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null" >
+        extend2= #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null" >
+        extend3= #{extend3,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

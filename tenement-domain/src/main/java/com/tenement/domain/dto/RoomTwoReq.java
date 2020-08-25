@@ -75,6 +75,12 @@ public class RoomTwoReq extends Page implements Serializable {
 
     private String telephone;
 
+    private String extendStructural;
 
+    private String extend1;
+
+    private String extend2;
+
+    private String extend3;
 
 }
