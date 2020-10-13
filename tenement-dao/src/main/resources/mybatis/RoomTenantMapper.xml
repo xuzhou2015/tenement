@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tenement.dao.mapper.RoomTenantMapper" >
+  <resultMap id="BaseResultMap" type="com.tenement.domain.po.RoomTenant" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="rent_style" property="rentStyle" jdbcType="INTEGER" />
+    <result column="house_style" property="houseStyle" jdbcType="INTEGER" />
+    <result column="house_direction" property="houseDirection" jdbcType="INTEGER" />
+    <result column="list_picture" property="listPicture" jdbcType="VARCHAR" />
+    <result column="house_picture" property="housePicture" jdbcType="VARCHAR" />
+    <result column="deposit" property="deposit" jdbcType="INTEGER" />
+    <result column="service_cost" property="serviceCost" jdbcType="INTEGER" />
+    <result column="introduct_cost" property="introductCost" jdbcType="INTEGER" />
+    <result column="payment" property="payment" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="management_type" property="managementType" jdbcType="INTEGER" />
+    <result column="fitment_status" property="fitmentStatus" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="INTEGER" />
+    <result column="floor" property="floor" jdbcType="INTEGER" />
+    <result column="car_num" property="carNum" jdbcType="INTEGER" />
+    <result column="use_power" property="usePower" jdbcType="INTEGER" />
+    <result column="get_hot" property="getHot" jdbcType="INTEGER" />
+    <result column="metro_yn" property="metroYn" jdbcType="INTEGER" />
+    <result column="rent_start_limit" property="rentStartLimit" jdbcType="DATE" />
+    <result column="rent_endt_limit" property="rentEndtLimit" jdbcType="DATE" />
+    <result column="look_time" property="lookTime" jdbcType="TIMESTAMP" />
+    <result column="elevator" property="elevator" jdbcType="INTEGER" />
+    <result column="use_water" property="useWater" jdbcType="INTEGER" />
+    <result column="fire" property="fire" jdbcType="INTEGER" />
+    <result column="supporting_facilities" property="supportingFacilities" jdbcType="VARCHAR" />
+    <result column="house_description" property="houseDescription" jdbcType="VARCHAR" />
+    <result column="about_house" property="aboutHouse" jdbcType="VARCHAR" />
+    <result column="mustbe_look" property="mustbeLook" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+    <result column="delete_yn" property="deleteYn" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, address, price, rent_style, house_style, house_direction, list_picture, 
+    house_picture, deposit, service_cost, introduct_cost, payment, broker_id, telephone, 
+    management_type, fitment_status, area, floor, car_num, use_power, get_hot, metro_yn, 
+    rent_start_limit, rent_endt_limit, look_time, elevator, use_water, fire, supporting_facilities, 
+    house_description, about_house, mustbe_look, userId, creatime, delete_yn
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_tenant
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByList" resultMap="BaseResultMap" parameterType="com.tenement.domain.exmple.TenantRoomExmple" >
+    select
+    <include refid="Base_Column_List" />
+    from room_tenant
+    <where>
+      <trim prefixOverrides="and">
+        <if test="id !=null">
+          and id = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="deleteYn !=null">
+          and delete_yn = #{deleteYn,jdbcType=INTEGER}
+        </if>
+      </trim>
+    </where>
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    update  room_tenant set delete_yn=1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tenement.domain.po.RoomTenant" >
+    insert into room_tenant (id, name, address, 
+      price, rent_style, house_style, 
+      house_direction, list_picture, house_picture, 
+      deposit, service_cost, introduct_cost, 
+      payment, broker_id, telephone, 
+      management_type, fitment_status, area, 
+      floor, car_num, use_power, 
+      get_hot, metro_yn, rent_start_limit, 
+      rent_endt_limit, look_time, elevator, 
+      use_water, fire, supporting_facilities, 
+      house_description, about_house, mustbe_look, 
+      userId, creatime, delete_yn
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{price,jdbcType=INTEGER}, #{rentStyle,jdbcType=INTEGER}, #{houseStyle,jdbcType=INTEGER}, 
+      #{houseDirection,jdbcType=INTEGER}, #{listPicture,jdbcType=VARCHAR}, #{housePicture,jdbcType=VARCHAR}, 
+      #{deposit,jdbcType=INTEGER}, #{serviceCost,jdbcType=INTEGER}, #{introductCost,jdbcType=INTEGER}, 
+      #{payment,jdbcType=INTEGER}, #{brokerId,jdbcType=INTEGER}, #{telephone,jdbcType=VARCHAR}, 
+      #{managementType,jdbcType=INTEGER}, #{fitmentStatus,jdbcType=INTEGER}, #{area,jdbcType=INTEGER}, 
+      #{floor,jdbcType=INTEGER}, #{carNum,jdbcType=INTEGER}, #{usePower,jdbcType=INTEGER}, 
+      #{getHot,jdbcType=INTEGER}, #{metroYn,jdbcType=INTEGER}, #{rentStartLimit,jdbcType=DATE}, 
+      #{rentEndtLimit,jdbcType=DATE}, #{lookTime,jdbcType=TIMESTAMP}, #{elevator,jdbcType=INTEGER}, 
+      #{useWater,jdbcType=INTEGER}, #{fire,jdbcType=INTEGER}, #{supportingFacilities,jdbcType=VARCHAR}, 
+      #{houseDescription,jdbcType=VARCHAR}, #{aboutHouse,jdbcType=VARCHAR}, #{mustbeLook,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}, #{deleteYn,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tenement.domain.po.RoomTenant" >
+    insert into room_tenant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="rentStyle != null" >
+        rent_style,
+      </if>
+      <if test="houseStyle != null" >
+        house_style,
+      </if>
+      <if test="houseDirection != null" >
+        house_direction,
+      </if>
+      <if test="listPicture != null" >
+        list_picture,
+      </if>
+      <if test="housePicture != null" >
+        house_picture,
+      </if>
+      <if test="deposit != null" >
+        deposit,
+      </if>
+      <if test="serviceCost != null" >
+        service_cost,
+      </if>
+      <if test="introductCost != null" >
+        introduct_cost,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="brokerId != null" >
+        broker_id,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="managementType != null" >
+        management_type,
+      </if>
+      <if test="fitmentStatus != null" >
+        fitment_status,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="floor != null" >
+        floor,
+      </if>
+      <if test="carNum != null" >
+        car_num,
+      </if>
+      <if test="usePower != null" >
+        use_power,
+      </if>
+      <if test="getHot != null" >
+        get_hot,
+      </if>
+      <if test="metroYn != null" >
+        metro_yn,
+      </if>
+      <if test="rentStartLimit != null" >
+        rent_start_limit,
+      </if>
+      <if test="rentEndtLimit != null" >
+        rent_endt_limit,
+      </if>
+      <if test="lookTime != null" >
+        look_time,
+      </if>
+      <if test="elevator != null" >
+        elevator,
+      </if>
+      <if test="useWater != null" >
+        use_water,
+      </if>
+      <if test="fire != null" >
+        fire,
+      </if>
+      <if test="supportingFacilities != null" >
+        supporting_facilities,
+      </if>
+      <if test="houseDescription != null" >
+        house_description,
+      </if>
+      <if test="aboutHouse != null" >
+        about_house,
+      </if>
+      <if test="mustbeLook != null" >
+        mustbe_look,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="creatime != null" >
+        creatime,
+      </if>
+      <if test="deleteYn != null" >
+        delete_yn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="rentStyle != null" >
+        #{rentStyle,jdbcType=INTEGER},
+      </if>
+      <if test="houseStyle != null" >
+        #{houseStyle,jdbcType=INTEGER},
+      </if>
+      <if test="houseDirection != null" >
+        #{houseDirection,jdbcType=INTEGER},
+      </if>
+      <if test="listPicture != null" >
+        #{listPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="housePicture != null" >
+        #{housePicture,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null" >
+        #{deposit,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCost != null" >
+        #{serviceCost,jdbcType=INTEGER},
+      </if>
+      <if test="introductCost != null" >
+        #{introductCost,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="brokerId != null" >
+        #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="managementType != null" >
+        #{managementType,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentStatus != null" >
+        #{fitmentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="carNum != null" >
+        #{carNum,jdbcType=INTEGER},
+      </if>
+      <if test="usePower != null" >
+        #{usePower,jdbcType=INTEGER},
+      </if>
+      <if test="getHot != null" >
+        #{getHot,jdbcType=INTEGER},
+      </if>
+      <if test="metroYn != null" >
+        #{metroYn,jdbcType=INTEGER},
+      </if>
+      <if test="rentStartLimit != null" >
+        #{rentStartLimit,jdbcType=DATE},
+      </if>
+      <if test="rentEndtLimit != null" >
+        #{rentEndtLimit,jdbcType=DATE},
+      </if>
+      <if test="lookTime != null" >
+        #{lookTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="elevator != null" >
+        #{elevator,jdbcType=INTEGER},
+      </if>
+      <if test="useWater != null" >
+        #{useWater,jdbcType=INTEGER},
+      </if>
+      <if test="fire != null" >
+        #{fire,jdbcType=INTEGER},
+      </if>
+      <if test="supportingFacilities != null" >
+        #{supportingFacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDescription != null" >
+        #{houseDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="aboutHouse != null" >
+        #{aboutHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="mustbeLook != null" >
+        #{mustbeLook,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        #{deleteYn,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tenement.domain.po.RoomTenant" >
+    update room_tenant
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="rentStyle != null" >
+        rent_style = #{rentStyle,jdbcType=INTEGER},
+      </if>
+      <if test="houseStyle != null" >
+        house_style = #{houseStyle,jdbcType=INTEGER},
+      </if>
+      <if test="houseDirection != null" >
+        house_direction = #{houseDirection,jdbcType=INTEGER},
+      </if>
+      <if test="listPicture != null" >
+        list_picture = #{listPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="housePicture != null" >
+        house_picture = #{housePicture,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null" >
+        deposit = #{deposit,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCost != null" >
+        service_cost = #{serviceCost,jdbcType=INTEGER},
+      </if>
+      <if test="introductCost != null" >
+        introduct_cost = #{introductCost,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="brokerId != null" >
+        broker_id = #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="managementType != null" >
+        management_type = #{managementType,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentStatus != null" >
+        fitment_status = #{fitmentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        floor = #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="carNum != null" >
+        car_num = #{carNum,jdbcType=INTEGER},
+      </if>
+      <if test="usePower != null" >
+        use_power = #{usePower,jdbcType=INTEGER},
+      </if>
+      <if test="getHot != null" >
+        get_hot = #{getHot,jdbcType=INTEGER},
+      </if>
+      <if test="metroYn != null" >
+        metro_yn = #{metroYn,jdbcType=INTEGER},
+      </if>
+      <if test="rentStartLimit != null" >
+        rent_start_limit = #{rentStartLimit,jdbcType=DATE},
+      </if>
+      <if test="rentEndtLimit != null" >
+        rent_endt_limit = #{rentEndtLimit,jdbcType=DATE},
+      </if>
+      <if test="lookTime != null" >
+        look_time = #{lookTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="elevator != null" >
+        elevator = #{elevator,jdbcType=INTEGER},
+      </if>
+      <if test="useWater != null" >
+        use_water = #{useWater,jdbcType=INTEGER},
+      </if>
+      <if test="fire != null" >
+        fire = #{fire,jdbcType=INTEGER},
+      </if>
+      <if test="supportingFacilities != null" >
+        supporting_facilities = #{supportingFacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDescription != null" >
+        house_description = #{houseDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="aboutHouse != null" >
+        about_house = #{aboutHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="mustbeLook != null" >
+        mustbe_look = #{mustbeLook,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteYn != null" >
+        delete_yn = #{deleteYn,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tenement.domain.po.RoomTenant" >
+    update room_tenant
+    set name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      rent_style = #{rentStyle,jdbcType=INTEGER},
+      house_style = #{houseStyle,jdbcType=INTEGER},
+      house_direction = #{houseDirection,jdbcType=INTEGER},
+      list_picture = #{listPicture,jdbcType=VARCHAR},
+      house_picture = #{housePicture,jdbcType=VARCHAR},
+      deposit = #{deposit,jdbcType=INTEGER},
+      service_cost = #{serviceCost,jdbcType=INTEGER},
+      introduct_cost = #{introductCost,jdbcType=INTEGER},
+      payment = #{payment,jdbcType=INTEGER},
+      broker_id = #{brokerId,jdbcType=INTEGER},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      management_type = #{managementType,jdbcType=INTEGER},
+      fitment_status = #{fitmentStatus,jdbcType=INTEGER},
+      area = #{area,jdbcType=INTEGER},
+      floor = #{floor,jdbcType=INTEGER},
+      car_num = #{carNum,jdbcType=INTEGER},
+      use_power = #{usePower,jdbcType=INTEGER},
+      get_hot = #{getHot,jdbcType=INTEGER},
+      metro_yn = #{metroYn,jdbcType=INTEGER},
+      rent_start_limit = #{rentStartLimit,jdbcType=DATE},
+      rent_endt_limit = #{rentEndtLimit,jdbcType=DATE},
+      look_time = #{lookTime,jdbcType=TIMESTAMP},
+      elevator = #{elevator,jdbcType=INTEGER},
+      use_water = #{useWater,jdbcType=INTEGER},
+      fire = #{fire,jdbcType=INTEGER},
+      supporting_facilities = #{supportingFacilities,jdbcType=VARCHAR},
+      house_description = #{houseDescription,jdbcType=VARCHAR},
+      about_house = #{aboutHouse,jdbcType=VARCHAR},
+      mustbe_look = #{mustbeLook,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER},
+      creatime = #{creatime,jdbcType=TIMESTAMP},
+      delete_yn = #{deleteYn,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
