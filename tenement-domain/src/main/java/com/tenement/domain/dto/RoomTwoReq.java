@@ -47,7 +47,7 @@ public class RoomTwoReq extends Page implements Serializable {
 
     private Integer elevatorYn;
 
-    private Integer bookLimit;
+    private String  bookLimit;
 
     private String equityType;
 

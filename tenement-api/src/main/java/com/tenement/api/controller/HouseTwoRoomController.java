@@ -85,11 +85,10 @@ public class HouseTwoRoomController {
     @RequestMapping("/updateTwoRoom")
     public Response updateTwoRoom(@RequestBody RoomTwoReq req){
 
-        if(roomTwoDetailsService.updateTwoRoom(req) > 0){
+        roomTwoDetailsService.updateTwoRoom(req);
 
-            return ResponseUtils.createSuccess();
-        }
-        return ResponseUtils.createFailure();
+        return ResponseUtils.createSuccess();
+
     }
 
     /**
